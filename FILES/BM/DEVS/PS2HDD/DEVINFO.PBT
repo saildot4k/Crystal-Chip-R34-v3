@@ -1,0 +1,104 @@
+#
+# Crystal Chips BootManager PS2 HDD driver script. v1.0
+#
+
+KEEP
+
+SET "TITLE" "HDD"
+
+# Do not change this.
+GOTO "$ARG1$"
+RETURN "-1"
+
+:QUERY
+    ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_HDD_DESC_1$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
+    RETURN "0"
+
+:IF_QUERY
+    IF EXISTS "pfs0:/"
+        ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_HDD_DESC$" $ARG2$ "pfs0" "$ARG3$" "$ARG4$" "$ARG5$"
+    ENDIF
+    RETURN "0"
+
+
+:CHECK_PRESENT
+    RETURN 0
+
+    IF EXISTS "pfs0:/"
+        IF NEQ "$BM.HDD_PRESENT$" "1"
+            LOADEXEC "PBAT" "$BM.SCRIPTS$/BMCONT.PBT" "CHECK" "pfs0"
+            SET "BM.HDD_PRESENT" "1"
+        ENDIF
+    ELSEIF EQU "$BM.HDD_PRESENT$" "1"
+        SET "BM.HDD_PRESENT" "0"
+    ENDIF
+    RETURN 0
+
+:CHECK
+    IF MATCHES "pfs0:*" "$ARG2$"
+        SET "$ARG3$" "$ARG0$"
+    ENDIF
+
+    RETURN 0
+
+:INSTALL
+    PARSEPATH "$PWD$" "SRC_DEV" "SRC_PATH" "SRC_FILE"
+
+    IF FAIL COPY "$PWD$" "$ARG2$:/BM/DEVS/PS2HDD"
+        MESSAGE "Failed installing $TITLE$!"
+        RRM "$ARG2$:/BM/DEVS/PS2HDD"
+        RETURN -1
+    ENDIF
+    IF FAIL COPY "$SRC_DEV$:/BM/SHARED/PS2ATAD.IRX" "$ARG2$:/BM/SHARED/PS2ATAD.IRX"
+        MESSAGE "Failed installing PS2ATAD.IRX!"
+       RRM "$ARG2$:/BM/SHARED/PS2ATAD.IRX"
+        RETURN -1
+    ENDIF
+    IF FAIL COPY "$SRC_DEV$:/BM/SHARED/PS2HDD.IRX" "$ARG2$:/BM/SHARED/PS2HDD.IRX"
+        MESSAGE "Failed installing PS2HDD.IRX!"
+       RRM "$ARG2$:/BM/SHARED/PS2HDD.IRX"
+        RETURN -1
+    ENDIF
+    IF FAIL COPY "$SRC_DEV$:/BM/SHARED/PS2FS.IRX" "$ARG2$:/BM/SHARED/PS2FS.IRX"
+        MESSAGE "Failed installing PS2FS.IRX!"
+       RRM "$ARG2$:/BM/SHARED/PS2FS.IRX"
+        RETURN -1
+    ENDIF
+    IF FAIL COPY "$SRC_DEV$:/BM/SHARED/HDDMOUNT.IRX" "$ARG2$:/BM/SHARED/HDDMOUNT.IRX"
+        MESSAGE "Failed installing HDDMOUNT.IRX!"
+       RRM "$ARG2$:/BM/SHARED/HDDMOUNT.IRX"
+        RETURN -1
+    ENDIF
+    EXIT 0
+
+:REMOVE
+    PARSEPATH "$PWD$" "SRC_DEV" "SRC_PATH" "SRC_FILE"
+
+    IF FAIL RRM "$PWD$"
+        MESSAGE "Failed removing $TITLE$!"
+        RETURN -1
+    ENDIF
+    IF FAIL RRM "$SRC_DEV$:/BM/SHARED/PS2ATAD.IRX"
+        MESSAGE "Failed removing PS2ATAD.IRX!"
+        RETURN -1
+    ENDIF
+    IF FAIL RRM "$SRC_DEV$:/BM/SHARED/PS2HDD.IRX"
+        MESSAGE "Failed removing PS2HDD.IRX!"
+        RETURN -1
+    ENDIF
+    IF FAIL RRM "$SRC_DEV$:/BM/SHARED/PS2FS.IRX"
+        MESSAGE "Failed removing PS2FS.IRX!"
+        RETURN -1
+    ENDIF
+    IF FAIL RRM "$SRC_DEV$:/BM/SHARED/HDDMOUNT.IRX"
+        MESSAGE "Failed removing HDDMOUNT.IRX!"
+        RETURN -1
+    ENDIF
+    EXIT "0"
+
+:LOAD
+    RETURN 0
+
+:LOADEXEC
+    LOADEXEC "EEELF" "moduleload2 rom0:UDNL rom0:OSDCNF" $BM.DRIVER_DEV_DRIVERS$ "-m $BM.DRIVER_PATH$/IOMANX.IRX" "-m $BM.DRIVER_PATH$/PS2DEV9.IRX" "-m $BM.DRIVER_PATH$/PS2ATAD.IRX" "-m $BM.DRIVER_PATH$/PS2HDD.IRX"  "-m $BM.DRIVER_PATH$/PS2FS.IRX" "-m $BM.DRIVER_PATH$/HDDMOUNT.IRX" "$ARG2$" $ARG3$
+    EXIT "0"

@@ -1,0 +1,135 @@
+#
+# Default "theme" for Crystal Chips BootManager
+#
+
+#
+# Change this information to describe the theme.
+SET "TITLE" "Old BootManager 1.x"
+SET "VERSION" "v1.0"
+SET "AUTHOR" "Crystal Chips: http://www.crystal-chips.com/"
+SET "DESCRIPTION" "This is the old BootManager 1.x theme."
+#
+
+# Do not change these 2 lines!
+GOTO "$ARG1$"
+RETURN "-1"
+
+:LABEL_NAME
+    ADDWIDGET "LABEL" "$ARG2$$TITLE$ $VERSION$"
+    EXIT "0"
+
+:QUERY
+    ADDWIDGET "CALL" "  $TITLE$" "$BM.TXT_VERSION$: $VERSION$   $BM.TXT_AUTHOR$: $AUTHOR$   $BM.TXT_DESCRIPTION$: $DESCRIPTION$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
+    EXIT "0"
+
+:INSTALL
+    IF FAIL COPY "$PWD$" "$ARG2$/BM1"
+        MESSAGE "Failed installing $TITLE$!"
+        RRM "$ARG2$/BM1"
+        RETURN -1
+    ENDIF
+
+    EXIT "0"
+
+:REMOVE
+    IF FAIL RRM "$PWD$"
+        MESSAGE "Failed removing $TITLE$!"
+        RETURN -1
+    ENDIF
+    EXIT "0"
+
+:LOAD
+    IF NOT EQU "$BM.LOADED_THEME_SCRIPT$" ""
+        LOADEXEC "PBAT" "$BM.LOADED_THEME_SCRIPT$" "UNLOAD"
+    ENDIF
+
+    IF FAIL LOADIMG "$PWD$/BMMENU.TGA" "BM1_MENU"
+        ECHO "Failed loading menu image!"
+        RETURN -1
+    ENDIF
+
+    IF FAIL LOADIMG "$PWD$/BMFONT.TGA" "BM1_FONT"
+        ECHO "Failed loading font image!"
+        UNLOADIMG "BM1_MENU"
+        RETURN -1
+    ENDIF
+
+    SET "BM.MENU_IMG_NAME" "BM1_MENU"
+    SET "BM.FONT_IMG_NAME" "BM1_FONT"
+    SET "BM.THM_CNF_BG_COLOR" "0x00332111"
+    SET "BM.THM_CNF_FONT_COLOR_SELECTION" "0x00C0C0C0"
+    SET "BM.THM_CNF_FONT_COLOR_LABEL" "0x00C0C0C0"
+    SET "BM.THM_CNF_FONT_COLOR_SCROLLER" "0x00C0C0C0"
+
+    IF EQU "$BM.CNF_VMODE$" "0"
+        # NTSC
+        SET "BM.THM_CNF_MENU_IMG_X" "0"
+        SET "BM.THM_CNF_MENU_IMG_Y" "0"
+        SET "BM.THM_CNF_MENU_IMG_WIDTH" "0"
+        SET "BM.THM_CNF_MENU_IMG_HEIGHT" "0"
+        SET "BM.THM_CNF_MENU_X" "100"
+        SET "BM.THM_CNF_MENU_Y" "120"
+        SET "BM.THM_CNF_MENU_WIDTH" "500"
+        SET "BM.THM_CNF_MENU_HEIGHT" "300"
+        SET "BM.THM_CNF_MENU_TITLE_X" "142"
+        SET "BM.THM_CNF_MENU_TITLE_Y" "84"
+        SET "BM.THM_CNF_MENU_TITLE_WIDTH" "386"
+        SET "BM.THM_CNF_MENU_TITLE_HEIGHT" "32"
+        SET "BM.THM_CNF_SCROLLER_X" "132"
+        SET "BM.THM_CNF_SCROLLER_Y" "395"
+        SET "BM.THM_CNF_SCROLLER_WIDTH" "423"
+        SET "BM.THM_CNF_SCROLLER_HEIGHT" "32"
+    ELSEIF EQU "$BM.CNF_VMODE$" "1"
+        # PAL
+        SET "BM.THM_CNF_MENU_X" "54"
+        SET "BM.THM_CNF_MENU_Y" "126"
+        SET "BM.THM_CNF_MENU_WIDTH" "545"
+        SET "BM.THM_CNF_MENU_HEIGHT" "270"
+        SET "BM.THM_CNF_MENU_IMG_X" "14"
+        SET "BM.THM_CNF_MENU_IMG_Y" "40"
+        SET "BM.THM_CNF_MENU_IMG_WIDTH" "620"
+        SET "BM.THM_CNF_MENU_IMG_HEIGHT" "470"
+        SET "BM.THM_CNF_BM_VER_X" "476"
+        SET "BM.THM_CNF_BM_VER_Y" "25"
+        SET "BM.THM_CNF_MENU_TITLE_X" "71"
+        SET "BM.THM_CNF_MENU_TITLE_Y" "86"
+        SET "BM.THM_CNF_MENU_TITLE_WIDTH" "386"
+        SET "BM.THM_CNF_MENU_TITLE_HEIGHT" "32"
+        SET "BM.THM_CNF_SCROLLER_X" "105"
+        SET "BM.THM_CNF_SCROLLER_Y" "447"
+        SET "BM.THM_CNF_SCROLLER_WIDTH" "492"
+        SET "BM.THM_CNF_SCROLLER_HEIGHT" "32"
+        SET "BM.THM_CNF_DISC_IMG_X" "25"
+        SET "BM.THM_CNF_DISC_IMG_Y" "0"
+        SET "BM.THM_CNF_DISC_IMG_WIDTH" "62"
+        SET "BM.THM_CNF_DISC_IMG_HEIGHT" "62"
+    ELSE
+        # VGA
+        SET "BM.THM_CNF_MENU_IMG_X" "0"
+        SET "BM.THM_CNF_MENU_IMG_Y" "0"
+        SET "BM.THM_CNF_MENU_IMG_WIDTH" "0"
+        SET "BM.THM_CNF_MENU_IMG_HEIGHT" "0"
+        SET "BM.THM_CNF_MENU_X" "100"
+        SET "BM.THM_CNF_MENU_Y" "120"
+        SET "BM.THM_CNF_MENU_WIDTH" "500"
+        SET "BM.THM_CNF_MENU_HEIGHT" "300"
+        SET "BM.THM_CNF_MENU_TITLE_X" "142"
+        SET "BM.THM_CNF_MENU_TITLE_Y" "84"
+        SET "BM.THM_CNF_MENU_TITLE_WIDTH" "386"
+        SET "BM.THM_CNF_MENU_TITLE_HEIGHT" "32"
+        SET "BM.THM_CNF_SCROLLER_X" "132"
+        SET "BM.THM_CNF_SCROLLER_Y" "395"
+        SET "BM.THM_CNF_SCROLLER_WIDTH" "423"
+        SET "BM.THM_CNF_SCROLLER_HEIGHT" "32"
+    ENDIF
+
+    SET "BM.LOADED_THEME_SCRIPT" "$ARG0$"
+    KEEP
+    RETURN 0
+
+:UNLOAD
+    SET "BM.MENU_IMG" ""
+    SET "BM.FONT_IMG" ""
+    UNLOADIMG "BM1_MENU"
+    UNLOADIMG "BM1_FONT"
+    EXIT 0
