@@ -17,12 +17,17 @@ Release History:
 
 Release 34 V3 BETA by R3Z3N Dec 7 2024
     Fixes/Changes
-        - Updated makeit_nocd.bat to build FW for CC1.X to actually run BM from mc0,mc1,usb. mc0/mc1 works as needed
-	- Updated bminit.pbat to load IRX drivers from where BM is running from, otherwise with DEV1/2 would not see/run apps from mc0/1/USB/HDD.
-	- Updated source OSDPAY.S to load USBHDFSD.IRX instead of the outdated USB_MASS.IRX. Booting from Dev2 (USB) is still broken
-	- Updated HDDMOUNT.IRX and BM/SCRIPTS/HDDLOAD.PBT to load __common HDD partition instead of +Crystal. This is to keep things consistent with the homebrew community
+        - Updated makeit_nocd.bat to build FW for CC1.X to actually 
+          run BM from mc0,mc1,usb. mc0/mc1 works as needed
+	- Updated bminit.pbat to load IRX drivers from where BM is running from, 
+          otherwise with DEV1/2 would not see/run apps from mc0/1/USB/HDD.
+	- Updated source OSDPAY.S to load USBHDFSD.IRX instead of the outdated
+          USB_MASS.IRX. Booting from Dev2 (USB) is still broken
+	- Updated HDDMOUNT.IRX and BM/SCRIPTS/HDDLOAD.PBT to load __common HDD partition 
+          instead of +Crystal. This is to keep things consistent with the homebrew community
 	- Edited BM/FWS/LATEST/FWINFO.PBT to give FW boot choices as to where to load BM from 
-	- Commented out install script for USB FW as currently not working. Others can experiment as needed by editing BM/FWS/LATEST/FWINFO.PBT
+	- Commented out install script for USB FW as currently not working. 
+          Others can experiment as needed by editing BM/FWS/LATEST/FWINFO.PBT
 	- Used El Isras USB drivers for exfat support: BDM Assault (https://github.com/israpps/BDMAssault)
     To Do: 
 	- Fix USB Loading. 
