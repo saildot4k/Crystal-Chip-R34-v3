@@ -11,6 +11,8 @@ hardware unless otherwise specified.  Software written by other developers are c
 You MUST boot the upgrade in Recovery Mode (Press Reset 3x) when an older version of BootManager is installed on your system!  Failure
 to do so may result in a black screen! Otherwise try to press reset 6x and boot the CD.
 
+CC.1.2 and CC 2.0 Can be 
+
 Release History:
 
 Release 34 V3 BETA by R3Z3N Dec 7 2024
@@ -18,13 +20,15 @@ Release 34 V3 BETA by R3Z3N Dec 7 2024
         - Updated makeit_nocd.bat to build FW for CC1.X to actually run BM from mc0,mc1,usb. mc0/mc1 works as needed
 	- Updated bminit.pbat to load IRX drivers from where BM is running from, otherwise with DEV1/2 would not see/run apps from mc0/1/USB/HDD.
 	- Updated source OSDPAY.S to load USBHDFSD.IRX instead of the outdated USB_MASS.IRX. Booting from Dev2 (USB) is still broken
-	- Updated HDDMOUNT.IRX and BM/DEVS/PS2HDD/DEVINFO.PBT to load __common HDD partition instead of +Crystal. This is to keep things consistent with the homebrew community
+	- Updated HDDMOUNT.IRX and BM/SCRIPTS/HDDLOAD.PBT to load __common HDD partition instead of +Crystal. This is to keep things consistent with the homebrew community
 	- Edited BM/FWS/LATEST/FWINFO.PBT to give FW boot choices as to where to load BM from 
 	- Commented out install script for USB FW as currently not working. Others can experiment as needed by editing BM/FWS/LATEST/FWINFO.PBT
+	- Used El Isras USB drivers for exfat support: BDM Assault (https://github.com/israpps/BDMAssault)
     To Do: 
 	- Fix USB Loading. 
 	- Add DEV9 mode to allow BM to boot from iHDD!
 	- CC1.X support loading BM from any source without needing multiple FW IE boot order
+	- Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC chip. Needs 1052
 
 	
 Release 34 v2 by Jones23
