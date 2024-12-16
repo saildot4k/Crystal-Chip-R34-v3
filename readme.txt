@@ -34,6 +34,7 @@ Release 34 V3 BETA by R3Z3N Dec 7 2024
 	- Add DEV9 mode to allow BM to boot from iHDD!
 	- CC1.X support loading BM from any source without needing multiple FW IE boot order
 	- Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC chip. Needs 1052
+	- NO THANKS to @TNA
 
 
 Release 34 v2 by Jones23
