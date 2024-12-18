@@ -1,6 +1,7 @@
 #
-# Default BootManager Configuration File
+# Default BootManager Configuration File 1.1
 #
+# Modification by R3Z3N: enable PS1 CNF_PS1_TEX_MAP and Disc CNF_PS1_DISC_SPEED to be enabled by default.
 
 SET "STRING" "BM.CNF_LANG" "$BM.BM_PATH$/LANG/BMENGL.PBT"
 
@@ -82,8 +83,8 @@ SET "S32" "BM.CNF_AL_OTHER_CMD" "0"
 SET "S32" "BM.CNF_AL_OTHER_DELAY" "2"
 SET "S32" "BM.CNF_AL_NODISC_CMD" "0"
 SET "S32" "BM.CNF_AL_NODISC_DELAY" "2"
-SET "S32" "BM.CNF_PS1_DISC_SPEED" "0"
-SET "S32" "BM.CNF_PS1_TEX_MAP" "0"
+SET "S32" "BM.CNF_PS1_DISC_SPEED" "1"
+SET "S32" "BM.CNF_PS1_TEX_MAP" "1"
 
 SET "S32" "BM.CNF_MM16_PATCH_EN" "1"
 SET "S32" "BM.CNF_ATAD_PATCH_EN" "1"

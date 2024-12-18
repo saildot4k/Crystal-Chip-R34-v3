@@ -1,11 +1,11 @@
 #
-# Crystal Chip BootManager Menus Script v1.4
+# Crystal Chip BootManager Menus Script v1.5
 # (c) 2005-2006 Crystal Chips
 # http:/www.crystal-chips.com/
 #
 # This script is used by BootManager to create and control the menu system.
 #
-
+# Modification: R3Z3N has modified this so that APPS and FW choices can be made when booted from CD. DFFS options removed for CC 1.0 and 1.1.
 #SET "BM.INSTALLER_MODE" "1"
 
 # Keep this script resident in memory to speed up calls to it.
@@ -84,7 +84,8 @@ GOTO "$ARG1$"
 
     IF EQU "$BM.INSTALLER_MODE$" "1"
         ADDWIDGET "CALL" "$BM.TXT_INST_BM$" "$BM.TXT_HINT_INST_BM$" "$ARG0$" "MENU_CHOOSE_INST_BM"
-        ADDWIDGET "CALL" "$BM.TXT_UPG_FIRMWARE$" "$BM.TXT_HINT_UPG_FIRMWARE$" "$ARG0$" "MENU_UPG_FIRMWARE"
+        ADDWIDGET "CALL" "$BM.TXT_APP_BROWSER$" "$BM.TXT_HINT_APP_BROWSER$" "$ARG0$" "MENU_APP_BROWSER"
+        ADDWIDGET "CALL" "$BM.TXT_DEV_MANAGER$" "$BM.TXT_HINT_DEV_MANAGER$" "$ARG0$" "MENU_DEV_MANAGER"
         ADDWIDGET "CALL" "$BM.TXT_FW_MANAGER$" "$BM.TXT_HINT_FW_MANAGER$" "$ARG0$" "MENU_FW_MANAGER"
         ADDWIDGET "CALL" "$BM.TXT_MC_MANAGER$" "$BM.TXT_HINT_MC_MANAGER$" "$ARG0$" "MENU_MC_MANAGER"
         ADDWIDGET "CALL" "$BM.TXT_SYS_INFO$" "$BM.TXT_HINT_SYS_INFO$" "$ARG0$" "MENU_SYS_INFO"
@@ -100,12 +101,6 @@ GOTO "$ARG1$"
     ENDIF
 
     ADDWIDGET "CALL" "$BM.TXT_RELOAD_MENU$" "$BM.TXT_HINT_RELOAD_MENU$" "$ARG0$" "MENU_RELOAD"
-    RETURN 0
-
-# This "menu" is only used when BM is booted from disc.
-:MENU_UPG_FIRMWARE
-    CLEARWIDGETS
-    LOADEXEC "PBAT" "$BM.BM_PATH$/FWS/LATEST/FWINFO.PBT" "INSTALL"
     RETURN 0
 
 :MENU_CHOOSE_INST_BM
@@ -163,8 +158,16 @@ GOTO "$ARG1$"
     CLEARWIDGETS
     SETTITLE "$BM.TXT_FW_MANAGER$"
 
-    ADDWIDGET "CALL" "$BM.TXT_FORMAT_DFFS$" "$BM.TXT_HINT_FORMAT_DFFS$" "$ARG0$" "FORMAT_DEV" "dffs"
-    ADDWIDGET "CALL" "$BM.TXT_DFFS_REM_BM$" "$BM.TXT_HINT_DFFS_REM_BM$" "$ARG0$" "REM_DIR" "dffs:/BM"
+    # DFFS options for CC1.2+
+    IF EQU "$BM.CC_MAJOR_VER$" "1"
+        IF EQU "$BM.CC_MINOR_VER$" "2"
+            ADDWIDGET "CALL" "$BM.TXT_FORMAT_DFFS$" "$BM.TXT_HINT_FORMAT_DFFS$" "$ARG0$" "FORMAT_DEV" "dffs"
+        ELSEIF EQU "$BM.CC_MAJOR_VER$" "2"
+            ADDWIDGET "CALL" "$BM.TXT_FORMAT_DFFS$" "$BM.TXT_HINT_FORMAT_DFFS$" "$ARG0$" "FORMAT_DEV" "dffs"
+    ENDIF
+    IF EQU "$BM.CC_MAJOR_VER$" "2"
+        ADDWIDGET "CALL" "$BM.TXT_DFFS_REM_BM$" "$BM.TXT_HINT_DFFS_REM_BM$" "$ARG0$" "REM_DIR" "dffs:/BM"
+    ENDIF
 
     ADDWIDGET "CALL" "$BM.TXT_UPG_FW$" "$BM.TXT_HINT_UPG_FW$" "$ARG0$" "MENU_CHOOSE_DEV" "INSTALL" "FW" "ACTION"
     ADDWIDGET "CALL" "$BM.TXT_ERASE_FW$" "$BM.TXT_HINT_ERASE_FW$" "$ARG0$" "MENU_CONFIRM_YESNO" "$BM.TXT_ASK_ERASE_FW$" "$ARG0$" "ERASE_FW"
@@ -248,7 +251,6 @@ GOTO "$ARG1$"
     SETTITLE "$BM.TXT_MC_MANAGER$"
 
     ADDWIDGET "CALL" "$BM.TXT_MC_REM_ALL_APPS$" "$BM.TXT_HINT_MC_REM_ALL_APPS$" "$ARG0$" "REM_APPS" "mc0"
-    ADDWIDGET "CALL" "$BM.TXT_MC_REM_BOOT$" "$BM.TXT_HINT_MC_REM_BOOT$" "$ARG0$" "REM_DIR" "mc0:/BOOT"
     ADDWIDGET "CALL" "$BM.TXT_MC_REM_BM$" "$BM.TXT_HINT_MC_REM_BM$" "$ARG0$" "REM_DIR" "mc0:/BM"
     ADDWIDGET "CALL" "$BM.TXT_MC0_COPY_HOST$" "$BM.TXT_HINT_MC0_COPY_HOST$" "$ARG0$" "COPY_TO" "mc0:/*" "host:/MC"
     ADDWIDGET "CALL" "$BM.TXT_MC1_COPY_HOST$" "$BM.TXT_HINT_MC1_COPY_HOST$" "$ARG0$" "COPY_TO" "mc1:/*" "host:/MC"

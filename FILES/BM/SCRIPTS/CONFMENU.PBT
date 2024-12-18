@@ -68,7 +68,7 @@ EXIT -1
         ADDWIDGET "LABEL" ""
     ENDIF
 
-# FTP currently disabled due to instability in PS2FTPD.IRX or associated drivers...
+# FTP currently disabled by default due to instability in PS2FTPD.IRX or associated drivers...
 
     IF NEQ "$BM.FTPD_STARTED$" "1"
         ADDWIDGET "CALL" "$BM.TXT_START_FTP$" "$BM.TXT_HINT_START_FTP$" "$ARG0$" "START_FTPD"

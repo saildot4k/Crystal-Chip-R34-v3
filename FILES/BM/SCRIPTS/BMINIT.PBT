@@ -10,7 +10,7 @@
 # This file is modified by R3Z3N.  If you modify this script and distribute it,
 # please edit this text.  Please do not change the copyright information.
 # Line 34 changed to set driver path to where BM is executed from.
-# However the FW still looks for USB drivers from mc0:/BM/SHARED when booted from mass:/ which can be edited.
+# However the FW still looks for USB drivers from mc0:/BM/SHARED when booted from mass:/ and pfs0:/ (both currently broken) which can be edited.
 #
 # Description:
 #

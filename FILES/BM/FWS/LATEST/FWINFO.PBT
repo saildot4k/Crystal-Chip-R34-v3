@@ -18,20 +18,45 @@ GOTO "$ARG1$"
     EXIT "0"
 
 :INSTALL
-    SETTITLE "Firmware Variations:"
-    ADDWIDGET "LABEL" "CC1.X: Run BM from which interface?"
-    ADDWIDGET "LABEL" "CC2.0: BM always runs from DFFS!"
-    ADDWIDGET "LABEL" ""
-    ADDWIDGET "CALL" "1- BM runs from MemCard1, CC2.0 via DFFS" "Install CC FW and runs BM on MemCard1 CC1.0-1.2 ONLY. CC2.0 runs BM from DFFS." "$ARG0$" "INSTALL_WITH_OPTION" "1"
-    ADDWIDGET "CALL" "2- BM runs from MemCard2, CC2.0 via DFFS" "Install CC FW and runs BM on MemCard1 CC1.0-1.2 ONLY. CC2.0 runs BM from DFFS." "$ARG0$" "INSTALL_WITH_OPTION" "2"
-#    ADDWIDGET "CALL" "3- BM runs from USB, CC2.0 via DFFS" "Install CC FW and runs BM on USB CC1.0-1.2 ONLY. USB Drivers MUST be installed to MemCard1 via Device Manager. CC2.0 runs BM from DFFS." "$ARG0$" "INSTALL_WITH_OPTION" "0"
-#    ADDWIDGET "CALL" "4- BM runs from HDD, CC2.0 via DFFS" "Install CC FW and runs BM on HDD CC1.0-1.2 ONLY. HDD Drivers MUST be installed to MemCard1 via Device Manager. CC2.0 runs BM from DFFS." "$ARG0$" "INSTALL_WITH_OPTION" "9"
+    # CC1.X FW BM run from MC0,MC1 options. USB/HDD currently broken. The latter boots BM.ELF but cannot load scripts. Uncomment to test.
+    IF EQU "$BM.CC_MAJOR_VER$" "1"
+        SETTITLE "Firmware Variations:"
+        ADDWIDGET "LABEL" "Run Boot Manager from which interface?"
+        ADDWIDGET "LABEL" ""
+        ADDWIDGET "CALL" "1- BM runs from Memory Card 1" "Install CC FW and runs BM on MemCard1" "$ARG0$" "INSTALL_WITH_OPTION" "1"
+        ADDWIDGET "CALL" "2- BM runs from Memory Card 2" "Install CC FW and runs BM on MemCard1" "$ARG0$" "INSTALL_WITH_OPTION" "2"
+#        ADDWIDGET "CALL" "3- BM runs from USB" "Install CC FW and runs BM on USB. IMPORTANT: USB Drivers MUST be installed to MemCard1 via Device Manager" "$ARG0$" "INSTALL_WITH_OPTION" "3"
+#        ADDWIDGET "CALL" "4- BM runs from HDD" "Install CC FW and runs BM on HDD. IMPORTANT: HDD Drivers MUST be installed to MemCard1 via Device Manager" "$ARG0$" "INSTALL_WITH_OPTION" "4"
+    # Otherwise installs CC2.0 FW
+    ELSE
+        IF EQU "$BM.CC_MAJOR_VER$" "2"
+            SET TMP "FWARE20.CCI"
+        ELSE
+            MESSAGE "$BM.TXT_NO_CC$ CC$BM.CC_MAJOR_VER$.$BM.CC_MINOR_VER$!"
+            EXIT "-1"
+        ENDIF
+
+        IF NOT EXISTS "$PWD$/$TMP$"
+            MESSAGE "No CC$BM.CC_MAJOR_VER$.$BM.CC_MINOR_VER$-compatible firmware found in this release!"
+            EXIT "-1"
+        ENDIF
+
+        IF FAIL PROGFW "$PWD$/$TMP$"
+            MESSAGE "$BM.TXT_PROGFW_FAIL$"
+            EXIT "-1"
+        ENDIF
+
+        MESSAGE "$BM.TXT_PROGFW_DONE$"
+        MESSAGE "CC2.0 FW Installed!"
+    ENDIF
+
     RETURN 0
 
 
 :INSTALL_WITH_OPTION
     ECHO "$ARG2$"
     SWITCH "$ARG2$"
+
         CASE 1
         #FW w/ BM on MC0
             IF EQU "$BM.CC_MAJOR_VER$" "1"
@@ -45,8 +70,6 @@ GOTO "$ARG1$"
                     MESSAGE "$BM.TXT_NO_CC$ CC$BM.CC_MAJOR_VER$.$BM.CC_MINOR_VER$!"
                     EXIT "-1"
                 ENDIF
-            ELSEIF EQU "$BM.CC_MAJOR_VER$" "2"
-                SET TMP "FWARE20.CCI"
             ELSE
                 MESSAGE "$BM.TXT_NO_CC$ CC$BM.CC_MAJOR_VER$.$BM.CC_MINOR_VER$!"
                 EXIT "-1"
@@ -67,6 +90,7 @@ GOTO "$ARG1$"
 
                 EXIT "0"
             BREAK
+
         CASE 2
         #FW w/ BM on MC1
             IF EQU "$BM.CC_MAJOR_VER$" "1"
@@ -80,8 +104,6 @@ GOTO "$ARG1$"
                     MESSAGE "$BM.TXT_NO_CC$ CC$BM.CC_MAJOR_VER$.$BM.CC_MINOR_VER$!"
                     EXIT "-1"
                 ENDIF
-            ELSEIF EQU "$BM.CC_MAJOR_VER$" "2"
-                SET TMP "FWARE20.CCI"
             ELSE
                 MESSAGE "$BM.TXT_NO_CC$ CC$BM.CC_MAJOR_VER$.$BM.CC_MINOR_VER$!"
                 EXIT "-1"
@@ -102,7 +124,8 @@ GOTO "$ARG1$"
 
                 EXIT "0"
             BREAK
-        CASE 0
+
+        CASE 3
         #FW w/ BM on USB, USBD Drivers must be installed to MC0
             IF EQU "$BM.CC_MAJOR_VER$" "1"
                 IF EQU "$BM.CC_MINOR_VER$" "0"
@@ -115,8 +138,6 @@ GOTO "$ARG1$"
                     MESSAGE "$BM.TXT_NO_CC$ CC$BM.CC_MAJOR_VER$.$BM.CC_MINOR_VER$!"
                     EXIT "-1"
                 ENDIF
-            ELSEIF EQU "$BM.CC_MAJOR_VER$" "2"
-                SET TMP "FWARE20.CCI"
             ELSE
                 MESSAGE "$BM.TXT_NO_CC$ CC$BM.CC_MAJOR_VER$.$BM.CC_MINOR_VER$!"
                 EXIT "-1"
@@ -132,12 +153,11 @@ GOTO "$ARG1$"
                 EXIT "-1"
             ENDIF
               MESSAGE "$BM.TXT_PROGFW_DONE$"
-              MESSAGE "Please install BM to USB!"
-              MESSAGE "Use Device Manager to install USB Drivers to MemCard1!"
+              MESSAGE "Install BM to HDD and Drivers to MemCard1!"
                 EXIT "0"
             BREAK
 
-        CASE 9
+        CASE 4
         #FW w/ BM on iHDD, iHDD Drivers must be installed to MC0
             IF EQU "$BM.CC_MAJOR_VER$" "1"
                 IF EQU "$BM.CC_MINOR_VER$" "0"
@@ -150,8 +170,6 @@ GOTO "$ARG1$"
                     MESSAGE "$BM.TXT_NO_CC$ CC$BM.CC_MAJOR_VER$.$BM.CC_MINOR_VER$!"
                     EXIT "-1"
                 ENDIF
-            ELSEIF EQU "$BM.CC_MAJOR_VER$" "2"
-                SET TMP "FWARE20.CCI"
             ELSE
                 MESSAGE "$BM.TXT_NO_CC$ CC$BM.CC_MAJOR_VER$.$BM.CC_MINOR_VER$!"
                 EXIT "-1"
@@ -167,8 +185,7 @@ GOTO "$ARG1$"
                 EXIT "-1"
             ENDIF
               MESSAGE "$BM.TXT_PROGFW_DONE$"
-              MESSAGE "Please install BM to HDD!"
-              MESSAGE "Use Device Manager to install HDD Drivers to MemCard1!"
+              MESSAGE "Install BM to HDD and Drivers to MemCard1!"
                 EXIT "0"
             BREAK
 

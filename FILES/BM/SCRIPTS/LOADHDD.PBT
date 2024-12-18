@@ -1,12 +1,12 @@
 #
-# Crystal Chips BootManager HDD PBAT Script v1.0
+# Crystal Chips BootManager HDD PBAT Script v1.1
 #
 # (c) 2005-2006 Crystal Chips - http://www.crystal-chips.com/
 #
 # For use only with Crystal Chips hardware and software.
 #
 # Modification Info:
-# This file has been modified by R3Z3N to use __common instead of +Crystal partition along with HDDLOAD.IRX
+# This file has been modified by R3Z3N to use __common instead of +Crystal partition along with modified HDDLOAD.IRX
 #
 # Description:
 #
