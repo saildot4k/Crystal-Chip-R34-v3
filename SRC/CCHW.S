@@ -605,45 +605,55 @@ ENDIF
 
 IF _F_CC_DF_Detect
 
-;001 - 512 /264 0x01
-;010 - 1024/264 0x02
-;011 - 2048/264 0x03
-;100 - 4096/264 0x04
-;101 - 4096/528 0x05
-;110 - 8192/528 0x06
+; v3 of 1056-byte page testing
+; AT45DB Family D78 Opcode Section 11.4
+; Bits 5 through 2 indicate size but have no meaning in decimal
+; Shift Right 3, then mask lowest 3 bits
+; AT45DB041D	10011100	011 0x03 DF_Page264
+; AT45DB081D	10100100	100 0x04 DF_Page264
+; AT45DB161D	10101100	101 0x05 DF_Page528
+; AT45DB321D	10110100	110	gets 0x06 DF_Page528
+; AT45DB642D	10111100	111 gets 0x07 DF_Page1056
 
 CC_DF_Detect            PROC
+    addiu       sp, sp, -0x10
+    sw          ra, 0x00(sp)
+    nop
+    bual        CC_DF_ReadStatus
+    nop
+    srl         t1, v0, 3         ; Shift right by 3 bits
+    andi        t1, t1, 0x07      ; Mask the lowest 3 bits
 
-                        addiu       sp, sp, -0x10
-                        sw          ra, 0x00(sp)
-                        nop
+    sltiu       at, t1, 0x05      ; Check if t1 < 5
+    bnez        at, _set_264bytes
 
-                        bual        CC_DF_ReadStatus
-                        nop
+    sltiu       at, t1, 0x07      ; Check if t1 < 7
+    bnez        at, _set_528bytes
 
-                        srl         t1, v0, 3
-                        andi        t1, t1, 0x07
+    ; Default case for 1056 bytes
+    li          t2, 1056          ; Set page size for 1056-byte dataflash
+    la          t3, DF_Page1056   ; Set DF_Page handler for 1056-byte dataflash
+    b           _done
 
-                        sltiu       at, t1, 0x05
-                        beqz        at, _16MBIT_or_More
+_set_264bytes:
+    li          t2, 264           ; Set page size for 264-byte dataflash
+    la          t3, DF_Page264    ; Set DF_Page handler for DF_Page264
+    b           _done
 
-                        la          t3, DF_Page264
-                        bu          _done
-                        li          t2, 264                             ; all supported devices < 16Mbit are 264-byte pages
-
-_16MBIT_or_More:
-                        li          t2, 528                             ; all supported devices >= 16Mbit are 528-byte pages
-                        la          t3, DF_Page528
+_set_528bytes:
+    li          t2, 528           ; Set page size for 528-byte dataflash
+    la          t3, DF_Page528    ; Set DF_Page handler for DF_Page528
+    b           _done
 
 _done:
-                        la          v0, dfdev
-                        sw          t2, 0x00(v0)
-                        lw          ra, 0x00(sp)
-                        sw          t3, 0x04(v0)
-                        jr          ra
-                        addiu       sp, sp, 0x10
-
+    la          v0, dfdev
+    sw          t2, 0x00(v0)
+    lw          ra, 0x00(sp)
+    sw          t3, 0x04(v0)
+    jr          ra
+    addiu       sp, sp, 0x10
 CC_DF_Detect            ENDP
+ENDIF
 
 ; void DF_Page264(u8 opcode, u16 paddr, u16 baddr);
 DF_Page264              PROC
@@ -694,6 +704,31 @@ DF_Page528              PROC
                         or          v0, v0, a0
 
 DF_Page528              ENDP
+
+; void DF_Page1056(u8 opcode, u16 paddr, u16 baddr);
+DF_Page1056             PROC
+
+                        andi        v0, a2, 0xFF
+                        sll         v0, v0, 8                           ; v0 = (baddr & 0xFF) << 8
+
+                        srl         a2, a2, 8
+                        andi        a2, a2, 0x07                        ; Mask the top 3 bits for 1056-byte addressing
+                        or          v0, v0, a2
+
+                        sll         v1, a1, 3                           ; Shift paddr left 3 bits
+                        andi        v1, v1, 0xF8                        ; Mask for alignment
+                        or          v0, v0, v1
+
+                        sll         v0, v0, 8
+
+                        srl         a1, a1, 5                           ; Shift right for remaining bits
+                        or          v0, v0, a1
+                        sll         v0, v0, 8
+
+                        jr          ra
+                        or          v0, v0, a0
+
+DF_Page1056             ENDP
 
 dfdev                   TABLE
 df_bytes_per_page:      DW          0
