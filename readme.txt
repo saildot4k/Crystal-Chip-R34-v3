@@ -11,14 +11,15 @@ hardware unless otherwise specified.  Software written by other developers are c
 You MUST boot the upgrade in Recovery Mode (Press Reset 3x) when an older version of BootManager is installed on your system!  Failure
 to do so may result in a black screen! Otherwise try to press reset 6x and boot the CD.
 
-CC.1.2 and CC 2.0 can be upgraded to a 4MB DataFlash (AT45DB321D) without any source code changes. 8MB DataFlash (AT45DB642D) needs support for 1056Byte Pages. 
+CC.1.2 and CC 2.0 can be upgraded to a 4MB DataFlash (AT45DB321D) without any source code changes. 8MB DataFlash (AT45DB642D) needs support for 1056Byte Pages (hopefully incoming. Have testing to do.)
 
 Release History:
 
-Release 34 V3 BETA by R3Z3N Dec 7 2024
+Release 34 V3 by R3Z3N Dec 7 2024
     Fixes/Changes
         - Updated makeit_nocd.bat to build FW for CC1.X to actually
-          run BM from mc0,mc1,usb. mc0/mc1 works as needed
+          run BM from mc0,mc1,usb,HDD. mc0/mc1 works as needed.
+          USB/HDD currently broken to run BM from, but otherwise useable to run/install from.
 	- Updated bminit.pbat to load IRX drivers from where BM is running from,
           otherwise with DEV1/2 would not see/run apps from mc0/1/USB/HDD.
 	- Updated source OSDPAY.S to load USBHDFSD.IRX instead of the outdated
@@ -29,12 +30,19 @@ Release 34 V3 BETA by R3Z3N Dec 7 2024
 	- Commented out install script for USB FW as currently not working.
           Others can experiment as needed by editing BM/FWS/LATEST/FWINFO.PBT
 	- Used El Isras USB drivers for exfat support: BDM Assault (https://github.com/israpps/BDMAssault)
+  - Changed scripts to allow apps to be installed when booted from recovery cd.
+  - Changed scripts to only shop options for chip installed! IE no more seeing DFFS
+          options on CC 1.0 and 1.1.
+  - Changed scripts so that FW choices are only applicable to the chip installed.
+          IE CC1.0-1.2 can choose BM run point, CC2.0 DFFS only.
     To Do:
-	- Fix USB Loading.
-	- Add DEV9 mode to allow BM to boot from iHDD!
+	- Fix USB/HDD BM Loading. Though do we want that?I think it to be too convoluted
+          for most users...IE USB/HDD IRXs still have to be on MC0/1
 	- CC1.X support loading BM from any source without needing multiple FW IE boot order
-	- Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC chip. Needs 1052
-
+	- Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC chip. Needs 1052-byte
+          page flash implemented. (IN TESTING I think CC team had a mistake for CC2.0 SLE)
+          notes for R34v1 and v2 in CCHW.S are sure incorrect for page size used along with
+          output expected.
 
 Release 34 v2 by Jones23
     Fixes/Changes:
