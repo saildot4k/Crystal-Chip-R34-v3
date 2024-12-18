@@ -1,10 +1,13 @@
 # BootManager 2 Firmware Manager Script for Crystal Chips Firmware
+#
+# Modification: R3Z3N has modified this to show CC 1.X users firmware options and hide options for CC2.0 users.
+#
 
 # Change this information to describe the application.
 SET "TITLE" "Crystal Chips Firmware"
-SET "VERSION" "Release 34 v3 BETA"
+SET "VERSION" "Release 34 v3"
 SET "AUTHOR" "CrystalChips"
-SET "DESC" "Upgrade your CrystalChip to the latest firmware! MC0/MC1 Boot options by R3Z3N"
+SET "DESC" "Upgrade your CrystalChip to the latest firmware! MC0/MC1 Boot options by R3Z3N for CC1.X"
 #
 
 GOTO "$ARG1$"
