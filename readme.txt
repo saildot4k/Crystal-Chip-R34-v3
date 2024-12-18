@@ -17,9 +17,8 @@ Release History:
 
 Release 34 V3 by R3Z3N Dec 7 2024
     Fixes/Changes
-        - Updated makeit_nocd.bat to build FW for CC1.X to actually
-          run BM from mc0,mc1,usb,HDD. mc0/mc1 works as needed.
-          USB/HDD currently broken to run BM from, but otherwise useable to run/install from.
+        - CC1.X firmware options to run BM from MemCard1 or 2. makeit_nocd does have scripts to
+	  build FW for running from USB/HDD but seems pointless.
 	- Updated bminit.pbat to load IRX drivers from where BM is running from,
           otherwise with DEV1/2 would not see/run apps from mc0/1/USB/HDD.
 	- Updated source OSDPAY.S to load USBHDFSD.IRX instead of the outdated
@@ -30,13 +29,13 @@ Release 34 V3 by R3Z3N Dec 7 2024
 	- Commented out install script for USB FW as currently not working.
           Others can experiment as needed by editing BM/FWS/LATEST/FWINFO.PBT
 	- Used El Isras USB drivers for exfat support: BDM Assault (https://github.com/israpps/BDMAssault)
-  - Changed scripts to allow apps to be installed when booted from recovery cd.
-  - Changed scripts to only shop options for chip installed! IE no more seeing DFFS
+  	- Changed scripts to allow apps to be installed when booted from recovery cd.
+  	- Changed scripts to only shop options for chip installed! IE no more seeing DFFS
           options on CC 1.0 and 1.1.
-  - Changed scripts so that FW choices are only applicable to the chip installed.
+ 	 - Changed scripts so that FW choices are only applicable to the chip installed.
           IE CC1.0-1.2 can choose BM run point, CC2.0 DFFS only.
     To Do:
-	- Fix USB/HDD BM Loading. Though do we want that?I think it to be too convoluted
+	- Fix FW for running BM via USB/HDD specific firmware. Though do we want that?I think it to be too convoluted
           for most users...IE USB/HDD IRXs still have to be on MC0/1
 	- CC1.X support loading BM from any source without needing multiple FW IE boot order
 	- Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC chip. Needs 1052-byte
