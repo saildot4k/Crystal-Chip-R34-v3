@@ -606,14 +606,14 @@ ENDIF
 IF _F_CC_DF_Detect
 
 ; v3 of 1056-byte page testing
-; AT45DB Family D78 Opcode Section 11.4
+; AT45DB Family D7H Opcode Section 11.4
 ; Bits 5 through 2 indicate size but have no meaning in decimal
 ; Shift Right 3, then mask lowest 3 bits
 ; AT45DB041D	10011100	011 0x03 DF_Page264
 ; AT45DB081D	10100100	100 0x04 DF_Page264
 ; AT45DB161D	10101100	101 0x05 DF_Page528
-; AT45DB321D	10110100	110	gets 0x06 DF_Page528
-; AT45DB642D	10111100	111 gets 0x07 DF_Page1056
+; AT45DB321D	10110100	110 0x06 DF_Page528
+; AT45DB642D	10111100	111 0x07 DF_Page1056
 
 CC_DF_Detect            PROC
     addiu       sp, sp, -0x10
