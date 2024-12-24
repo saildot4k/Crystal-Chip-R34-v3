@@ -6,13 +6,19 @@
 :: unless this is resolved by the author of that software.  Therefore you must watch the output to
 :: be sure your project is building correctly.
 
+::DEV0=BOOT FROM Memory Card 1
+::DEV1=BOOT FROM Memory Card 2
+::The following boot modes are broken for now. Uncomment to test.
+::DEV2=BOOT FROM USB. USBD.IRX and USBHDFSD.IRX must be on Memory Card 1. !!EXPIRMENTAL!!, Boots BM2.ELF but cannot find scripts
+::DEV9=BOOT FROM HDD. HDD related IRXs must be on Memory Card 1. !!EXPIRMENTAL!!, Boots BM2.ELF but cannot find scripts
+
 asm5900 -o:TMP\PS1LOGO.BIN SRC\PS1LOGO.S
 IF NOT %errorlevel%==0 GOTO error
 
 asm5900 -o:TMP\PS1LOGO2.BIN SRC\PS1LOGO2.S
 IF NOT %errorlevel%==0 GOTO error
 
-:: DEV0 BUILDS FOR CC2.0
+:: DEV0 BUILDS FOR CC2.0 (Boot from flash on chip)
 :: Build and pack the OSDSYS payload
 asm5900 -o:TMP\OSDPAY.BIN SRC\OSDPAY.S
 IF NOT %errorlevel%==0 GOTO error
@@ -27,6 +33,7 @@ IF NOT %errorlevel%==0 GOTO error
 n2epack TMP\OSDPAYDEV0.BIN TMP\OSDPAY.N2E
 IF NOT %errorlevel%==0 GOTO error
 
+:: DEV0 BUILDS (Memory Card 1)
 :: Build CC1.0 OSDSYS payload loader DEV0.
 asm5900 -s:FWFS_TEMP_ADDR=0x00110000 -s:CC_USE_EEP=1 -s:CC_FORMAT_10=1 -s:PAYLOAD_TYPE=0 -o:TMP\OSLOAD10DEV0.BIN SRC\OSDLOAD.S
 IF NOT %errorlevel%==0 GOTO error
@@ -39,7 +46,7 @@ IF NOT %errorlevel%==0 GOTO error
 asm5900 -s:FWFS_TEMP_ADDR=0x00110000 -s:PAYLOAD_TYPE=0 -o:TMP\OSLOAD12DEV0.BIN SRC\OSDLOAD.S
 IF NOT %errorlevel%==0 GOTO error
 
-:: DEV1 BUILDS
+:: DEV1 BUILDS (Memory Card 2)
 :: Build and pack the OSDSYS payload DEV1
 asm5900 -s:BOOT_DEV=1 -o:TMP\OSDPAYDEV1.BIN SRC\OSDPAY.S
 IF NOT %errorlevel%==0 GOTO error
@@ -59,7 +66,7 @@ IF NOT %errorlevel%==0 GOTO error
 asm5900 -s:FWFS_TEMP_ADDR=0x00110000 -s:BOOT_DEV=1 -s:PAYLOAD_TYPE=0 -o:TMP\OSLOAD12DEV1.BIN SRC\OSDLOAD.S
 IF NOT %errorlevel%==0 GOTO error
 
-:: DEV2 BUILDS
+:: DEV2 BUILDS (Boot from USB, USBD.IRX and USBHDFSD.IRX on Memcard1)
 :: Build and pack the OSDSYS payload DEV2
 asm5900 -s:BOOT_DEV=2 -o:TMP\OSDPAYDEV2.BIN SRC\OSDPAY.S
 IF NOT %errorlevel%==0 GOTO error
@@ -80,7 +87,7 @@ asm5900 -s:FWFS_TEMP_ADDR=0x00110000 -s:BOOT_DEV=2 -s:PAYLOAD_TYPE=0 -o:TMP\OSLO
 IF NOT %errorlevel%==0 GOTO error
 
 
-:: DEV9 BUILDS
+:: DEV9 BUILDS (Boot from HDD, USBD.IRX and USBHDFSD.IRX on Memcard1)
 :: Build and pack the OSDSYS payload DEV9
 asm5900 -s:BOOT_DEV=9 -o:TMP\OSDPAYDEV9.BIN SRC\OSDPAY.S
 IF NOT %errorlevel%==0 GOTO error
@@ -100,7 +107,7 @@ IF NOT %errorlevel%==0 GOTO error
 asm5900 -s:FWFS_TEMP_ADDR=0x00110000 -s:BOOT_DEV=9 -s:PAYLOAD_TYPE=0 -o:TMP\OSLOAD12DEV9.BIN SRC\OSDLOAD.S
 IF NOT %errorlevel%==0 GOTO error
 
-:: CC2.0 DEV3 BUILDS
+:: CC2.0 DEV3 BUILDS (Boot from DataFlash)
 :: Build CC2.0 BM loader OSDSYS patches
 asm5900 -s:PAYLOAD_ADDR=0x00180000 -s:FWFS_TEMP_ADDR=0x00170000 -o:TMP\IOPPAY.BIN SRC\IOPPAY.S
 IF NOT %errorlevel%==0 GOTO error
@@ -118,35 +125,35 @@ asm5900 -s:FWFS_TEMP_ADDR=0x00110000 -s:BOOT_DEV=3 -o:TMP\OSLOAD20.BIN SRC\OSDLO
 IF NOT %errorlevel%==0 GOTO error
 
 :: Compile Firmwares
-:: Compile CC1.0 FWARE with DEV0-2 Usage
+:: Compile CC1.0 FWARE with DEV0-2,9 Usage
 ccitool -v1 TMP\OSLOAD10DEV0.BIN TMP\FWARE10DEV0.CCI
 IF NOT %errorlevel%==0 GOTO error
 ccitool -v1 TMP\OSLOAD10DEV1.BIN TMP\FWARE10DEV1.CCI
 IF NOT %errorlevel%==0 GOTO error
-ccitool -v1 TMP\OSLOAD10DEV2.BIN TMP\FWARE10DEV2.CCI
-IF NOT %errorlevel%==0 GOTO error
-ccitool -v1 TMP\OSLOAD10DEV9.BIN TMP\FWARE10DEV9.CCI
-IF NOT %errorlevel%==0 GOTO error
+::ccitool -v1 TMP\OSLOAD10DEV2.BIN TMP\FWARE10DEV2.CCI
+::IF NOT %errorlevel%==0 GOTO error
+::ccitool -v1 TMP\OSLOAD10DEV9.BIN TMP\FWARE10DEV9.CCI
+::IF NOT %errorlevel%==0 GOTO error
 
-:: Compile CC1.1 FWARE with DEV0-2 USAGE
+:: Compile CC1.1 FWARE with DEV0-2,9 USAGE
 ccitool TMP\OSLOAD11DEV0.BIN TMP\FWARE11DEV0.CCI
 IF NOT %errorlevel%==0 GOTO error
 ccitool TMP\OSLOAD11DEV1.BIN TMP\FWARE11DEV1.CCI
 IF NOT %errorlevel%==0 GOTO error
-ccitool TMP\OSLOAD11DEV2.BIN TMP\FWARE11DEV2.CCI
-IF NOT %errorlevel%==0 GOTO error
-ccitool TMP\OSLOAD11DEV9.BIN TMP\FWARE11DEV9.CCI
-IF NOT %errorlevel%==0 GOTO error
+::ccitool TMP\OSLOAD11DEV2.BIN TMP\FWARE11DEV2.CCI
+::IF NOT %errorlevel%==0 GOTO error
+::ccitool TMP\OSLOAD11DEV9.BIN TMP\FWARE11DEV9.CCI
+::IF NOT %errorlevel%==0 GOTO error
 
-:: Compile CC1.2 FWARE with DEV0-2 USAGE
+:: Compile CC1.2 FWARE with DEV0-2,9 USAGE
 ccitool TMP\OSLOAD12DEV0.BIN TMP\FWARE12DEV0.CCI
 IF NOT %errorlevel%==0 GOTO error
 ccitool TMP\OSLOAD12DEV1.BIN TMP\FWARE12DEV1.CCI
 IF NOT %errorlevel%==0 GOTO error
-ccitool TMP\OSLOAD12DEV2.BIN TMP\FWARE12DEV2.CCI
-IF NOT %errorlevel%==0 GOTO error
-ccitool TMP\OSLOAD12DEV9.BIN TMP\FWARE12DEV9.CCI
-IF NOT %errorlevel%==0 GOTO error
+::ccitool TMP\OSLOAD12DEV2.BIN TMP\FWARE12DEV2.CCI
+::IF NOT %errorlevel%==0 GOTO error
+::ccitool TMP\OSLOAD12DEV9.BIN TMP\FWARE12DEV9.CCI
+::IF NOT %errorlevel%==0 GOTO error
 
 :: Compile CC2.0 FWARE with DEV3 USAGE
 ccitool TMP\OSLOAD20.BIN TMP\FWARE20.CCI
