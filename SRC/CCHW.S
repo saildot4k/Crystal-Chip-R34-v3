@@ -708,29 +708,38 @@ DF_Page528              PROC
 DF_Page528              ENDP
 
 ; void DF_Page1056(u8 opcode, u16 paddr, u16 baddr);
-DF_Page1056             PROC
+DF_Page1056              PROC
 
+                        ; Extract the lower 8 bits of baddr and shift left by 8
                         andi        v0, a2, 0xFF
                         sll         v0, v0, 8                           ; v0 = (baddr & 0xFF) << 8
 
+                        ; Extract the next 3 bits of baddr (BA10-BA8) and combine
                         srl         a2, a2, 8
-                        andi        a2, a2, 0x07                        ; Mask the top 3 bits for 1056-byte addressing
+                        andi        a2, a2, 0x07                        ; Mask top 3 bits of baddr
                         or          v0, v0, a2
 
+                        ; Extract the lower bits of paddr (PA5-PA0) and shift left
                         sll         v1, a1, 3                           ; Shift paddr left 3 bits
                         andi        v1, v1, 0xF8                        ; Mask for alignment
                         or          v0, v0, v1
 
+                        ; Prepare for the next block of address bits
                         sll         v0, v0, 8
 
-                        srl         a1, a1, 5                           ; Shift right for remaining bits
+                        ; Extract the middle bits of paddr (PA12-PA6) and combine
+                        srl         a1, a1, 5                           ; Shift right to get PA12-PA6
+                        andi        a1, a1, 0x7E                        ; Optimize mask for precise alignment (PA12-PA6)
                         or          v0, v0, a1
+
+                        ; Shift the result left for the opcode
                         sll         v0, v0, 8
 
+                        ; Combine opcode into the final address
                         jr          ra
                         or          v0, v0, a0
 
-DF_Page1056             ENDP
+DF_Page1056              ENDP
 
 dfdev                   TABLE
 df_bytes_per_page:      DW          0
