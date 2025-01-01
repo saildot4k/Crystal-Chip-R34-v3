@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Themes" />
+		<link rel="shortcut icon" href="../img/cc-wiki.ico" />
+		<title>Themes - Ccwiki</title>
+		<link rel="stylesheet" type="text/css" media="screen,projection" href="../css/main.css" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/commonPrint.css" />
+		<style type="text/css">/*<![CDATA[*/
+@import "/ccwiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/ccwiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/ccwiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Themes</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Ccwiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class='toclevel-1'><a href="#THMINFO.PBT"><span class="tocnumber">2</span> <span class="toctext">THMINFO.PBT</span></a></li>
+<li class='toclevel-1'><a href="#BMMENU.TGA"><span class="tocnumber">3</span> <span class="toctext">BMMENU.TGA</span></a></li>
+<li class='toclevel-1'><a href="#How_to_make_a_great_theme"><span class="tocnumber">4</span> <span class="toctext">How to make a great theme</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Themes&amp;action=edit&amp;section=1" title="Edit section: Introduction">edit</a>]</div><a name="Introduction"></a><h2> Introduction </h2>
+<ul><li> Info:
+</li></ul>
+<dl><dd> A theme is the look of BM and consists of font, background image and color, as well as text color and position and size of the single menu elements.
+</dd></dl>
+<ul><li> Details:
+</li></ul>
+<dl><dd> Each theme contains two images, one for the background (BMMENU.TGA) and one for the font (BMFONT.TGA), and a "THMINFO.PBT" containing all infos about color and menu positioning. Themes are located in the BM/THMS directory, each in an extra subfolder, and are configured and managed with the "ThemeManager" menu. The images are in TGA format and can be created with grafics software, e.g. the freeware software "Gimp 2".
+</dd></dl>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Themes&amp;action=edit&amp;section=2" title="Edit section: THMINFO.PBT">edit</a>]</div><a name="THMINFO.PBT"></a><h2> THMINFO.PBT </h2>
+<ul><li> Info:
+</li></ul>
+<dl><dd> Every theme needs a THMINFO.PBT, containing all necessary Information for BM. It's mostly the same as the APPINFO.PBT for apps, but contains additional infos about position and size of menu elements and the color for font and background, for all video modes.
+</dd></dl>
+<ul><li> Details:
+</li></ul>
+<dl><dd> The following example is the THMINFO.PBT of the BM1 theme, distributed with every BM. The forst parts are the same as in the APPINFO.PBT, the <b>:LOAD</b> section has after <b># PAL</b> and <b># VGA</b> the same entries as after <b># NTSC</b>, it's just been cut a little to save some space and to have a better overlook.
+</dd></dl>
+<pre> #
+ # Default "theme" for Crystal Chips BootManager
+ #
+ 
+ #
+ # Change this information to describe the theme.
+ SET "TITLE" "Old BootManager 1.x"
+ SET "VERSION" "v1.0"
+ SET "AUTHOR" "Crystal Chips: <a href="../index.htm" class='external free' title="../index.htm" rel="nofollow">http://www.crystal-chips.com/</a>"
+ SET "DESCRIPTION" "This is the old BootManager 1.x theme."
+ #
+ 
+ # Do not change these 2 lines!
+ GOTO "$ARG1$"
+ RETURN "-1"
+ 
+&nbsp;:LABEL_NAME
+     ADDWIDGET "LABEL" "$ARG2$$TITLE$ $VERSION$"
+     EXIT "0"
+ 
+&nbsp;:QUERY
+     ADDWIDGET "CALL" "  $TITLE$" "$BM.TXT_VERSION$: $VERSION$   $BM.TXT_AUTHOR$: $AUTHOR$
+     $BM.TXT_DESCRIPTION$: $DESCRIPTION$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
+     EXIT "0"
+ 
+&nbsp;:INSTALL
+     IF FAIL COPY "$PWD$" "$ARG2$/BM1"
+         MESSAGE "Failed installing $TITLE$!"
+         RRM "$ARG2$/BM1"
+         RETURN -1
+     ENDIF
+ 
+     EXIT "0"
+ 
+&nbsp;:REMOVE
+     IF FAIL RRM "$PWD$"
+         MESSAGE "Failed removing $TITLE$!"
+         RETURN -1
+     ENDIF
+     EXIT "0"
+</pre>
+<dl><dd> This first part has the same funktion as the corresponding sections inside the APPINFO.PBT. A detailed explanation can be read above under the APPINFO.PBT headline.
+</dd></dl>
+<pre>&nbsp;:LOAD
+     IF NOT EQU "$BM.LOADED_THEME_SCRIPT$" ""
+         LOADEXEC "PBAT" "$BM.LOADED_THEME_SCRIPT$" "UNLOAD"
+     ENDIF
+ 
+     IF FAIL LOADIMG "$PWD$/BMMENU.TGA" "BM1_MENU"
+         ECHO "Failed loading menu image!"
+         RETURN -1
+     ENDIF
+ 
+     IF FAIL LOADIMG "$PWD$/BMFONT.TGA" "BM1_FONT"
+         ECHO "Failed loading font image!"
+         UNLOADIMG "BM1_MENU"
+         RETURN -1
+     ENDIF
+ 
+     SET "BM.MENU_IMG_NAME" "BM1_MENU"
+     SET "BM.FONT_IMG_NAME" "BM1_FONT"
+     SET "BM.THM_CNF_BG_COLOR" "0x00332111"
+     SET "BM.THM_CNF_FONT_COLOR_SELECTION" "0x00C0C0C0"
+     SET "BM.THM_CNF_FONT_COLOR_LABEL" "0x00C0C0C0"
+     SET "BM.THM_CNF_FONT_COLOR_SCROLLER" "0x00C0C0C0"
+ 
+     IF EQU "$BM.CNF_VMODE$" "0"
+         # NTSC
+         SET "BM.THM_CNF_MENU_IMG_X" "0"
+         SET "BM.THM_CNF_MENU_IMG_Y" "0"
+         SET "BM.THM_CNF_MENU_IMG_WIDTH" "0"
+         SET "BM.THM_CNF_MENU_IMG_HEIGHT" "0"
+         SET "BM.THM_CNF_MENU_X" "100"
+         SET "BM.THM_CNF_MENU_Y" "120"
+         SET "BM.THM_CNF_MENU_WIDTH" "500"
+         SET "BM.THM_CNF_MENU_HEIGHT" "300"
+         SET "BM.THM_CNF_MENU_TITLE_X" "142"
+         SET "BM.THM_CNF_MENU_TITLE_Y" "84"
+         SET "BM.THM_CNF_MENU_TITLE_WIDTH" "386"
+         SET "BM.THM_CNF_MENU_TITLE_HEIGHT" "32"
+         SET "BM.THM_CNF_SCROLLER_X" "132"
+         SET "BM.THM_CNF_SCROLLER_Y" "395"
+         SET "BM.THM_CNF_SCROLLER_WIDTH" "423"
+         SET "BM.THM_CNF_SCROLLER_HEIGHT" "32"
+     ELSEIF EQU "$BM.CNF_VMODE$" "1"
+         # PAL
+         .
+         .
+         .
+     ELSE
+         # VGA
+         .
+         .
+         .
+     ENDIF
+ 
+     SET "BM.LOADED_THEME_SCRIPT" "$ARG0$"
+     KEEP
+     RETURN 0
+</pre>
+<dl><dd> This section contains all needed infos about loading the theme. At first the old theme is unloaded, then BM loads the new background image and the new font.
+</dd><dd> In the next step all theme settings are loaded. first those that are the same for all video modes, e.g. colors, then those that are different for the various video modes, e.g. position and size of the background image. Under <b># PAL</b> and <b># VGA</b> you can normally find the same entries as under <b># NTSC</b>, but with adjusted values.
+</dd><dd> Last but not least, the loaded THMINFO.PBT is set in the config.
+</dd></dl>
+<pre>&nbsp;:UNLOAD
+     SET "BM.MENU_IMG" ""
+     SET "BM.FONT_IMG" ""
+     UNLOADIMG "BM1_MENU"
+     UNLOADIMG "BM1_FONT"
+     EXIT 0
+</pre>
+<dl><dd> This section is used to unload the theme, in case something went wrong during loading, or when an other theme should be loaded.
+</dd></dl>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Themes&amp;action=edit&amp;section=3" title="Edit section: BMMENU.TGA">edit</a>]</div><a name="BMMENU.TGA"></a><h2> BMMENU.TGA </h2>
+<ul><li> Info:
+</li></ul>
+<dl><dd> BMMENU.TGA is a TARGA image with alpha channel to manage transparency. The resolution is limited to 400x240 because of the small VRAM of the PS 2 (only 4 MB). At least, you need to flip the image vertically because BM only support top left TGA files. Themes are under development, so all those restrictions will probably change in the future.
+</dd></dl>
+<ul><li> Details:
+</li></ul>
+<dl><dd> To create a TGA file, you need a picture editing software like Photoshop, The Gimp or Paint Shop Pro.
+</dd></dl>
+<dl><dd> Here is how to create an Alpha Channel with those three applications. (thanks to <a href="http://wiki.beyondunreal.com/wiki/Alpha_Channel" class='external text' title="http://wiki.beyondunreal.com/wiki/Alpha_Channel" rel="nofollow">this unreal wiki</a> for the tutorials).
+</dd></dl>
+<dl><dt> Photoshop&nbsp;</dt><dd>
+</dd></dl>
+<ol><li> Make the selection of the part of the image you want to be visible. Use the useful selection tools of Photoshop to do this.
+</li><li> Go to the channels tab, and press the button "Save selection as channel". A channel named Alpha1 should appear.
+</li><li> Now save your image as a TGA file, 32 bits, with RLE compression on.
+</li></ol>
+<dl><dt> Paint Shop Pro&nbsp;</dt><dd>
+</dd></dl>
+<ol><li> Do Main menu→Selections→Select All, and press CTRL-C to copy the image to the clipboard.
+</li><li> Press CTRL-V to paste it as a new image (you will be working on the cloned image first).
+</li><li> Select the parts of the image you want to make transparent. The Wand selection tool is useful for this. Hold down the shift key to select multiple parts of the image.
+</li><li> Take your floodfill tool and select a dark colour (the darker the colour, the more transparent the pixel will be). Floodfill within the selected areas.
+</li><li> In the menu, do Selections→Invert. This will invert your selection.
+</li><li> Whatever you do not want transparent is now selected. Take your floodfill tool and select a light colour (the lighter the colour, the less transparent the pixel will be). Floodfill within the selected areas.
+</li><li> In the menu, do 'Layers→Load/Save Mask→Save Mask to Disk'. Type in a filename and hit Save.
+</li><li> In the menu, click on 'Selections→Select None' to deselect everything.
+</li><li> Reopen your original image.
+</li><li> In the menu, click on 'Selections→Select All'.
+</li><li> In the menu, click on 'Layers→Load/Save Mask→Load Mask from Disk'and look in the menu bar at the top of screen for Mask. Select Mask→New→From Image. In this dialogue box, # for the source window, the pulldown box, 'blank' and select your masked texture's filename, and press ok.
+</li><li> Select Masks→Save to Alpha channel from the menu. Just agree with the next two windows (hit 'OK'), and save your new masked image. Make sure you choose .TGA file format (it will be listed as Truevision TARGA (.TGA)).
+</li></ol>
+<dl><dt>The Gimp&nbsp;</dt><dd>
+</dd></dl>
+<ol><li> Select the parts of the image you want to be visible. (Or select what you want to be transparent, and do Select→Invert.)
+</li><li> Do Layer→Mask→Add Layer Mask
+</li><li> In the dialog, set Initialize Layer Mark to 'Selection'
+</li><li> You can make further changes by painting directly on the layer mask. The layermask is just a grayscale image; black means fully transparent and white fully opaque.
+</li><li> The new mask is selected in the layer list. Before you save, click on the original layer to select it. (Otherwise, saving will only export the grayscale mask.)
+</li><li> When saving as TGA, the export procedure will tell you it needs to "Apply layer mask". Click 'Export'.
+</li></ol>
+<dl><dd> Another way to do is it right click on the layer and select "Add alpha channel" and use the Erase tool or Edit→Clear to erase the parts you want transparent.
+</dd></dl>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Themes&amp;action=edit&amp;section=4" title="Edit section: How to make a great theme">edit</a>]</div><a name="How_to_make_a_great_theme"></a><h2> How to make a great theme </h2>
+<dl><dd> To make a nice theme, make a copy of the provided theme BM1, keep the BMFONT.TGA or create your own (if you don't, edit the THMINFO.PBT accordingly to put away the BMFONT related lines) and rename the folder and the THEME name in the THMINFO.PBT file.
+</dd></dl>
+<dl><dd> Now prepare your image. You need 5 parts in it&nbsp;: one for the menu title, one for the version number, one for the scroll hint, one for the CD/DVD icon, and one for the main text. Here is an example&nbsp;:
+</dd><dd> <a href="../img/BMMENU.png" class="image" title="Image:BMMENU.png"><img src="../img/BMMENU.png" alt="Image:BMMENU.png" width="400" height="240" longdesc="Images:img/BMMENU.png" /></a>
+</dd></dl>
+<dl><dd> Once you've prepared your image, try it with the THMINFO.PBT default value on the theme BM1. Now, for each video mode, try to adjust the position of each part of the text and report the good values in the THMINFO.PBT.
+</dd></dl>
+<dl><dd> Install again the whole thing, and if everything fit, you're done.
+</dd></dl>
+
+<!-- Saved in parser cache with key ps2scene_ccwik:pcache:idhash:1404-0!1!0!0!!en!2 and timestamp 20070506194109 -->
+<div class="printfooter">
+Retrieved from "<a href="http://norcalmods.com/ccwiki/index.php?title=Themes">http://norcalmods.com/ccwiki/index.php?title=Themes</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="http://crystal-chips.com/ccwiki/index.php?title=Themes">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="http://crystal-chips.com/ccwiki/index.php?title=Talk:Themes&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="http://crystal-chips.com/ccwiki/index.php?title=Themes&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="http://crystal-chips.com/ccwiki/index.php?title=Themes&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Userlogin&amp;returnto=Themes">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../img/wiki.png);" href="../ccwiki-index.htm" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../ccwiki-index.htm">Main Page</a></li>
+				<li id="n-Forums"><a href="http://www.ps2-scene.org/forums/forumdisplay.php?f=109">Forums</a></li>
+				<li id="n-Crystal-Chips-Main-Site"><a href="../index.htm">Crystal Chips Main Site</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Languages'>
+		<h5>Languages</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n--English"><a href="eng_info_tutorials.htm">English</a></li>
+				<li id="n-German"><a href="ger_info_anleitungen.htm">German</a></li>
+				<li id="n--Italian"><a href="http://norcalmods.com/ccwiki/index.php?title=Italian_Information_and_Tutorials"> Italian</a></li>
+				<li id="n--Spanish"><a href="http://norcalmods.com/ccwiki/index.php?title=Spanish_Information_and_Tutorials"> Spanish</a></li>
+				<li id="n--French"><a href="http://norcalmods.com/ccwiki/index.php?title=French_Information_and_Tutorials"> French</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/ccwiki/index.php?title=Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Whatlinkshere/Themes">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Recentchangeslinked/Themes">Related changes</a></li>
+<li id="t-specialpages"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="http://crystal-chips.com/ccwiki/index.php?title=Themes&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="http://crystal-chips.com/ccwiki/index.php?title=Themes&amp;oldid=1652">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../img/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://creativecommons.org/licenses/by-nc-nd/2.5/"><img src="../img/somerights20.png" alt='Attribution-NonCommercial-NoDerivs 2.5 ' /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 18:36, 17 February 2007.</li>
+				<li id="viewcount">This page has been accessed 144 times.</li>
+				<li id="privacy"><a href="http://crystal-chips.com/ccwiki/index.php?title=Ccwiki:Privacy_policy" title="Ccwiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://crystal-chips.com/ccwiki/index.php?title=Ccwiki:About" title="Ccwiki:About">About Ccwiki</a></li>
+				<li id="disclaimer"><a href="http://crystal-chips.com/ccwiki/index.php?title=Ccwiki:General_disclaimer" title="Ccwiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by norcalmods.com in 0.43 secs. -->
+</body></html>

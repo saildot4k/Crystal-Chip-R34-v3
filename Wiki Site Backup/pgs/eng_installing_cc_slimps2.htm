@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Installing Your Crystal Chip in your slim PSTwo,Disassembling Your Slim V12-V15 PSTwo" />
+		<link rel="shortcut icon" href="../img/cc-wiki.ico" />
+		<title>Installing Your Crystal Chip in your slim PSTwo - Ccwiki</title>
+		<link rel="stylesheet" type="text/css" media="screen,projection" href="../css/main.css" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/commonPrint.css" />
+		<style type="text/css">/*<![CDATA[*/
+@import "/ccwiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/ccwiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/ccwiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Installing Your Crystal Chip in your slim PSTwo</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Ccwiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><b>Its very important that you first read through this entire tutorial before you attempt anything!</b>
+</p><p>Here we will cover some common practices and techniques used by pro's to install modchips. In this tutorial we will be installing a Crystal Chip 2.0 in a V15b NTSC U/C slim PSTwo. Let me first point out that some of the points I will be using differ from the <a href="../img/diagrams/cc11_v15b.jpg" class='external text' title="../img/diagrams/cc11_v15b.jpg" rel="nofollow">official diagram.</a> When I have used alternate points this will be noted. You can use either the official points from the <a href="../index.htm" class='external text' title="../index.htm" rel="nofollow">Crystal Chip site</a> or the ones in this tutorial. Also let me point out that the methods discussed in this tutorial are by no means the only methods of installing a Crystal Chip in your console. These are the techniques that I have used to do numerous successful installs. This tutorial will reveal secrets of how the pro's get those installs to look and perform so well. By no means does your install need to look perfect to work perfect, but if you would like it to be both you will find the information on how to do so here. A certain level of soldering experience is also assumed with this tutorial. This means that if you have never picked up a soldering iron before now or have limited solder experience with very small work you should consider practicing on something other then your beloved console or look for professional help with your install. Let it also be know that this tutorial is just that, a tutorial. You and you alone are responsible for your work and your console. Now on with the tutorial.
+</p><p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Beginning_Your_Install"><span class="tocnumber">1</span> <span class="toctext">Beginning Your Install</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Necessary_Items"><span class="tocnumber">1.1</span> <span class="toctext">Necessary Items</span></a></li>
+<li class='toclevel-2'><a href="#Recommended_Items"><span class="tocnumber">1.2</span> <span class="toctext">Recommended Items</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Mounting_Your_Chip"><span class="tocnumber">2</span> <span class="toctext">Mounting Your Chip</span></a></li>
+<li class='toclevel-1'><a href="#Preparing_Your_Motherboard"><span class="tocnumber">3</span> <span class="toctext">Preparing Your Motherboard</span></a>
+<ul>
+<li class='toclevel-2'><a href="#BIOS_Points"><span class="tocnumber">3.1</span> <span class="toctext">BIOS Points</span></a></li>
+<li class='toclevel-2'><a href="#Via_Points"><span class="tocnumber">3.2</span> <span class="toctext">Via Points</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Wire_Preparation"><span class="tocnumber">4</span> <span class="toctext">Wire Preparation</span></a></li>
+<li class='toclevel-1'><a href="#Soldering_To_The_Motherboard"><span class="tocnumber">5</span> <span class="toctext">Soldering To The Motherboard</span></a></li>
+<li class='toclevel-1'><a href="#Wire_Routing"><span class="tocnumber">6</span> <span class="toctext">Wire Routing</span></a></li>
+<li class='toclevel-1'><a href="#Soldering_To_The_Modchip"><span class="tocnumber">7</span> <span class="toctext">Soldering To The Modchip</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Soldering_Your_3V3_Wire"><span class="tocnumber">7.1</span> <span class="toctext">Soldering Your 3V3 Wire</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Flashing_Your_Chip"><span class="tocnumber">8</span> <span class="toctext">Flashing Your Chip</span></a></li>
+<li class='toclevel-1'><a href="#Other_Helpful_Links"><span class="tocnumber">9</span> <span class="toctext">Other Helpful Links</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=1" title="Edit section: Beginning Your Install">edit</a>]</div><a name="Beginning_Your_Install"></a><h2> Beginning Your Install </h2>
+<p>You will of course need to start by <a href="eng_disassemble_slim_v12-15.htm" title="Disassembling Your Slim V12-V15 PSTwo">Disassembling Your Slim V12-V15 PSTwo</a> . Now lets list the tools and supplies you will need to get this job done. There are multiple suppliers linked to here. I have attempted to link to ones that have the cheapest yet most appropriate and reliable solutions to get this job done. 
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=2" title="Edit section: Necessary Items">edit</a>]</div><a name="Necessary_Items"></a><h3> Necessary Items </h3>
+<ul><li><a href="http://www.radioshack.com/product/index.jsp?productId=2062640" class='external text' title="http://www.radioshack.com/product/index.jsp?productId=2062640" rel="nofollow">30AWG Kynar</a>
+</li></ul>
+<ul><li><a href="http://www.action-electronics.com/ntehuw.htm#24awg" class='external text' title="http://www.action-electronics.com/ntehuw.htm#24awg" rel="nofollow">24 or 26 AWG Stranded Hook Up Wire</a>
+</li></ul>
+<ul><li><a href="http://www.radioshack.com/product/index.jsp?productId=2062728" class='external text' title="http://www.radioshack.com/product/index.jsp?productId=2062728" rel="nofollow">15 Watt Soldering Iron</a>
+</li></ul>
+<ul><li><a href="http://www.radioshack.com/product/index.jsp?productId=2049774" class='external text' title="http://www.radioshack.com/product/index.jsp?productId=2049774" rel="nofollow">Soldering Flux Paste</a>
+</li></ul>
+<ul><li><a href="http://www.radioshack.com/product/index.jsp?productId=2036305" class='external text' title="http://www.radioshack.com/product/index.jsp?productId=2036305" rel="nofollow">60/40 Solder</a>
+</li></ul>
+<ul><li><a href="http://www.action-electronics.com/glue.htm?zoom_highlight=super+glue" class='external text' title="http://www.action-electronics.com/glue.htm?zoom_highlight=super+glue" rel="nofollow">Super Glue</a> 
+</li></ul>
+<ul><li><a href="http://www.sears.com/sr/javasr/product.do?cat=Portable+Power+Tools&amp;pid=00980492000" class='external text' title="http://www.sears.com/sr/javasr/product.do?cat=Portable+Power+Tools&amp;pid=00980492000" rel="nofollow">Hot Glue Gun</a>
+</li></ul>
+<ul><li>Toothpick or other pointed implement
+</li></ul>
+<ul><li><a href="http://www.radioshack.com/product/index.jsp?productId=2036323" class='external text' title="http://www.radioshack.com/product/index.jsp?productId=2036323" rel="nofollow">Small Diagonal Cutters</a>
+</li></ul>
+<ul><li><a href="http://www.action-electronics.com/tweezers.htm" class='external text' title="http://www.action-electronics.com/tweezers.htm" rel="nofollow">Fine Needle Point Tweezers</a> 
+</li></ul>
+<ul><li><a href="http://www.mcminone.com/product.asp?catalog%5Fname=MCMProducts&amp;product%5Fid=SABU10191" class='external text' title="http://www.mcminone.com/product.asp?catalog%5Fname=MCMProducts&amp;product%5Fid=SABU10191" rel="nofollow">Fiberglass Pencil</a> or <a href="http://www.radioshack.com/product/index.jsp?productId=2062770" class='external text' title="http://www.radioshack.com/product/index.jsp?productId=2062770" rel="nofollow">Hobby Knife</a>
+</li></ul>
+<ul><li>Wax Paper
+</li></ul>
+<ul><li>Tape either electrical or clear packing tap
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=3" title="Edit section: Recommended Items">edit</a>]</div><a name="Recommended_Items"></a><h3>Recommended Items</h3>
+<ul><li><a href="http://www.radioshack.com/product/index.jsp?productId=2103174" class='external text' title="http://www.radioshack.com/product/index.jsp?productId=2103174" rel="nofollow">Digital Volt Meter (DVM) with continuity tester</a>
+</li></ul>
+<ul><li><a href="http://www.action-electronics.com/wewesd51.htm" class='external text' title="http://www.action-electronics.com/wewesd51.htm" rel="nofollow">High End Adjustable Soldering Station</a> 
+</li></ul>
+<ul><li><a href="http://www.amazon.com/buycostumes-com-Sticky-Tack/dp/B000HAZCS8" class='external text' title="http://www.amazon.com/buycostumes-com-Sticky-Tack/dp/B000HAZCS8" rel="nofollow">Sticky Tack</a>
+</li></ul>
+<ul><li>Q-tips and Rubbing Alcohol for clean up. 
+</li></ul>
+<p>Here is a picture of some of the tools I use.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:001-install.jpg" class="image" title="Image:001-install.jpg"><img src="../img/installing_cc_slimps2/001-install.jpg" alt="Image:001-install.jpg" width="400" height="329" longdesc="/ccwiki/index.php?title=Image:001-install.jpg" /></a>
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=4" title="Edit section: Mounting Your Chip">edit</a>]</div><a name="Mounting_Your_Chip"></a><h2> Mounting Your Chip </h2>
+<p>We will first start by locating a good place to mount the modchip to the motherboard. I like to place the modchip in such a location that it wont be burying your solder points or your wires. A good place for this it right above the controller ports.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:01-install.jpg" class="image" title="Image:01-install.jpg"><img src="../img/installing_cc_slimps2/01-install.jpg" alt="Image:01-install.jpg" width="400" height="348" longdesc="/ccwiki/index.php?title=Image:01-install.jpg" /></a>
+</p><p>Its a good idea to insulate that back of the modchip from the motherboard with a thin layer of tape. Electrical tape will do but I like to use clear packing tape as it doesn't get nasty like electrical tape does when it gets warm. I then trim the excess tape from the chip with scissors.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:03-install.jpg" class="image" title="Image:03-install.jpg"><img src="../img/installing_cc_slimps2/03-install.jpg" alt="Image:03-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:03-install.jpg" /></a>
+</p><p>I then place a small blob of hot glue on the PSTwo's motherboard where I plan on mounting the chip. While the glue is still hot press it onto the hot glue blob. I also try and align one of the ground pads on the Crystal Chip with a ground on the PSTwo's motherboard. I do this so I can make a solder bridge directly from the mother board to the modchip. This creates a good ground and well as secures the chip to the motherboard in addition to the hot glue.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:04-install.jpg" class="image" title="Image:04-install.jpg"><img src="../img/installing_cc_slimps2/04-install.jpg" alt="Image:04-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:04-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:05-install.jpg" class="image" title="Image:05-install.jpg"><img src="../img/installing_cc_slimps2/05-install.jpg" alt="Image:05-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:05-install.jpg" /></a>
+</p><p>Now we can tin all the solder pads on the modchip and build the solder bridge for the ground point of the mochip. <b>Note:</b> This ground point is an alternative from the <a href="../img/diagrams/cc11_v15b.jpg" class='external text' title="../img/diagrams/cc11_v15b.jpg" rel="nofollow">official diagram.</a> but is electronically  equivalent. This technique takes some practice and is not needed, if you find it too difficult to preform you can just use some of your 24GA Stranded Wire. 
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:06-install.jpg" class="image" title="Image:06-install.jpg"><img src="../img/installing_cc_slimps2/06-install.jpg" alt="Image:06-install.jpg" width="400" height="446" longdesc="/ccwiki/index.php?title=Image:06-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:07-install.jpg" class="image" title="Image:07-install.jpg"><img src="../img/installing_cc_slimps2/07-install.jpg" alt="Image:07-install.jpg" width="400" height="317" longdesc="/ccwiki/index.php?title=Image:07-install.jpg" /></a>
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:08-install.jpg" class="image" title="Image:08-install.jpg"><img src="../img/installing_cc_slimps2/08-install.jpg" alt="Image:08-install.jpg" width="400" height="353" longdesc="/ccwiki/index.php?title=Image:08-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:09-install.jpg" class="image" title="Image:09-install.jpg"><img src="../img/installing_cc_slimps2/09-install.jpg" alt="Image:09-install.jpg" width="400" height="360" longdesc="/ccwiki/index.php?title=Image:09-install.jpg" /></a>
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=5" title="Edit section: Preparing Your Motherboard">edit</a>]</div><a name="Preparing_Your_Motherboard"></a><h2> Preparing Your Motherboard </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=6" title="Edit section: BIOS Points">edit</a>]</div><a name="BIOS_Points"></a><h3> BIOS Points </h3>
+<p>After the modchip has been mounted successfully we will now move on to tinning the BIOS pads on the PSTwo's motherboard. The BIOS points are M, N, O, P, Q, R, T, U, V and W. First locate where these point are on your motherboard in relation to the <a href="../img/diagrams/cc11_v15b.jpg" class='external text' title="../img/diagrams/cc11_v15b.jpg" rel="nofollow">official diagram.</a> <b>Note:</b> I will be using alternative points here for Q, T, U and V. They are the electronic equivalent of the points specified on the <a href="../img/diagrams/cc11_v15b.jpg" class='external text' title="../img/diagrams/cc11_v15b.jpg" rel="nofollow">official diagram.</a> Now that you have located these points take your toothpick (or other pointed implement) and dab it into your flux paste. One by one coat each BIOS pad with a small amount of flux. Now with your soldering iron fired up touch your solder to the tip of your iron so that a small amount of solder remains on the tip. Being careful not to bridge other pads, place the tip of your iron to each fluxed pad. The solder should take to the pad and remain, thus tinning the pad. You should only need to place the iron on each pad for about one or two seconds. Lingering longer then this could damage the pad.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:10-install.jpg" class="image" title="Image:10-install.jpg"><img src="../img/installing_cc_slimps2/10-install.jpg" alt="Image:10-install.jpg" width="400" height="458" longdesc="/ccwiki/index.php?title=Image:10-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:11-install.jpg" class="image" title="Image:11-install.jpg"><img src="../img/installing_cc_slimps2/11-install.jpg" alt="Image:11-install.jpg" width="400" height="484" longdesc="/ccwiki/index.php?title=Image:11-install.jpg" /></a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=7" title="Edit section: Via Points">edit</a>]</div><a name="Via_Points"></a><h3> Via Points </h3>
+<p>Now we can move onto tinning the CDVD via's. The CDVD points are A, B, F, G, H, I and HA. Locate the via's on your motherboard with reference to the <a href="../img/diagrams/cc11_v15b.jpg" class='external text' title="../img/diagrams/cc11_v15b.jpg" rel="nofollow">official diagram.</a> Often times the via's are coated with a type of lacquer that makes it difficult to solder. However this lacquer can be removed with the use of a Fiberglass Pencil or a Hobby Knife. I personally like to use the Fiberglass Pencil as it does a very proficient job of removing the lacquer without damaging the via's or the traces. With the Fiberglass Pencil you simply rub the tip back and forth on the via's like a pencil eraser until you can see solderable copper. The Hobby Knife can be used also but much more care needs to be taken when doing so. Basically with the Hobby Knife method you will be scrapping the via with the sharp tip of the knife until you see bright shinny solderable copper. Here is a before and after using the Fiberglass Pencil.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:12-install.jpg" class="image" title="Image:12-install.jpg"><img src="../img/installing_cc_slimps2/12-install.jpg" alt="Image:12-install.jpg" width="410" height="430" longdesc="/ccwiki/index.php?title=Image:12-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:13-install.jpg" class="image" title="Image:13-install.jpg"><img src="../img/installing_cc_slimps2/13-install.jpg" alt="Image:13-install.jpg" width="410" height="452" longdesc="/ccwiki/index.php?title=Image:13-install.jpg" /></a>
+</p><p>If you are lucky enough to have a slim that doesn't have the lacquer on the via's you can skip the above part and move onto fluxing and tinning the via's. This process is very similar to how we tinned the BIOS pads before. Take your toothpick or other pointed implement and dab it into your flux paste. Now dab the flux on to each via one by one. Now with your iron ablaze touch your solder to the iron leaving the tip of your iron with a small amount of solder on it. Touch the tip of the iron to the fluxed via's one by one until they are all tinned. If done correctly the solder will take to the via and actually fill the small hole in the via. As before you don't want to linger to long on the via's as damage to them may occur if you do so. <b>Note:</b> I will not be soldering the F via as its only needed for the booting of RW media which many including I do not believe is good for the laser as RW media is much harder for the laser to read. 
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:14-install.jpg" class="image" title="Image:14-install.jpg"><img src="../img/installing_cc_slimps2/14-install.jpg" alt="Image:14-install.jpg" width="400" height="434" longdesc="/ccwiki/index.php?title=Image:14-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:15-install.jpg" class="image" title="Image:15-install.jpg"><img src="../img/installing_cc_slimps2/15-install.jpg" alt="Image:15-install.jpg" width="371" height="473" longdesc="/ccwiki/index.php?title=Image:15-install.jpg" /></a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=8" title="Edit section: Wire Preparation">edit</a>]</div><a name="Wire_Preparation"></a><h2> Wire Preparation </h2>
+<p>We can now start preparing the 30AWG Kynar wires to be soldered. Start by cutting the wire longer then you think you will be needing with the diagonals (wire cutters), having the wire too long is much better then too short. We need to remove the Kynar from the wire and tin the wire. The best way to do this is with the soldering iron. Ball up a small amount of solder on the tip of your iron. With your iron in one hand and your wire in the other aim them at each other like you would if you were pointing the tip of each of your index fingers together. Lap the wire up onto the tip of the iron where you have your solder ball and roll the iron around the wire in the solder ball. If the iron is hot enough it will melt the Kynar right off and tin the wire all at once. <b>Note:</b> Here a  30 Watt Soldering Iron might do a better job, but more care will need to be taken if you plan on using this iron to solder to the motherboard as well.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:16-install.jpg" class="image" title="Image:16-install.jpg"><img src="../img/installing_cc_slimps2/16-install.jpg" alt="Image:16-install.jpg" width="388" height="376" longdesc="/ccwiki/index.php?title=Image:16-install.jpg" /></a>
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=9" title="Edit section: Soldering To The Motherboard">edit</a>]</div><a name="Soldering_To_The_Motherboard"></a><h2> Soldering To The Motherboard </h2>
+<p>Once your wires have all been prepared you can now begin to solder them to the pads and the via's you tinned. Start with the BIOS pads and work so that you don't bury yourself with wires. I like to work from the top down on the pads. Dab your tinned wire into your flux paste so that a small amount remains on the tin. Place this tinned/fluxed wire over the first tinned pad and touch the iron to the tin on the wire. If all goes well the solder will heat and bond to the tin on the pad and the tin on your wire. Once again you don't need to linger longer then a few seconds. Once the solder has taken, give the wire a very light tug to verify that it has bonded well. Work your way down until you have all the BIOS wires soldered. Sticky tack can be used to hold already soldered wires out of your way while you work on new solder joints, tape can also be used. 
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:19-install.jpg" class="image" title="Image:19-install.jpg"><img src="../img/installing_cc_slimps2/19-install.jpg" alt="Image:19-install.jpg" width="414" height="468" longdesc="/ccwiki/index.php?title=Image:19-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:18-install.jpg" class="image" title="Image:18-install.jpg"><img src="../img/installing_cc_slimps2/18-install.jpg" alt="Image:18-install.jpg" width="244" height="468" longdesc="/ccwiki/index.php?title=Image:18-install.jpg" /></a> 
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:17-install.jpg" class="image" title="Image:17-install.jpg"><img src="../img/installing_cc_slimps2/17-install.jpg" alt="Image:17-install.jpg" width="372" height="448" longdesc="/ccwiki/index.php?title=Image:17-install.jpg" /></a>
+</p><p>Once all the BIOS wires have been soldered move onto the CDVD wires following the same procedure.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:21-install.jpg" class="image" title="Image:21-install.jpg"><img src="../img/installing_cc_slimps2/21-install.jpg" alt="Image:21-install.jpg" width="380" height="400" longdesc="/ccwiki/index.php?title=Image:21-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:20-install.jpg" class="image" title="Image:20-install.jpg"><img src="../img/installing_cc_slimps2/20-install.jpg" alt="Image:20-install.jpg" width="414" height="400" longdesc="/ccwiki/index.php?title=Image:20-install.jpg" /></a>
+</p><p>Now you can solder your TO and SX wires. The TO is a large pad so not much discussion is needed here. The SX point however can be a little tricky for some. The SX point specified in the <a href="../img/diagrams/cc11_v15b.jpg" class='external text' title="../img/diagrams/cc11_v15b.jpg" rel="nofollow">official diagram</a> is on the side of a very small capacitor. Many rookies damage this capacitor or simply cant solder to the point at all. Much care is needed when soldering to this point. <b>Note:</b> Here I will also be using an alternative solder point for the SX wire. The chip leg shown in the picture below is the electronic equivalent of the SX point in the <a href="../img/diagrams/cc11_v15b.jpg" class='external text' title="../img/diagrams/cc11_v15b.jpg" rel="nofollow">official diagram.</a> This chip leg can also be tricky. If care isn't taken you can bridge the chip leg next to it.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:22-install.jpg" class="image" title="Image:22-install.jpg"><img src="../img/installing_cc_slimps2/22-install.jpg" alt="Image:22-install.jpg" width="466" height="404" longdesc="/ccwiki/index.php?title=Image:22-install.jpg" /></a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=10" title="Edit section: Wire Routing">edit</a>]</div><a name="Wire_Routing"></a><h2> Wire Routing </h2>
+<p>Now that we have all the wires soldered to the motherboard (minus the 3v3 wire) we can now start routing the wires back to the modchip and tacking them in place. Here is were you will need to make a decision if you want to use Super Glue or Hot Glue to tack your wires. Hot Glue works very well and is easy to remove if you get into any trouble, but it doesn't give your install that nice clean look that Super Glue can. With Super Glue however you need to be very careful about were and how much glue you use. You don't want to get the Super Glue on anything other then the wires. Keeping it off the motherboard can be done with wax paper under the wire. The wax paper will also help you align your wires side by side when you are routing them over small components. The next series of pictures I will be using super glue and my toothpick (I actually use the red pointed implement in the top picture) to apply the Super Glue. I do not pour the glue right out of the dispenser as this makes it too hard to manage and glue can end up getting all over. I simply pool up a small amount of super glue on a separate piece of wax paper and dip the toothpick into the glue. Take your time and think about how you want the wires routed. In the end if you are patient it will look very nice when your all done.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:23-install.jpg" class="image" title="Image:23-install.jpg"><img src="../img/installing_cc_slimps2/23-install.jpg" alt="Image:23-install.jpg" width="400" height="299" longdesc="/ccwiki/index.php?title=Image:23-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:24-install.jpg" class="image" title="Image:24-install.jpg"><img src="../img/installing_cc_slimps2/24-install.jpg" alt="Image:24-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:24-install.jpg" /></a>
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:25-install.jpg" class="image" title="Image:25-install.jpg"><img src="../img/installing_cc_slimps2/25-install.jpg" alt="Image:25-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:25-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:26-install.jpg" class="image" title="Image:26-install.jpg"><img src="../img/installing_cc_slimps2/26-install.jpg" alt="Image:26-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:26-install.jpg" /></a>
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:27-install.jpg" class="image" title="Image:27-install.jpg"><img src="../img/installing_cc_slimps2/27-install.jpg" alt="Image:27-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:27-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:28-install.jpg" class="image" title="Image:28-install.jpg"><img src="../img/installing_cc_slimps2/28-install.jpg" alt="Image:28-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:28-install.jpg" /></a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=11" title="Edit section: Soldering To The Modchip">edit</a>]</div><a name="Soldering_To_The_Modchip"></a><h2> Soldering To The Modchip </h2>
+<p>When you have your wires tacked in place how you would like them you can now begin to solder them to the modchip. Keep in mind here that you want to also work so you don't bury yourself with previously soldered wires, work one way or the other. To solder the wires to the modchip I bend the wire in the direction of the pad I want to solder to I let it run long over the pad. I then hold the wire in place with my Tweezers and snip the wire to length with my diagonals. Once the wire is sniped I continue to hold the wire in place with my Tweezers. I then place my soldering iron over the top of the wire and the pad on the modchip. Pressing down lightly the iron will melt the Kynar and solder the wire to the pad all at once. 
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:29-install.jpg" class="image" title="Image:29-install.jpg"><img src="../img/installing_cc_slimps2/29-install.jpg" alt="Image:29-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:29-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:30-install.jpg" class="image" title="Image:30-install.jpg"><img src="../img/installing_cc_slimps2/30-install.jpg" alt="Image:30-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:30-install.jpg" /></a>
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:31-install.jpg" class="image" title="Image:31-install.jpg"><img src="../img/installing_cc_slimps2/31-install.jpg" alt="Image:31-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:31-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:34-install.jpg" class="image" title="Image:34-install.jpg"><img src="../img/installing_cc_slimps2/34-install.jpg" alt="Image:34-install.jpg" width="400" height="310" longdesc="/ccwiki/index.php?title=Image:34-install.jpg" /></a>
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:32-install.jpg" class="image" title="Image:32-install.jpg"><img src="../img/installing_cc_slimps2/32-install.jpg" alt="Image:32-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:32-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:33-install.jpg" class="image" title="Image:33-install.jpg"><img src="../img/installing_cc_slimps2/33-install.jpg" alt="Image:33-install.jpg" width="400" height="300" longdesc="/ccwiki/index.php?title=Image:33-install.jpg" /></a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=12" title="Edit section: Soldering Your 3V3 Wire">edit</a>]</div><a name="Soldering_Your_3V3_Wire"></a><h3> Soldering Your 3V3 Wire </h3>
+<p>You are almost there! Just one more wire to solder. Now you will need just a short piece of your 24AWG Stranded Hook Up wire. Strip on end of it and tin it with a decent amount of solder. Dab the tinned end in your flux and solder it to the 3V3 point on the motherboard. <b>Note:</b> here once again I use an alternative point for the 3V3 point. Rout your 3V3 wire over to the 3V3 pad on the modchip and once again use your tweezers to hold the wire in place as you snip it to length with your cutters. This time you will need to physically strip the wire. Scissors can be used to score the insulation if you don't have wire strippers. Once you have stripped the other end of the wire tin it then solder it to the 3V3 point on the modchip.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:35-install.jpg" class="image" title="Image:35-install.jpg"><img src="../img/installing_cc_slimps2/35-install.jpg" alt="Image:35-install.jpg" width="360" height="358" longdesc="/ccwiki/index.php?title=Image:35-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:36-install.jpg" class="image" title="Image:36-install.jpg"><img src="../img/installing_cc_slimps2/36-install.jpg" alt="Image:36-install.jpg" width="400" height="268" longdesc="/ccwiki/index.php?title=Image:36-install.jpg" /></a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=13" title="Edit section: Flashing Your Chip">edit</a>]</div><a name="Flashing_Your_Chip"></a><h2> Flashing Your Chip </h2>
+<p>Your done!!!! Well almost. You now will need to flash the chip. Flip the console over so its facing right side up. Be careful in doing this as the laser is still loose. Use the technique described in the <a href="eng_disassemble_slim_v12-15.htm" title="Disassembling Your Slim V12-V15 PSTwo">Disassembling Your Slim V12-V15 PSTwo</a> to do this without damaging your lasers ribbon cables. At this point you can also test to see if your install is correct without having to reassemble the whole PSTwo. Take some sticky tack (tap will also work) and depress the two lid switches. One is right on the rest button and the other is at the rear of the console next to the laser. Place your FW/BM upgrade disc on the spindle plug in your power and AV cable and your controller in port 1.
+</p><p><a href="http://crystal-chips.com/ccwiki/index.php?title=Image:37-install.jpg" class="image" title="Image:37-install.jpg"><img src="../img/installing_cc_slimps2/37-install.jpg" alt="Image:37-install.jpg" width="400" height="387" longdesc="/ccwiki/index.php?title=Image:37-install.jpg" /></a> <a href="http://crystal-chips.com/ccwiki/index.php?title=Image:38-install.jpg" class="image" title="Image:38-install.jpg"><img src="../img/installing_cc_slimps2/38-install.jpg" alt="Image:38-install.jpg" width="400" height="378" longdesc="/ccwiki/index.php?title=Image:38-install.jpg" /></a>
+</p><p>The moment of truth is here! Tap reset ...... oh geezzz can you feel it! If everything went right the console should boot with the typical PS2 intro then the chip should quickly boot the upgrade disc and you should then see the Crystal Chip logo. A menu will appear that will allow you to upgrade the FW and also install Boot Manger to the CC2.0's cflash. If you have a CC1.0, CC1.1 or CC1.2 you can install Boot Manger to your PS2 Memory Card. It will look like this.
+</p><p><a href="http://www.norcalmods.com/bin/cc/cc2/cc2-boot.wmv" class='external text' title="http://www.norcalmods.com/bin/cc/cc2/cc2-boot.wmv" rel="nofollow">CC2.0 Upgrade disc booting video - Windows Media File 1.8MB</a>
+</p><p>Now your done! Congratulations! Sit back, take a break... what! heck no, get gaming!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit&amp;section=14" title="Edit section: Other Helpful Links">edit</a>]</div><a name="Other_Helpful_Links"></a><h2> Other Helpful Links </h2>
+<ul><li><a href="http://www.norcalmods.com/gallery" class='external text' title="http://www.norcalmods.com/gallery" rel="nofollow">Modchip Install Gallery at Norcalmods</a>
+</li></ul>
+<ul><li><a href="http://www.ps2-scene.org/forums/forumdisplay.php?f=109" class='external text' title="http://www.ps2-scene.org/forums/forumdisplay.php?f=109" rel="nofollow">Crystal Chip Forum at PS2-scene</a>
+</li></ul>
+
+<!-- Saved in parser cache with key ps2scene_ccwik:pcache:idhash:1407-0!1!0!0!!en!2 and timestamp 20070507184447 -->
+<div class="printfooter">
+Retrieved from "<a href="http://norcalmods.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo">http://norcalmods.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="http://crystal-chips.com/ccwiki/index.php?title=Talk:Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Userlogin&amp;returnto=Installing_Your_Crystal_Chip_in_your_slim_PSTwo">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../img/wiki.png);" href="../ccwiki-index.htm" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../ccwiki-index.htm">Main Page</a></li>
+				<li id="n-Forums"><a href="http://www.ps2-scene.org/forums/forumdisplay.php?f=109">Forums</a></li>
+				<li id="n-Crystal-Chips-Main-Site"><a href="../index.htm">Crystal Chips Main Site</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Languages'>
+		<h5>Languages</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n--English"><a href="eng_info_tutorials.htm"> English</a></li>
+				<li id="n-German"><a href="ger_info_anleitungen.htm">German</a></li>
+				<li id="n--Italian"><a href="http://norcalmods.com/ccwiki/index.php?title=Italian_Information_and_Tutorials"> Italian</a></li>
+				<li id="n--Spanish"><a href="http://norcalmods.com/ccwiki/index.php?title=Spanish_Information_and_Tutorials"> Spanish</a></li>
+				<li id="n--French"><a href="http://norcalmods.com/ccwiki/index.php?title=French_Information_and_Tutorials"> French</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/ccwiki/index.php?title=Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Whatlinkshere/Installing_Your_Crystal_Chip_in_your_slim_PSTwo">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Recentchangeslinked/Installing_Your_Crystal_Chip_in_your_slim_PSTwo">Related changes</a></li>
+<li id="t-specialpages"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="http://crystal-chips.com/ccwiki/index.php?title=Installing_Your_Crystal_Chip_in_your_slim_PSTwo&amp;oldid=1820">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../img/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://creativecommons.org/licenses/by-nc-nd/2.5/"><img src="../img/somerights20.png" alt='Attribution-NonCommercial-NoDerivs 2.5 ' /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 21:55, 18 February 2007.</li>
+				<li id="viewcount">This page has been accessed 1,548 times.</li>
+				<li id="privacy"><a href="http://crystal-chips.com/ccwiki/index.php?title=Ccwiki:Privacy_policy" title="Ccwiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://crystal-chips.com/ccwiki/index.php?title=Ccwiki:About" title="Ccwiki:About">About Ccwiki</a></li>
+				<li id="disclaimer"><a href="http://crystal-chips.com/ccwiki/index.php?title=Ccwiki:General_disclaimer" title="Ccwiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by norcalmods.com in 0.81 secs. -->
+</body></html>

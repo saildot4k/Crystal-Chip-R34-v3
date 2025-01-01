@@ -1,0 +1,344 @@
+/*** Mambo style ***/
+
+/* General content style */
+
+td.contentheading {
+    color: #D05D00;
+    font-weight: bold;
+}
+
+div.componentheading {
+    color: #D05D00;
+    font-weight: bold;
+}
+
+
+/* News content */
+
+div.componentheading_news {
+    font: bold 14px Verdana, Arial, Helvetica, sans-serif;
+    color: #D05D00;
+    padding-bottom: 12px;
+}
+
+/* Old way 
+td.contentheading_news {
+    background: url(../img/news-back.png) no-repeat;
+    font: bold 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #e0e0e0;
+    padding-left: 18px;
+    padding-top: 0px;
+    height: 40px;
+    widtht: 358px;
+}
+*/
+
+/* New way */
+td.contentheading_news {
+    background: url(../img/news-spacer.png) no-repeat;
+    font: bold 12px Verdana, Arial, Helvetica, sans-serif;
+    color: #e0e0e0;
+    padding-left: 22px;
+    padding-top: 1px;
+    height: 40px;
+    widtht: 460px;
+}
+
+
+table.contentpaneopen_news {
+    border-bottom: 40px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-style: solid;
+    border-color: #33333f;
+}
+
+table.contentpaneopen_news td.createdate {
+    padding-bottom: 8px;
+    text-align: right;
+    font-style: italic;
+    font-size: 8px;
+}
+
+/* Have to fix that better... */
+table.blog_news tr td table {
+    width: 478px;
+}
+
+/* For the left menu */
+div.navi span,
+div.navi a.mainlevel,
+div.navi a.mainlevel:link,
+div.navi a.mainlevel:visited {
+    font: bold 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #B7B9C0;
+    text-decoration: none;
+    background: url(../img/m_blanc.jpg);
+    height:19px;
+    display:block;
+    padding-left:21px;
+    padding-top:5px;
+}
+
+div.navi a.mainlevel:hover {
+    font: bold 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #B7B9C0;
+    text-decoration: none;
+    background: url(../img/m_blanc2.jpg);
+}
+
+div.navi div.menu_indent1 {
+    background: url(../img/m_sub.gif);
+    height:18px;
+    padding-left:27px;
+    padding-top:6px;
+}
+
+div.navi a.sublevel,
+div.navi a.sublevel:link,
+div.navi a.sublevel:visited {
+    font: bold 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #B7B9C0;
+    text-decoration: none;
+    display:block;
+    height:18px;
+}
+
+div.navi a.sublevel:hover {
+    font: bold 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #F6F6F6;
+    text-decoration: none;
+}
+
+div.languages {
+    padding-left: 16px;
+    padding-right: 3px;
+    padding-top: 6px;
+}
+
+div.languages a,
+div.languages a:link,
+div.languages a:visited {
+    font: bold 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #B7B9C0;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+div.languages a:hover {
+    font: bold 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #F6F6F6;
+    text-decoration: none;
+}
+
+/* The blog_faq style */
+
+td.contentheading_faq {
+    color: #D05D00;
+    font-weight: bold;
+}
+
+table.contentpaneopen_faq td {
+    background: url(../img/bullet.png) no-repeat 6px 5px;
+    padding-left: 15px;
+    padding-bottom: 30px;
+}
+
+
+/*** Generic style ***/
+
+body {
+    background: url(../img/back.gif);
+    border-top: 37px;
+    padding-top: 37px;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left:0px;
+    margin-right:0px;
+    scrollbar-base-color: #333333;
+    scrollbar-track-color: #333333;
+}
+
+strong, b {
+    color:#D05D00;
+}
+
+.divinfo {
+    width: 250px;
+    padding: 5px;
+    color: #B7B9C0;
+    background-color: #2E2E39;
+    position: absolute;
+    border: 1px solid #A24902;
+}
+	
+.leftback {
+    background: url(../img/navibox_back.gif);
+}
+
+.leftfoot {
+	
+}
+
+span.pathway {
+    white-space: nowrap;
+}
+
+.content {
+    background: #211F26 url(../img/content_back.gif) repeat-x top;
+}
+
+td.newsbox_header {
+    background: url(../img/nb_th.gif);
+    font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+}
+
+td.newsbox_header a,
+td.newsbox_header a:link,
+td.newsbox_header a:visited {
+    font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+    color: #AAAAAA;
+    text-decoration: none;
+}
+
+td.newsbox_header a:hover {
+    color: #D0D0D0;
+}
+
+.newsbox_spacer {
+    background: url(../img/nb_tback.gif);
+}
+
+.newsbox_leftback {
+    background: url(../img/b_left.gif);
+}
+
+.newsbox_rightback {
+    background: url(../img/b_r.gif);
+}
+
+.newsbox_content {
+    font: 11px Verdana, Arial, Helvetica, sans-serif;
+    color: #B7B9C0;
+    background: #33333F;
+    padding: 7px 5px 5px;
+}
+
+.newsbox_bottom {
+    background: url(../img/b_b.gif);
+}
+
+td {
+    font: 11px Verdana, Arial, Helvetica, sans-serif;
+    color: #B7B9C0;
+}
+
+.rightback {
+    background: url(../img/rightback.gif);
+}
+
+DIV.newsletter {
+    padding-right: 10px;
+}
+
+DIV.newsletter TD {
+    font: 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #6C6675;
+}
+
+.inputbox {
+    font: 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #6C6675;
+    background: #2E2935;
+    padding: 2px;
+    border-top: 1px solid #111014;
+    border-right: 1px solid #403B49;
+    border-bottom: 1px solid #403B49;
+    border-left: 1px solid #111014;
+    margin-top:3px;
+}
+
+.button {
+    font: bold 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #6C6675;
+    background: #2E2935;
+    padding: 2px;
+    border-top: 1px solid #403B49;
+    border-right: 1px solid #111014;
+    border-bottom: 1px solid #111014;
+    border-left: 1px solid #403B49;
+    cursor:pointer;
+}
+
+.optiontext {
+    color: #D05D00;
+}
+
+.noborder {
+    border:0px
+}
+
+.inputforms {
+    font: 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #D05D00;
+    background: #2E2935;
+}
+
+.absmiddle {
+    vertical-align:middle
+}
+
+a:link,
+a:visited {
+    font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+    color: #B7B9C0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+DIV.resellers a:link,
+DIV.resellers a:visited {
+    font: bold 10px Verdana, Arial, Helvetica, sans-serif;
+    color: #B7B9C0;
+    text-decoration: none;
+}
+
+DIV.resellers a: hover {
+    color: #fff;
+}
+
+.div_naviend {
+    height:7px;
+    background: url(../img/navi_end.jpg);
+}
+
+
+h1, h2 {
+    color:#D05D00
+}
+
+a.nav:link,
+a.nav:visited {
+    font:10px Verdana, Arial, Helvetica, sans-serif;
+    color: #fff;
+    background: #2E2935;
+    padding: 3px;
+    border: 1px solid #403B49;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.nav:hover,.nav {
+    font:10px Verdana, Arial, Helvetica, sans-serif;
+    color: #D05D00;
+    background: #2E2935;
+    padding: 3px;
+    border: 1px solid #403B49;
+    text-decoration: none;
+    cursor: pointer;
+}

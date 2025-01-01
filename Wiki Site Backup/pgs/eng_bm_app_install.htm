@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Crystal Chip - BootManager - Application Installation Tutorial,English Information and Tutorials,Jones23" />
+		<link rel="shortcut icon" href="../img/cc-wiki.ico" />
+		<title>Crystal Chip - BootManager - Application Installation Tutorial - Ccwiki</title>
+		<link rel="stylesheet" type="text/css" media="screen,projection" href="../css/main.css" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/commonPrint.css" />
+		<style type="text/css">/*<![CDATA[*/
+@import "/ccwiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/ccwiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/ccwiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Crystal Chip - BootManager - Application Installation Tutorial</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Ccwiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>This is a detailed "step-by-step" tutorial about how to install applications (homebrew), to use with the BootManager.<br />
+This tutorial is for BootManager v2.0.x releases. (that's important, if the APPINFO scripts should change)
+</p><p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Needed_Tools"><span class="tocnumber">1</span> <span class="toctext">Needed Tools</span></a></li>
+<li class='toclevel-1'><a href="#Instructions"><span class="tocnumber">2</span> <span class="toctext">Instructions</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Prepare_your_App"><span class="tocnumber">2.1</span> <span class="toctext">Prepare your App</span></a></li>
+<li class='toclevel-2'><a href="#Installation_from_CD"><span class="tocnumber">2.2</span> <span class="toctext">Installation from CD</span></a></li>
+<li class='toclevel-2'><a href="#Installation_from_USB"><span class="tocnumber">2.3</span> <span class="toctext">Installation from USB</span></a></li>
+<li class='toclevel-2'><a href="#Installation_from_PCHost"><span class="tocnumber">2.4</span> <span class="toctext">Installation from PCHost</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;action=edit&amp;section=1" title="Edit section: Needed Tools">edit</a>]</div><a name="Needed_Tools"></a><h2> Needed Tools </h2>
+<ul><li> a texteditor (the Windows Notepad is sufficient)
+</li><li> a burning program (preferably Nero or BurnAtOnce, only needed if you want to install from CD)
+</li><li> and the official firmware (for "makeit.bat" and "cd-tool.exe", only needed if you want to install from CD)
+</li><li> "PS2Client" v3.0.0 (only needed for installation via network, view the <a href="eng_info_tutorials.htm" title="English Information and Tutorials">Information and Tutorials</a> for the download link)
+</li><li> a USB drive (only needed for installation from USB)
+</li></ul>
+<p>And of course you'll need the application you wish to install, before you can move on.<br />
+I use <b>LaunchELF</b> as example, cause it's the first app you should install anyway. But it can be used for any app, if you change the scripts respectively.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;action=edit&amp;section=2" title="Edit section: Instructions">edit</a>]</div><a name="Instructions"></a><h2> Instructions </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;action=edit&amp;section=3" title="Edit section: Prepare your App">edit</a>]</div><a name="Prepare_your_App"></a><h3> Prepare your App </h3>
+<ol><li> Extract the official firmware and LaunchELF to the harddrive.
+</li><li> Rename the "BOOT.ELF" in the LaunchELF folder to "ULE.ELF" and copy it to the "APPS" folder of the firmware, into a subfolder named "ULE".
+</li><li> Copy the "APPINFO.PBT" in the "PS2LINK" folder into the "ULE" directory.
+</li><li> Open the "APPINFO.PBT" with your editor and change the following sections
+</li></ol>
+<pre> SET "TITLE" "PS2Link"
+ SET "VERSION" "v1.51"
+ SET "AUTHOR" "PS2DEV.org"
+ SET "DESC" "Run applications and transfer files over network."
+</pre>
+<pre>&nbsp;:INSTALL
+   IF FAIL COPY "$PWD$" "$ARG2$/PS2LINK"
+     MESSAGE "Failed installing $TITLE$!"
+     RRM "$ARG2$/PS2LINK"
+     RETURN -1
+   ENDIF
+   EXIT 0
+</pre>
+<pre>&nbsp;:RUN
+   REDIRFILE "$PWD$/IPCONFIG.DAT" "$BM.BM_PATH$/CONFIG/IPCONFIG.DAT"
+   LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/PS2LINK.ELF"
+   EXIT "0"
+</pre>
+<dl><dd>to this:
+</dd></dl>
+<pre> SET "TITLE" "LaunchELF"
+ SET "VERSION" "v4.01"
+ SET "AUTHOR" "EP, dlanor, Polo35"
+ SET "DESC" "Run ELFs and manage your files on MC, HDD or network."
+</pre>
+<pre>&nbsp;:INSTALL
+   IF FAIL COPY "$PWD$" "$ARG2$/ULE"
+     MESSAGE "Failed installing $TITLE$!"
+     RRM "$ARG2$/ULE"
+     RETURN -1
+   ENDIF
+   EXIT 0
+</pre>
+<pre>&nbsp;:RUN
+   LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/ULE.ELF"
+   EXIT "0"
+</pre>
+<dl><dd>Then save the file and close the editor.
+</dd></dl>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;action=edit&amp;section=4" title="Edit section: Installation from CD">edit</a>]</div><a name="Installation_from_CD"></a><h3> Installation from CD </h3>
+<ol><li> Move into your firmware directory and execute the "makeit.bat" to create the CD image.
+</li><li> Burn the fresh created image to CD, using your favorite burning software. In "Nero" select the "cc-upgrade.bin" file and set "Mode2".
+</li><li> It's time to turn on your PS2. Go to the "Application Browser" in the BootManager main menu and insert the CD.
+</li><li> Choose "Install Application" ,choose "CD/DVD", choose "LaunchELF", choose the device you wish to install the app to and push "X". Now, LaunchELF is being installed to the device of your choice.
+</li><li> To start the application , go back to the "App Browser" with the "circle" button and select the app inside the "Run Application" menu on the device it was installed to.
+</li></ol>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;action=edit&amp;section=5" title="Edit section: Installation from USB">edit</a>]</div><a name="Installation_from_USB"></a><h3> Installation from USB </h3>
+<p>NOTE: Make sure your USB device is formated in FAT(16) or FAT32. Some devices only work with FAT32, some devices are not supported by the PS2's USB drivers.
+</p>
+<ol><li> Copy the "BM" folder from your firmware directory to the root of your USB pendrive.
+</li><li> Connect the USB stick to your PS2 and turn on the PS2. Go to the "Application Browser" in the BootManager main menu.
+</li><li> Choose "Install Application" ,choose "USBHDD", choose "LaunchELF", choose the device you wish to install the app to and push "X". Now, LaunchELF is being installed to the device of your choice.
+</li><li> To start the application , go back to the "App Browser" with the "circle" button and select the app inside the "Run Application" menu on the device it was installed to.
+</li></ol>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;action=edit&amp;section=6" title="Edit section: Installation from PCHost">edit</a>]</div><a name="Installation_from_PCHost"></a><h3> Installation from PCHost </h3>
+<ol><li> Copy the content of the PS2Client.zip into the "FILES" directory of your firmware folder. It must be in the same folder as the "BM" folder. Of course, you have to change the IP address in the *.bat files to match your setup.
+</li><li> Turn on your PS2 and start the "Network" and the "PCHost server" inside the "Network Config" menu. Go to the "Application Browser" in the BootManager main menu.
+</li><li> Now execute the "listen.bat" in the "FILES" folder to start PS2Client. Do not close the window that shows up.
+</li><li> Choose "Install Application" ,choose "PCHost", choose "LaunchELF", choose the device you wish to install the app to and push "X". Now, LaunchELF is being installed to the device of your choice.
+</li><li> To start the application , go back to the "App Browser" with the "circle" button and select the app inside the "Run Application" menu on the device it was installed to.
+</li></ol>
+<hr />
+<p>I hope that wasn't to difficult to understand.
+</p><p>Have fun with your new applications!
+</p><p><br />
+--<a href="http://crystal-chips.com/ccwiki/index.php?title=User:Jones23" title="User:Jones23">Jones23</a> 18:27, 6 September 2006 (CEST)
+</p>
+<!-- Saved in parser cache with key ps2scene_ccwik:pcache:idhash:1374-0!1!0!0!!en!2 and timestamp 20070506195226 -->
+<div class="printfooter">
+Retrieved from "<a href="eng_bm_app_install.htm">eng_bm_app_install.htm</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="http://crystal-chips.com/ccwiki/index.php?title=Talk:Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Userlogin&amp;returnto=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../img/wiki.png);" href="../ccwiki-index.htm" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../ccwiki-index.htm">Main Page</a></li>
+				<li id="n-Forums"><a href="http://www.ps2-scene.org/forums/forumdisplay.php?f=109">Forums</a></li>
+				<li id="n-Crystal-Chips-Main-Site"><a href="../index.htm">Crystal Chips Main Site</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Languages'>
+		<h5>Languages</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n--English"><a href="eng_info_tutorials.htm"> English</a></li>
+				<li id="n-German"><a href="ger_info_anleitungen.htm">German</a></li>
+				<li id="n--Italian"><a href="http://norcalmods.com/ccwiki/index.php?title=Italian_Information_and_Tutorials"> Italian</a></li>
+				<li id="n--Spanish"><a href="http://norcalmods.com/ccwiki/index.php?title=Spanish_Information_and_Tutorials"> Spanish</a></li>
+				<li id="n--French"><a href="http://norcalmods.com/ccwiki/index.php?title=French_Information_and_Tutorials"> French</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/ccwiki/index.php?title=Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Whatlinkshere/Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Recentchangeslinked/Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial">Related changes</a></li>
+<li id="t-specialpages"><a href="http://crystal-chips.com/ccwiki/index.php?title=Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="http://crystal-chips.com/ccwiki/index.php?title=Crystal_Chip_-_BootManager_-_Application_Installation_Tutorial&amp;oldid=1648">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../img/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+				<div id="f-copyrightico"><a href="http://creativecommons.org/licenses/by-nc-nd/2.5/"><img src="../img/somerights20.png" alt='Attribution-NonCommercial-NoDerivs 2.5 ' /></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 18:17, 17 February 2007.</li>
+				<li id="viewcount">This page has been accessed 2,299 times.</li>
+				<li id="privacy"><a href="http://crystal-chips.com/ccwiki/index.php?title=Ccwiki:Privacy_policy" title="Ccwiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://crystal-chips.com/ccwiki/index.php?title=Ccwiki:About" title="Ccwiki:About">About Ccwiki</a></li>
+				<li id="disclaimer"><a href="http://crystal-chips.com/ccwiki/index.php?title=Ccwiki:General_disclaimer" title="Ccwiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by norcalmods.com in 0.74 secs. -->
+</body></html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Pbat application Breakdown" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<title>Trouble Shooting - The Crystal Chip Wiki</title>
+		<link rel="stylesheet" type="text/css" media="screen,projection" href="../css/main.css" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/commonPrint.css" />
+		<style type="text/css">/*<![CDATA[*/
+@import "/ccwiki/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/ccwiki/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/ccwiki/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head><body class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Trouble Shooting</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From The Crystal Chip Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>Here you will find helpful tips that will hopefully guide you through any problems you may be having with your CC install.
+</p><p><br>
+</p>
+<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Diagnosis_LED"><span class="tocnumber">1</span> <span class="toctext">Diagnosis LED</span></a>
+<ul>
+<li class="toclevel-2"><a href="#LED_Reading"><span class="tocnumber">1.1</span> <span class="toctext">LED Reading</span></a></li>
+<li class="toclevel-2"><a href="#Individual_Wire_Tests"><span class="tocnumber">1.2</span> <span class="toctext">Individual Wire Tests</span></a></li>
+<li class="toclevel-2"><a href="#LED_Media_Examples"><span class="tocnumber">1.3</span> <span class="toctext">LED Media Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#BSOD_issues"><span class="tocnumber">2</span> <span class="toctext">BSOD issues</span></a></li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://ccwiki.psx-scene.com/index.php?title=Trouble_Shooting&amp;action=edit&amp;section=1" title="Edit section: Diagnosis LED">edit</a>]</div><a name="Diagnosis_LED"></a><h2> Diagnosis LED </h2>
+<p>The Diagnosis LED can aid you in trouble shooting an install error.
+The Diagnosis LED only checks bios wires. The bios wires consist of M,
+N, O, P, Q, R, T, U, V and W. What this mean is that if you have a
+problem with any other solder points the Diagnosis LED can not give a
+direct reading of those wires. However with a few simple observations
+problems with non-bios wires can be concluded, this will be covered
+latter.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://ccwiki.psx-scene.com/index.php?title=Trouble_Shooting&amp;action=edit&amp;section=2" title="Edit section: LED Reading">edit</a>]</div><a name="LED_Reading"></a><h3> LED Reading </h3>
+<p>First we will cover the readings you may receive from the Diagnosis LED. The LED can give 3 different readings.
+</p>
+<ul><li> Quick Flash - bios wires are installed correctly (all clear)
+</li><li> 2 Second Green Flash - bios wire(s) are incorrect 
+</li><li> Solid Green - bios wire(s) are incorrect
+</li></ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://ccwiki.psx-scene.com/index.php?title=Trouble_Shooting&amp;action=edit&amp;section=3" title="Edit section: Individual Wire Tests">edit</a>]</div><a name="Individual_Wire_Tests"></a><h3> Individual Wire Tests </h3>
+<p>These tests were performed on a V4 PS2 with a CC2.0 SLE installed.
+Other console versions and CC versions should read similar however this
+has not been tested yet. Each wire was tested individually by lifting
+it from the CC then booting the console. </p>
+<ul><li>W - quick flash - also with a BSOD
+</li><li>R - solid green
+</li><li>M - 2 second green - also with a BSOD
+</li><li>N - 2 second green
+</li><li>O - solid green
+</li><li>P - solid green
+</li><li>Q - solid green
+</li><li>T - solid green
+</li><li>U - solid green
+</li><li>V - solid green
+</li></ul>
+<p>Now you may be wondering why when W was lifted we received a quick
+flash (all clear) from the LED. This is what we will call a false
+positive. Apparently the LED cant test the W wire or has error with
+testing the W wire. You will also notice that you receive a BSOD with
+the W lifted which is a dead giveaway that you have a problem.
+</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://ccwiki.psx-scene.com/index.php?title=Trouble_Shooting&amp;action=edit&amp;section=4" title="Edit section: LED Media Examples">edit</a>]</div><a name="LED_Media_Examples"></a><h3> LED Media Examples </h3>
+<p>Here are a few examples of the LED in action. This is the V4 we
+tested. You will notice that the HA wire is missing. This is a non-bios
+wire that will be discussed latter. It was intentionally left off to
+demonstrate how the LED will not test non-bios wires. In each video
+file you can see the 3 different readings you can receive . You can
+also clearly see the bios wires lifted.
+</p>
+<ul><li><a href="http://www.norcalmods.com/bin/cc/video/good-bios.wmv" class="external text" title="http://www.norcalmods.com/bin/cc/video/good-bios.wmv" rel="nofollow">Video is of a good bios LED. Windows Media File 755kb</a>
+</li></ul>
+<ul><li><a href="http://www.norcalmods.com/bin/cc/video/bad-bios-w-lifted.wmv" class="external text" title="http://www.norcalmods.com/bin/cc/video/bad-bios-w-lifted.wmv" rel="nofollow">Video
+is of the W wire lifted, the LED is giving a false positive. Also
+notice you do not hear the PS2 boot audio. Windows media File 802kb</a>
+</li></ul>
+<ul><li><a href="http://www.norcalmods.com/bin/cc/video/bad-bios-n-lifted.wmv" class="external text" title="http://www.norcalmods.com/bin/cc/video/bad-bios-n-lifted.wmv" rel="nofollow">Video of bad bios with N lifted. Windows Media File 755kb</a>
+</li></ul>
+<ul><li><a href="http://www.norcalmods.com/bin/cc/video/bad-bios-v-lifted.wmv" class="external text" title="http://www.norcalmods.com/bin/cc/video/bad-bios-v-lifted.wmv" rel="nofollow">Video of bad bios with V lifted. Windows Media File 747kb</a>
+</li></ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://ccwiki.psx-scene.com/index.php?title=Trouble_Shooting&amp;action=edit&amp;section=5" title="Edit section: BSOD issues">edit</a>]</div><a name="BSOD_issues"></a><h2> BSOD issues </h2>
+<p>This document is unfinished. Return for more helpful information soon.
+</p>
+<!-- Saved in parser cache with key ccwiki:pcache:idhash:1451-0!1!0!0!!en!2 and timestamp 20080919010811 -->
+<div class="printfooter">
+Retrieved from "<a href="http://ccwiki.psx-scene.com/index.php/Trouble_Shooting">http://ccwiki.psx-scene.com/index.php/Trouble_Shooting</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="/ccwiki/index.php?title=Pbat_application_Breakdown">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="/ccwiki/index.php?title=Talk:Pbat_application_Breakdown&amp;action=edit">Discussion</a></li>
+				 <li id="ca-edit"><a href="/ccwiki/index.php?title=Pbat_application_Breakdown&amp;action=edit">Edit</a></li>
+				 <li id="ca-history"><a href="/ccwiki/index.php?title=Pbat_application_Breakdown&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="/ccwiki/index.php?title=Special:Userlogin&amp;returnto=Pbat_application_Breakdown">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../img/wiki.png);" href="../ccwiki-index.htm" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../ccwiki-index.htm">Main Page</a></li>
+				<li id="n-Forums"><a href="http://www.ps2-scene.org/forums/forumdisplay.php?f=109">Forums</a></li>
+				<li id="n-Crystal-Chips-Main-Site"><a href="../index.htm">Crystal Chips Main Site</a></li>
+			</ul>
+		</div>
+	</div>
+		<div class='portlet' id='p-Languages'>
+		<h5>Languages</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n--English"><a href="eng_info_tutorials.htm"> English</a></li>
+				<li id="n-German"><a href="ger_info_anleitungen.htm">German</a></li>
+				<li id="n--Italian"><a href="http://norcalmods.com/ccwiki/index.php?title=Italian_Information_and_Tutorials"> Italian</a></li>
+				<li id="n--Spanish"><a href="http://norcalmods.com/ccwiki/index.php?title=Spanish_Information_and_Tutorials"> Spanish</a></li>
+				<li id="n--French"><a href="http://norcalmods.com/ccwiki/index.php?title=French_Information_and_Tutorials"> French</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/ccwiki/index.php?title=Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" type="text" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" value="Search" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="/ccwiki/index.php?title=Special:Whatlinkshere/Pbat_application_Breakdown">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="/ccwiki/index.php?title=Special:Recentchangeslinked/Pbat_application_Breakdown">Related changes</a></li>
+<li id="t-specialpages"><a href="/ccwiki/index.php?title=Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="/ccwiki/index.php?title=Pbat_application_Breakdown&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="/ccwiki/index.php?title=Pbat_application_Breakdown&amp;oldid=1416">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="Trouble_Shooting_files/poweredby_mediawiki_88x31.png" alt="MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://creativecommons.org/licenses/by-nc-nd/2.5/"><img src="Trouble_Shooting_files/somerights20.png" alt="Attribution-NonCommercial-NoDerivs 2.5 "></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 17:27, 30 June 2007.</li>
+				<li id="viewcount">This page has been accessed 154 times.</li>
+				<li id="copyright">Content is available under <a href="http://creativecommons.org/licenses/by-nc-nd/2.5/" class="external" title="http://creativecommons.org/licenses/by-nc-nd/2.5/" rel="nofollow">Attribution-NonCommercial-NoDerivs 2.5 </a>.</li>
+				<li id="privacy"><a href="http://ccwiki.psx-scene.com/index.php/The_Crystal_Chip_Wiki:Privacy_policy" title="The Crystal Chip Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://ccwiki.psx-scene.com/index.php/The_Crystal_Chip_Wiki:About" title="The Crystal Chip Wiki:About">About The Crystal Chip Wiki</a></li>
+				<li id="disclaimer"><a href="http://ccwiki.psx-scene.com/index.php/The_Crystal_Chip_Wiki:General_disclaimer" title="The Crystal Chip Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by ccwiki.psx-scene.com in 0.16 secs. -->
+</body></html>
