@@ -343,7 +343,7 @@ SET "BM.TXT_PS2_CONFIG" "PS2 Configuration"
 SET "BM.TXT_HINT_PS2_CONFIG" "Change the settings for PS2 games and software."
 
 SET "BM.TXT_MEGAMEM_PATCHER" "MegaMemory Patcher"
-SET "BM.TXT_HINT_MEGAMEM_PATCHER" "Turn on/off patcher for enabling older MegaMemory/MAX Memory cards."
+SET "BM.TXT_HINT_MEGAMEM_PATCHER" "Turn on/off patcher for enabling older MegaMemory/MAX Memory cards. Not Compatible with Slims"
 
 SET "BM.TXT_ATAD_PATCHER" "ATAD(HDD) Patcher"
 SET "BM.TXT_HINT_ATAD_PATCHER" "Turn on/off patcher for ATAD to unlock non-Sony HDD with HDD-enabled PS2 games."
