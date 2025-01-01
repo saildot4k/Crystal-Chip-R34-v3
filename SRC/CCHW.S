@@ -609,13 +609,13 @@ IF _F_CC_DF_Detect
 ; AT45DB Family D7H Opcode Section 11.4
 ; Bits 5 through 2 indicate size but have no meaning in decimal
 ; Shift Right 3, then mask lowest 3 bits
-; AT45DB011B  10001100  001 0x01 DF_Page264  128KB ( 1Mbit) CC1.1 Late/ CC1.2
-; AT45DB021D  10010100  010 0x02 DF_Page264  256KB ( 2Mbit)
+; AT45DB011B    10001100    001 0x01 DF_Page264  128KB ( 1Mbit) CC1.1 Late/ CC1.2
+; AT45DB021D    10010100    010 0x02 DF_Page264  256KB ( 2Mbit)
 ; AT45DB041D	10011100	011 0x03 DF_Page264  512KB ( 4Mbit)
 ; AT45DB081D	10100100	100 0x04 DF_Page264  1MB   ( 8MBit) CC2.0 PRO
 ; AT45DB161D	10101100	101 0x05 DF_Page528  2MB   (16Mbit) CC2.0 PRO SLE
 ; AT45DB321D	10110100	110 0x06 DF_Page528  4MB   (32Mbit)
-; AT45DB642D	10111100	111 0x07 DF_Page1056 8MB   (64Mbit)
+; AT45DB641E	10111100	111 0x07 DF_Page1056 8MB   (64Mbit)
 
 CC_DF_Detect            PROC
     addiu       sp, sp, -0x10
@@ -632,9 +632,9 @@ CC_DF_Detect            PROC
     sltiu       at, t1, 0x07      ; Check if t1 < 7
     bnez        at, _set_528bytes
 
-    ; Default case for 1056 bytes
-    li          t2, 1056          ; Set page size for 1056-byte dataflash
-    la          t3, DF_Page1056   ; Set DF_Page handler for 1056-byte dataflash
+    ; Default case for 264 byte pages
+    li          t2, 264          ; Set page size for 264-byte dataflash
+    la          t3, DF_Page264   ; Set DF_Page handler for 264-byte dataflash
     b           _done
 
 _set_264bytes:
@@ -706,40 +706,6 @@ DF_Page528              PROC
                         or          v0, v0, a0
 
 DF_Page528              ENDP
-
-; void DF_Page1056(u8 opcode, u16 paddr, u16 baddr);
-DF_Page1056              PROC
-
-                        ; Extract the lower 8 bits of baddr and shift left by 8
-                        andi        v0, a2, 0xFF
-                        sll         v0, v0, 8                           ; v0 = (baddr & 0xFF) << 8
-
-                        ; Extract the next 3 bits of baddr (BA10-BA8) and combine
-                        srl         a2, a2, 8
-                        andi        a2, a2, 0x07                        ; Mask top 3 bits of baddr
-                        or          v0, v0, a2
-
-                        ; Extract the lower bits of paddr (PA5-PA0) and shift left
-                        sll         v1, a1, 3                           ; Shift paddr left 3 bits
-                        andi        v1, v1, 0xF8                        ; Mask for alignment
-                        or          v0, v0, v1
-
-                        ; Prepare for the next block of address bits
-                        sll         v0, v0, 8
-
-                        ; Extract the middle bits of paddr (PA12-PA6) and combine
-                        srl         a1, a1, 5                           ; Shift right to get PA12-PA6
-                        andi        a1, a1, 0x7E                        ; Optimize mask for precise alignment (PA12-PA6)
-                        or          v0, v0, a1
-
-                        ; Shift the result left for the opcode
-                        sll         v0, v0, 8
-
-                        ; Combine opcode into the final address
-                        jr          ra
-                        or          v0, v0, a0
-
-DF_Page1056              ENDP
 
 dfdev                   TABLE
 df_bytes_per_page:      DW          0
