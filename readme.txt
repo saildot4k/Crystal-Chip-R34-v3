@@ -30,18 +30,17 @@ Release 34 V3 by R3Z3N Dec 7 2024
           Others can experiment as needed by editing BM/FWS/LATEST/FWINFO.PBT
 	- Used El Isras USB drivers for exfat support: BDM Assault (https://github.com/israpps/BDMAssault)
   	- Changed scripts to allow apps to be installed when booted from recovery cd.
-  	- Changed scripts to only shop options for chip installed! IE no more seeing DFFS
-          options on CC 1.0 and 1.1.
- 	 - Changed scripts so that FW choices are only applicable to the chip installed.
+  	- Changed scripts to only show options for chip installed! IE no more seeing DFFS
+          options on CC 1.0 and 1.1. 1.2 no longer shows remove dffs:/BM
+ 	- Changed scripts so that FW choices are only applicable to the chip installed.
           IE CC1.0-1.2 can choose BM run point, CC2.0 DFFS only.
+        - Show Info gives a little more clarity IE where is BM executed from, what console region codes stand for etc.
     To Do:
 	- Fix FW for running BM via USB/HDD specific firmware. Though do we want that?I think it to be too convoluted
           for most users...IE USB/HDD IRXs still have to be on MC0/1
 	- CC1.X support loading BM from any source without needing multiple FW IE boot order
-	- Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC chip. Needs 1052-byte
-          page flash implemented. (IN TESTING I think CC team had a mistake for CC2.0 SLE)
-          notes for R34v1 and v2 in CCHW.S are sure incorrect for page size used along with
-          output expected.
+	- Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC or AT45DB621E chip. 1056 byte page options
+          in seperate branches for now. Confirmed working but still testing....
 
 Release 34 v2 by Jones23
     Fixes/Changes:
