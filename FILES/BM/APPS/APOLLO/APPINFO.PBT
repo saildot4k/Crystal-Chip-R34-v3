@@ -5,10 +5,10 @@
 #
 
 # Change this information to describe the application.
-SET "TITLE" "wLE 4.43x_ISR"
-SET "VERSION" "4.43x_ISR"
-SET "AUTHOR" "El Isra"
-SET "DESC" "Application Launcher and File Manager w Exfat Support"
+SET "TITLE" "Apollo Save Tool"
+SET "VERSION" "1.02"
+SET "AUTHOR" "Bucanero"
+SET "DESC" "Save Game Manager"
 SET "MEDIAS" ""
 #
 
@@ -25,9 +25,9 @@ RETURN "-1"
     EXIT "0"
 
 :INSTALL
-    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/WLE_ISR"
+    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/APOLLO"
         MESSAGE "Failed installing $TITLE$!"
-        RRM "$ARG2$:/BM/APPS/WLE_ISR"
+        RRM "$ARG2$:/BM/APPS/APOLLO"
         RETURN -1
     ENDIF
     EXIT 0
@@ -65,5 +65,5 @@ RETURN "-1"
             BREAK
     ENDS
 
-    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/WLE.ELF"
+    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/APOLLO.ELF"
     EXIT "0"
