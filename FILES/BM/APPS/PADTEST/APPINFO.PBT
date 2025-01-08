@@ -5,10 +5,10 @@
 #
 
 # Change this information to describe the application.
-SET "TITLE" "HDD Tester"
-SET "VERSION" "1.1"
-SET "AUTHOR" "PS2Homebrew"
-SET "DESC" "Test HDD Speeds"
+SET "TITLE" "Controller Tester"
+SET "VERSION" "1.0"
+SET "AUTHOR" "jbit"
+SET "DESC" "To test vibration, hold 'triangle', then move the left joystick down for the strong motor (that seems to have 96 positions), or press up and down on the directional pad for the weak motor (that has 2 positions)."
 SET "MEDIAS" ""
 #
 
@@ -40,5 +40,5 @@ RETURN "-1"
     EXIT 0
 
 :RUN
-    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/hddtester.elf"
+    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/disk-launcher.elf"
     EXIT "0"
