@@ -5,10 +5,10 @@
 #
 
 # Change this information to describe the application.
-SET "TITLE" "wLE 4.43x_ISR"
-SET "VERSION" "4.43x_ISR"
-SET "AUTHOR" "El Isra"
-SET "DESC" "Application Launcher and File Manager w Exfat Support"
+SET "TITLE" "wLE Official"
+SET "VERSION" "f35d782 Sept 23s"
+SET "AUTHOR" "Many"
+SET "DESC" "Application Launcher and File Manager"
 SET "MEDIAS" ""
 #
 
@@ -25,9 +25,9 @@ RETURN "-1"
     EXIT "0"
 
 :INSTALL
-    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/WLE_ISR"
+    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/WLE_OFFICIAL"
         MESSAGE "Failed installing $TITLE$!"
-        RRM "$ARG2$:/BM/APPS/WLE_ISR"
+        RRM "$ARG2$:/BM/APPS/WLE_OFFICIAL"
         RETURN -1
     ENDIF
     EXIT 0

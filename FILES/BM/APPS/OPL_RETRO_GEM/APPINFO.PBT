@@ -5,10 +5,10 @@
 #
 
 # Change this information to describe the application.
-SET "TITLE" "OPL Retro Gem"
-SET "VERSION" ""
+SET "TITLE" "OPL for RetroGem"
+SET "VERSION" "1.2 Beta?"
 SET "AUTHOR" "Cosmic Scale"
-SET "DESC" "OPL with Game ID for RetroGem"
+SET "DESC" "Open PS2 Loader with Game ID support for RetroGem"
 SET "MEDIAS" ""
 #
 
@@ -25,9 +25,9 @@ RETURN "-1"
     EXIT "0"
 
 :INSTALL
-    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/"
+    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/OPL_RETRO_GEM"
         MESSAGE "Failed installing $TITLE$!"
-        RRM "$ARG2$:/BM/APPS/"
+        RRM "$ARG2$:/BM/APPS/OPL_RETRO_GEM"
         RETURN -1
     ENDIF
     EXIT 0
@@ -40,5 +40,30 @@ RETURN "-1"
     EXIT 0
 
 :RUN
-    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/OPNPS2LD.ELF"
+    ADDWIDGET "CALL" "$TITLE$ with SHUTDOWN" "Launch $TITLE$ with the SHUTDOWN Option" "$ARG0$" "RUN_WITH_OPTION" "1"
+    ADDWIDGET "CALL" "$TITLE$ with autoload of drivers OFF" "Launch $TITLE$ with the AUTOLOAD_FSD_EN option" "$ARG0$" "RUN_WITH_OPTION" "2"
+    ADDWIDGET "CALL" "$TITLE$ without any option" "Launch $TITLE$ without any option" "$ARG0$" "RUN_WITH_OPTION" "0"
+    RETURN 0
+
+:RUN_WITH_OPTION
+    ECHO "$ARG2$"
+    SWITCH "$ARG2$"
+        CASE 1
+        #SHUTDOWN
+            ECHO "SHUTDOWN"
+            SHUTDOWN "MM"
+            BREAK
+        CASE 2
+        #DRIVERS ON
+            ECHO "CC DRIVERS ON"
+            SET "BM.AUTOLOAD_FSD_EN" "0"
+            BREAK
+        CASE 0
+        #NONE
+            DEFAULT
+            ECHO "NONE"
+            BREAK
+    ENDS
+
+    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/OPL.ELF"
     EXIT "0"
