@@ -605,7 +605,7 @@ ENDIF
 
 IF _F_CC_DF_Detect
 
-; v1 of 0x07 setting for AT45DB621E
+; v1 of 0x07 setting for AT45DB621E Simplified so only 0x05,0x06 apply 528byte pages
 ; AT45DB Family D7H Opcode Section 11.4
 ; Bits 5 through 2 indicate size but have no meaning in decimal
 ; Shift Right 3, then mask lowest 3 bits
@@ -626,16 +626,10 @@ CC_DF_Detect            PROC
     srl         t1, v0, 3         ; Shift right by 3 bits
     andi        t1, t1, 0x07      ; Mask the lowest 3 bits
 
-    sltiu       at, t1, 0x05      ; Check if t1 < 5
-    bnez        at, _set_264bytes
-
-    sltiu       at, t1, 0x07      ; Check if t1 < 7
-    bnez        at, _set_528bytes
-
-    ; Default case for 264 byte pages
-    li          t2, 264          ; Set page size for 264-byte dataflash
-    la          t3, DF_Page264   ; Set DF_Page handler for 264-byte dataflash
-    b           _done
+    li          at, 0x05          ; Check if t1 == 0x05
+    beq         t1, at, _set_528bytes
+    li          at, 0x06          ; Check if t1 == 0x06
+    beq         t1, at, _set_528bytes
 
 _set_264bytes:
     li          t2, 264           ; Set page size for 264-byte dataflash
@@ -645,7 +639,6 @@ _set_264bytes:
 _set_528bytes:
     li          t2, 528           ; Set page size for 528-byte dataflash
     la          t3, DF_Page528    ; Set DF_Page handler for DF_Page528
-    b           _done
 
 _done:
     la          v0, dfdev
