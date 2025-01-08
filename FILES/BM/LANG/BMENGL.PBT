@@ -167,7 +167,7 @@ SET "BM.TXT_CCFLASH_DESC" "Crystal Chip FlashDrive"
 SET "BM.TXT_CDVD_DESC" "CD/DVD Disc Drive"
 SET "BM.TXT_HOST_DESC" "PC Host via PS2Client"
 SET "BM.TXT_HOST_DESC_1" "PC Host driver"
-SET "BM.TXT_USB_DESC" "USB Hard Drive/Pendrive"
+SET "BM.TXT_USB_DESC" "USB Drive"
 SET "BM.TXT_USB_DESC_1" "USB drivers"
 SET "BM.TXT_HDD_DESC" "PS2 Hard Drive"
 SET "BM.TXT_HDD_DESC_1" "PS2 HDD drivers"
@@ -197,9 +197,9 @@ SET "BM.TXT_HINT_MC1_ERASE" "Delete the whole content on the Memory Card in slot
 # System Information
 SET "BM.TXT_SYS_INFO" "System Information"
 SET "BM.TXT_HINT_SYS_INFO" "View information about your system hardware."
-SET "BM.TXT_CONSOLE_BIOS" "Console BIOS ROM"
+SET "BM.TXT_CONSOLE_BIOS" "Console BOOTROM"
 SET "BM.TXT_CONSOLE_VERSION" "Console Version"
-SET "BM.TXT_CONSOLE_REGION" "Console Region"
+SET "BM.TXT_CONSOLE_REGION" "Region Info"
 SET "BM.TXT_CONSOLE_MODEL" "Console Model"
 
 # Configuration Menu
