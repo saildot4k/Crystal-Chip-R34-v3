@@ -605,7 +605,7 @@ ENDIF
 
 IF _F_CC_DF_Detect
 
-; v3 of 1056-byte page testing
+; v1 of 0x07 setting for AT45DB621E
 ; AT45DB Family D7H Opcode Section 11.4
 ; Bits 5 through 2 indicate size but have no meaning in decimal
 ; Shift Right 3, then mask lowest 3 bits
