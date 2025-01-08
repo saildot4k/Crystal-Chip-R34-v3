@@ -605,7 +605,7 @@ ENDIF
 
 IF _F_CC_DF_Detect
 
-; v1 of 0x07 setting for AT45DB621E Simplified so only 0x05,0x06 apply 528byte pages
+; v1 of 0x07 setting for AT45DB641E Simplified so only 0x05,0x06 apply 528byte pages
 ; AT45DB Family D7H Opcode Section 11.4
 ; Bits 5 through 2 indicate size but have no meaning in decimal
 ; Shift Right 3, then mask lowest 3 bits
