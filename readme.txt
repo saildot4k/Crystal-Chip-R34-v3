@@ -11,60 +11,79 @@ hardware unless otherwise specified.  Software written by other developers are c
 You MUST boot the upgrade in Recovery Mode (Press Reset 3x) when an older version of BootManager is installed on your system!  Failure
 to do so may result in a black screen! Otherwise try to press reset 6x and boot the CD.
 
-CC.1.2 and CC 2.0 can be upgraded to a 4MB DataFlash (AT45DB321D) without any source code changes. 8MB DataFlash (AT45DB642D) needs support for 1056 byte Pages (hopefully incoming. Have testing to do.) Otherwise AT45DB641E can be used. Determine best solution currently (most likely AT45D641E as is easily found and cheaper, and doesn't require 1056 byte pages)
+CC.1.2 and CC 2.0 can be upgraded to a 4MB DataFlash (AT45DB321D) without any source code changes. 8MB DataFlash (AT45DB642D) needs support for 1056 byte Pages (hopefully incoming. Have testing to do.) Otherwise AT45DB641E-MWHN can be used(still testing, not in this branch). Determine best solution currently (most likely AT45D641E as is easily found and cheaper, and doesn't require 1056 byte pages)
 
 Release History:
 
 Release 34 V3 by R3Z3N Dec 7 2024
     Fixes/Changes
         - CC1.X firmware options to run BM from MemCard1 or 2. makeit_nocd does have scripts to
-	  build FW for running from USB/HDD but seems pointless. Options added in BM for full ease
-          of use.
-	- Updated bminit.pbat to load IRX drivers from where BM is running from,
-          otherwise with DEV1/2 would not see/run apps from mc0/1/USB/HDD.
-	- Updated source OSDPAY.S to load USBHDFSD.IRX instead of the outdated
-          USB_MASS.IRX. Booting from Dev2 (USB) is still broken
-	- Updated HDDMOUNT.IRX and BM/SCRIPTS/HDDLOAD.PBT to load __common HDD partition
-          instead of +Crystal. This is to keep things consistent with the homebrew community
-	- Edited BM/FWS/LATEST/FWINFO.PBT to give FW boot choices as to where to load BM from
-	- Commented out install script for USB FW as currently not working.
-          Others can experiment as needed by editing BM/FWS/LATEST/FWINFO.PBT
-	- Used El Isras USB drivers for exfat support: BDM Assault (https://github.com/israpps/BDMAssault)
-  	- Changed scripts to allow apps to be installed when booted from recovery cd.
-  	- Changed scripts to only show options for chip installed! IE no more seeing DFFS
-          options on CC 1.0 and 1.1. 1.2 no longer shows remove dffs:/BM
- 	- Changed scripts so that FW choices are only applicable to the chip installed.
-          IE CC1.0-1.2 can choose BM run point, CC2.0 DFFS only.
+	      build FW for running from USB/HDD but seems pointless. Options added in BM for full ease
+              of use.
+	
+        - Updated bminit.pbat to load IRX drivers from where BM is running from,
+              otherwise with DEV1/2 would not see/run apps from mc0/1/USB/HDD.
+	
+        - Updated source OSDPAY.S to load USBHDFSD.IRX instead of the outdated
+              USB_MASS.IRX. Booting from Dev2 (USB) is still broken
+	
+        - Updated HDDMOUNT.IRX and BM/SCRIPTS/HDDLOAD.PBT to load __common HDD partition
+              instead of +Crystal. This is to keep things consistent with the homebrew community
+	
+        - Edited BM/FWS/LATEST/FWINFO.PBT to give FW boot choices as to where to load BM from
+	
+        - Commented out install script for USB FW as currently not working.
+              Others can experiment as needed by editing BM/FWS/LATEST/FWINFO.PBT
+	
+        - Used El Isras USB drivers for exfat support: BDM Assault (https://github.com/israpps/BDMAssault)
+  	
+        
+        - Changed scripts to allow apps to be installed when booted from recovery cd.
+  	
+        - Changed scripts to only show options for chip installed! IE no more seeing DFFS
+              options on CC 1.0 and 1.1. 1.2 no longer shows remove dffs:/BM
+ 	
+        - Changed scripts so that FW choices are only applicable to the chip installed.
+              IE CC1.0-1.2 can choose BM run point, CC2.0 DFFS only.
+       
         - Show Info gives a little more clarity IE where is BM executed from, what console region codes stand for etc.
+    
     To Do:
 	- Fix FW for running BM via USB/HDD specific firmware. Though do we want that?I think it to be too convoluted
           for most users...IE USB/HDD IRXs still have to be on MC0/1
-	- CC1.X support loading BM from any source without needing multiple FW IE boot order
-	- Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC or AT45DB621E chip. 1056 byte page options
+	
+        - CC1.X support loading BM from any source without needing multiple FW IE boot order
+	
+        - Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC or AT45DB621E chip. 1056 byte page options
           in seperate branches for now. Confirmed working but still testing....
+        
         - PIN lock on advanced functions.
 
 Release 34 v2 by Jones23
     Fixes/Changes:
         - Themes can now be loaded from all devices.
+        
         - Fixed a bug which caused theme settings not to be saved when changing
-          the theme.
+              the theme.
+        
         - Fixed DVD video disc booting by adding SHUTDOWN "MM" to the SCEDVD
-	  APPINFO.PBT. (thanks to stefanol69)
-          Now you don't have to disable your CC each time you want to watch DVDs,
-          but this fix also disables the DVD video fixes and patches (Region free,
-          RGB green fix, etc.).
+	      APPINFO.PBT. (thanks to stefanol69)
+              Now you don't have to disable your CC each time you want to watch DVDs,
+              but this fix also disables the DVD video fixes and patches (Region free,
+              RGB green fix, etc.).
         - Fixed some small menu bugs.
+       
         - Changed the language selection. Now you can create language files for any
-          language you want. You're no longer limited to English, German, French,
-          Italian and Spanish, and you can choose a name for the language file,
-          just take care of the naming scheme (8.3 with upper case letters) and the
-          extension has to be ".PBT".
+              language you want. You're no longer limited to English, German, French,
+              Italian and Spanish, and you can choose a name for the language file,
+              just take care of the naming scheme (8.3 with upper case letters) and the
+              extension has to be ".PBT".
+        
         - Changed the DEVINFO.PBT files to be able to install/remove the device
-          drivers. Previously only the script files were installed or removed.
-          You can now remove device drivers you don't need with the Device Manager
-          to save some space on MemCard or CC flash. This is useful for CC2.0 users
-          who want to install Themes or Apps to the CC flash.
+              drivers. Previously only the script files were installed or removed.
+              You can now remove device drivers you don't need with the Device Manager
+              to save some space on MemCard or CC flash. This is useful for CC2.0 users
+              who want to install Themes or Apps to the CC flash.
 
 
 Release 34 -
