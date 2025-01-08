@@ -4,7 +4,7 @@
 
 #
 # Change this information to describe the theme.
-SET "TITLE" "Crystal PS2"
+SET "TITLE" "Crystal Chip 2.0 SLE"
 SET "VERSION" "v1.0"
 SET "AUTHOR" "ps2dragon"
 SET "DESCRIPTION" "BM theme for Crystal Chip 2.0 Pro SLE"
@@ -74,15 +74,15 @@ RETURN "-1"
         SET "BM.THM_CNF_MENU_TITLE_WIDTH" "410"
         SET "BM.THM_CNF_MENU_TITLE_HEIGHT" "32"
 
-        SET "BM.THM_CNF_SCROLLER_X" "95"
+        SET "BM.THM_CNF_SCROLLER_X" "92"
         SET "BM.THM_CNF_SCROLLER_Y" "393"
-        SET "BM.THM_CNF_SCROLLER_WIDTH" "478"
+        SET "BM.THM_CNF_SCROLLER_WIDTH" "482"
         SET "BM.THM_CNF_SCROLLER_HEIGHT" "32"
 
         SET "BM.THM_CNF_DISC_IMG_X" "582"
-        SET "BM.THM_CNF_DISC_IMG_Y" "386"
-        SET "BM.THM_CNF_DISC_IMG_WIDTH" "44"
-        SET "BM.THM_CNF_DISC_IMG_HEIGHT" "44"
+        SET "BM.THM_CNF_DISC_IMG_Y" "384"
+        SET "BM.THM_CNF_DISC_IMG_WIDTH" "46"
+        SET "BM.THM_CNF_DISC_IMG_HEIGHT" "48"
 
     ELSEIF EQU "$BM.CNF_VMODE$" "1"
         # PAL
@@ -113,6 +113,7 @@ RETURN "-1"
         SET "BM.THM_CNF_DISC_IMG_Y" "442"
         SET "BM.THM_CNF_DISC_IMG_WIDTH" "44"
         SET "BM.THM_CNF_DISC_IMG_HEIGHT" "52"
+
     ELSEIF EQU "$BM.CNF_VMODE$" "2"
         # VGA
         SET "BM.THM_CNF_MENU_X" "46"
@@ -142,6 +143,7 @@ RETURN "-1"
         SET "BM.THM_CNF_DISC_IMG_Y" "14"
         SET "BM.THM_CNF_DISC_IMG_WIDTH" "37"
         SET "BM.THM_CNF_DISC_IMG_HEIGHT" "56"
+
     ELSE
         # 480P
         SET "BM.THM_CNF_MENU_X" "46"
