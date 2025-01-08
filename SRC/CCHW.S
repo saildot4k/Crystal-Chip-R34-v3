@@ -633,12 +633,13 @@ CC_DF_Detect            PROC
 
 _set_264bytes:
     li          t2, 264           ; Set page size for 264-byte dataflash
-    la          t3, DF_Page264    ; Set DF_Page handler for DF_Page264
+    la          t3, DF_Page264    ; Set DF_Page handler for DF_Page264 (128KB, 256KB, 512KB, 1MB, 8MB);
     b           _done
 
 _set_528bytes:
     li          t2, 528           ; Set page size for 528-byte dataflash
-    la          t3, DF_Page528    ; Set DF_Page handler for DF_Page528
+    la          t3, DF_Page528    ; Set DF_Page handler for DF_Page528 (2MB and 4MB);
+    b           _done
 
 _done:
     la          v0, dfdev
