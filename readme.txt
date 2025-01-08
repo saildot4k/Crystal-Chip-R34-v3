@@ -11,7 +11,7 @@ hardware unless otherwise specified.  Software written by other developers are c
 You MUST boot the upgrade in Recovery Mode (Press Reset 3x) when an older version of BootManager is installed on your system!  Failure
 to do so may result in a black screen! Otherwise try to press reset 6x and boot the CD.
 
-CC.1.2 and CC 2.0 can be upgraded to a 4MB DataFlash (AT45DB321D) without any source code changes. 8MB DataFlash (AT45DB642D) needs support for 1056 byte Pages (hopefully incoming. Have testing to do.) Otherwise AT45DB641E can be used. Determine best solution currently (most likely AT45D641E as is easily found and cheaper, and doesn't require 1056 byte pages)
+CC.1.2 and CC 2.0 can be upgraded to a 4MB DataFlash (AT45DB321D) without any source code changes. 8MB DataFlash (AT45DB642D) needs support for 1056 byte Pages (hopefully incoming. Have testing to do.) Otherwise AT45DB641E-MWHN can be used(still testing, not in this branch). Determine best solution currently (most likely AT45D641E as is easily found and cheaper, and doesn't require 1056 byte pages)
 
 Release History:
 
