@@ -697,7 +697,7 @@ ALIGN 4
                         DW txtROM0_XSIO2MAN, txtROM0_XMCMAN, txtMC0_IOMANX, txtMC0_PS2DEV9, txtMC0_PS2ATAD, txtMC0_PS2HDD, txtMC0_PS2FS, txtMC0_HDDMOUNT, txtBM_ELF
 argc_boot:              DW 9
 txtBM_ELF:              DB "pfs0:/BM/BM2.ELF",0                        ;pfs0:/BM/BM2.ELF,0 if using CC teams HDDMOUNT.IRX otherwise try hdd0:__common:pfs:/BM/BM2.ELF
-txtMC0_IOMANX:          DB "-m mc0:/BM/SHARED/IOMAN.IRX",0
+txtMC0_IOMANX:          DB "-m mc0:/BM/SHARED/IOMANX.IRX",0
 txtMC0_PS2DEV9:         DB "-m mc0:/BM/SHARED/PS2DEV9.IRX",0
 txtMC0_PS2ATAD:         DB "-m mc0:/BM/SHARED/PS2ATAD.IRX",0
 txtMC0_PS2HDD:          DB "-m mc0:/BM/SHARED/PS2HDD.IRX",0
@@ -706,8 +706,8 @@ txtMC0_HDDMOUNT:        DB "-m mc0:/BM/SHARED/HDDMOUNT.IRX",0
 ENDIF
 
 txtModuleLoad:          DB "moduleload",0
-txtROM0_XSIO2MAN:       DB "-m rom0:SIO2MAN",0
-txtROM0_XMCMAN:         DB "-m rom0:MCMAN",0
+txtROM0_XSIO2MAN:       DB "-m rom0:XSIO2MAN",0
+txtROM0_XMCMAN:         DB "-m rom0:XMCMAN",0
 
 txtPS2ELF:              DB "PS2.ELF",0
 txtPSXEXE:              DB "PSX.EXE",0
