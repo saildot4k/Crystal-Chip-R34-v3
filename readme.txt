@@ -37,7 +37,6 @@ Release 34 V3 by R3Z3N Dec 7 2024
 	
         - Used El Isras USB drivers for exfat support: BDM Assault (https://github.com/israpps/BDMAssault)
   	
-        
         - Changed scripts to allow apps to be installed when booted from recovery cd.
   	
         - Changed scripts to only show options for chip installed! IE no more seeing DFFS
@@ -55,7 +54,7 @@ Release 34 V3 by R3Z3N Dec 7 2024
         - CC1.X support loading BM from any source without needing multiple FW IE boot order
 	
         - Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC or AT45DB621E chip. 1056 byte page options
-          in seperate branches for now. Confirmed working but still testing....
+          in seperate branches for now.
         
         - PIN lock on advanced functions.
 
