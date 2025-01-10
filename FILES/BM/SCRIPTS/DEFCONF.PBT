@@ -2,6 +2,7 @@
 # Default BootManager Configuration File 1.1
 #
 # Modification by R3Z3N: enable PS1 CNF_PS1_TEX_MAP and Disc CNF_PS1_DISC_SPEED to be enabled by default.
+# Kid Safe Mode Added
 
 SET "STRING" "BM.CNF_LANG" "$BM.BM_PATH$/LANG/BMENGL.PBT"
 
@@ -149,6 +150,12 @@ SET "U8" "BM.CNF_NET_SDNS0" "0"
 SET "U8" "BM.CNF_NET_SDNS1" "0"
 SET "U8" "BM.CNF_NET_SDNS2" "0"
 SET "U8" "BM.CNF_NET_SDNS3" "0"
+
+# Default PIN. If 0000 will unlock all features
+SET "U8" "BM.CNF_PIN_NUM0" "0"
+SET "U8" "BM.CNF_PIN_NUM1" "0"
+SET "U8" "BM.CNF_PIN_NUM2" "0"
+SET "U8" "BM.CNF_PIN_NUM3" "0"
 
 # Have all configuration files saved.
 SET "BM.THM_CONFIG_CHANGED" "1"
