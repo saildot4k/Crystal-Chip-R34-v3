@@ -151,11 +151,9 @@ SET "U8" "BM.CNF_NET_SDNS1" "0"
 SET "U8" "BM.CNF_NET_SDNS2" "0"
 SET "U8" "BM.CNF_NET_SDNS3" "0"
 
-# Default PIN. If 0000 will unlock all features
+# Lockout Mode Default PIN. 00 will unlock all features
 SET "U8" "BM.CNF_PIN_NUM0" "0"
 SET "U8" "BM.CNF_PIN_NUM1" "0"
-SET "U8" "BM.CNF_PIN_NUM2" "0"
-SET "U8" "BM.CNF_PIN_NUM3" "0"
 
 # Have all configuration files saved.
 SET "BM.THM_CONFIG_CHANGED" "1"
