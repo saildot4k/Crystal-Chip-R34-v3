@@ -20,7 +20,9 @@ Release 34 V3 by R3Z3N Dec 7 2024
         - CC1.X firmware options to run BM from MemCard1 or 2. makeit_nocd does have scripts to
 	      build FW for running from USB/HDD but seems pointless. Options added in BM for full ease
               of use.
-	
+
+	- Security Settings added: when pin is set, advanced settings are unaccessible. 
+
         - Updated bminit.pbat to load IRX drivers from where BM is running from,
               otherwise with DEV1/2 would not see/run apps from mc0/1/USB/HDD.
 	
@@ -56,7 +58,6 @@ Release 34 V3 by R3Z3N Dec 7 2024
         - Add support/Custom Firmware for 8MB (64megabit) AT45DB642D-CNC or AT45DB621E chip. 1056 byte page options
           in seperate branches for now.
         
-        - PIN lock on advanced functions.
 
 Release 34 v2 by Jones23
     Fixes/Changes:
