@@ -496,6 +496,24 @@ SET "BM.TXT_NTSC_NO" "Your TV cannot display NTSC color."
 SET "BM.TXT_DONE" "Done"
 SET "BM.TXT_RETURN_CONFIG" "Return to Configuration Menu."
 
+#Lockout/Pin Mode
+SET "BM.TXT_CNF_LOCKOUT" "Security Settings"
+SET "BM.TXT_CNF_LOCKOUT_HINT" "Lockout functions from BootManager with a PIN."
+SET "BM.TXT_CNF_LOCKOUT_LABEL1" "Lockout all functions except for "
+SET "BM.TXT_CNF_LOCKOUT_LABEL2" "booting discs and apps."
+SET "BM.TXT_CNF_LOCKOUT_LABEL3" "Input your PIN to unlock all functions."
+SET "BM.TXT_CNF_LOCKOUT_LABEL4" "To clear a forgotten PIN, reinstall BootManager."
+SET "BM.TXT_PIN_SETUP" "Choose a PIN"
+SET "BM.TXT_PIN_SETUP_HINT" "Input a PIN to be used to lockout advanced functions in BootManager."
+SET "BM.TXT_PIN_CONF" "Confirm your chosen PIN"
+SET "BM.TXT_PIN_CONF_HINT" "Confirm your PIN to be used to lockout advanced functions in BootManager"
+SET "BM.TXT_PIN_UNLOCK" "Input your PIN to unlock all menus."
+SET "BM.TXT_PIN_UNLOCK_HINT" "To unlock all functions please input your PIN. This will unlock until a PIN is setup again."
+SET "BM.TXT_INCORRECT_PIN" "PIN is incorrect. Try again or reset by reinstalling BM via disc"
+SET "BM.TXT_PIN_SET" "BootManager menus locked!
+SET "BM.TXT_UNLOCKED" "BootManger menus unlocked!"
+SET "BM.TXT_LOCKOUT_WARNING" "Advanced functions locked."
+
 #Messages
 SET "BM.TXT_SAVE_CONF_FAIL" "Failed saving configuration settings!"
 SET "BM.TXT_SAVE_THM_FAIL" "Failed saving theme configuration settings!"
