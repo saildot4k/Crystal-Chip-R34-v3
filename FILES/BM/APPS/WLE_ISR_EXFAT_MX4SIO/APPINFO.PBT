@@ -5,10 +5,10 @@
 #
 
 # Change this information to describe the application.
-SET "TITLE" "wLE 4.43x_ISR"
+SET "TITLE" "wLE 4.43x_ISR EXFAT MX4SIO"
 SET "VERSION" "4.43x_ISR"
 SET "AUTHOR" "El Isra"
-SET "DESC" "Application Launcher and File Manager w Exfat Support"
+SET "DESC" "Application Launcher and File Manager w Exfat and MX4SIO support."
 SET "MEDIAS" ""
 #
 
@@ -25,9 +25,9 @@ RETURN "-1"
     EXIT "0"
 
 :INSTALL
-    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/WLE_ISR"
+    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/WLE_ISR_EXFAT_MX4SIO"
         MESSAGE "Failed installing $TITLE$!"
-        RRM "$ARG2$:/BM/APPS/WLE_ISR"
+        RRM "$ARG2$:/BM/APPS/WLE_ISR_EXFAT_MX4SIO"
         RETURN -1
     ENDIF
     EXIT 0
@@ -65,5 +65,6 @@ RETURN "-1"
             BREAK
     ENDS
 
+    REDIRFILE "$PWD$/IPCONFIG.DAT" "$BM.BM_PATH$/CONFIG/IPCONFIG.DAT"
     LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/WLE.ELF"
     EXIT "0"
