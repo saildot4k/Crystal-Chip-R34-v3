@@ -1,0 +1,193 @@
+#
+# BM Theme displaying the chip installed in this system. Autodetects except for 2.0 SLE in which case user must install the SLE variant.
+#
+
+#
+# Change this information to describe the theme.
+SET "TITLE" "Chip Inside!"
+SET "VERSION" "v1.0"
+SET "AUTHOR" "R3Z3N"
+SET "DESCRIPTION" "BM theme which displays which chip is installed in this PS2 up to CC2.0. Use Chip Inside! (SLE) for CC2.0 SLE"
+#
+
+# Do not change these 2 lines!
+GOTO "$ARG1$"
+RETURN "-1"
+
+:LABEL_NAME
+    ADDWIDGET "LABEL" "$ARG2$ $TITLE$ $VERSION$"
+    EXIT "0"
+
+:QUERY
+    ADDWIDGET "CALL" "  $TITLE$" "$BM.TXT_VERSION$: $VERSION$ $BM.TXT_AUTHOR$: $AUTHOR$ $BM.TXT_DESCRIPTION$: $DESCRIPTION$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
+    EXIT "0"
+
+:INSTALL
+    IF FAIL COPY "$PWD$" "$ARG2$/CHIPINSIDE/BMMENU$BM.MAJOR_VER$$BM.MINOR_VER$.TGA"
+        MESSAGE "Failed installing $TITLE$!"
+        RRM "$ARG2$/CHIPINSIDE"
+        RETURN "-1"
+    ELSEIF FAIL COPY "$PWD$" "$ARG2$/CHIPINSIDE/THMINFO.PBT"
+        MESSAGE "Failed installing $TITLE$!"
+        RRM "$ARG2$/CHIPINSIDE"
+        RETURN "-1"
+    ENDIF
+
+    EXIT "0"
+
+:REMOVE
+    IF FAIL RRM "$PWD$"
+        MESSAGE "Failed removing $TITLE$!"
+        RETURN "-1"
+    ENDIF
+    EXIT "0"
+
+:LOAD
+    IF NOT EQU "$BM.LOADED_THEME_SCRIPT$" ""
+        LOADEXEC "PBAT" "$BM.LOADED_THEME_SCRIPT$" "UNLOAD"
+    ENDIF
+
+    IF FAIL LOADIMG "$PWD$/BMMENU$BM.MAJOR_VER$$BM.MINOR_VER$.TGA" "CHIPINSIDE_MENU"
+        ECHO "Failed loading menu image!"
+        MESSAGE "Failed loading menu image!"
+        RETURN "-1"
+    ENDIF
+
+
+    SET "BM.MENU_IMG_NAME" "CHIPINSIDE_MENU"
+    SET "BM.THM_CNF_BG_COLOR" "0x003C3131"
+    SET "BM.THM_CNF_FONT_COLOR_SELECTION" "0x00DCDCDC"
+    SET "BM.THM_CNF_FONT_COLOR_LABEL" "0x00FFC7A3"
+    SET "BM.THM_CNF_FONT_COLOR_SCROLLER" "0x00A0A0A0"
+
+    IF EQU "$BM.CNF_VMODE$" "0"
+        # NTSC
+        SET "BM.THM_CNF_MENU_X" "28"
+        SET "BM.THM_CNF_MENU_Y" "71"
+        SET "BM.THM_CNF_MENU_WIDTH" "588"
+        SET "BM.THM_CNF_MENU_HEIGHT" "302"
+
+        SET "BM.THM_CNF_MENU_IMG_X" "0"
+        SET "BM.THM_CNF_MENU_IMG_Y" "0"
+        SET "BM.THM_CNF_MENU_IMG_WIDTH" "640"
+        SET "BM.THM_CNF_MENU_IMG_HEIGHT" "446"
+
+        SET "BM.THM_CNF_BM_VER_X" "520"
+        SET "BM.THM_CNF_BM_VER_Y" "13"
+
+        SET "BM.THM_CNF_MENU_TITLE_X" "28"
+        SET "BM.THM_CNF_MENU_TITLE_Y" "41"
+        SET "BM.THM_CNF_MENU_TITLE_WIDTH" "550"
+        SET "BM.THM_CNF_MENU_TITLE_HEIGHT" "32"
+
+        SET "BM.THM_CNF_SCROLLER_X" "92"
+        SET "BM.THM_CNF_SCROLLER_Y" "393"
+        SET "BM.THM_CNF_SCROLLER_WIDTH" "482"
+        SET "BM.THM_CNF_SCROLLER_HEIGHT" "32"
+
+        SET "BM.THM_CNF_DISC_IMG_X" "582"
+        SET "BM.THM_CNF_DISC_IMG_Y" "384"
+        SET "BM.THM_CNF_DISC_IMG_WIDTH" "46"
+        SET "BM.THM_CNF_DISC_IMG_HEIGHT" "48"
+
+    ELSEIF EQU "$BM.CNF_VMODE$" "1"
+        # PAL
+        SET "BM.THM_CNF_MENU_X" "30"
+        SET "BM.THM_CNF_MENU_Y" "84"
+        SET "BM.THM_CNF_MENU_WIDTH" "580"
+        SET "BM.THM_CNF_MENU_HEIGHT" "337"
+
+        SET "BM.THM_CNF_MENU_IMG_X" "0"
+        SET "BM.THM_CNF_MENU_IMG_Y" "0"
+        SET "BM.THM_CNF_MENU_IMG_WIDTH" "640"
+        SET "BM.THM_CNF_MENU_IMG_HEIGHT" "512"
+
+        SET "BM.THM_CNF_BM_VER_X" "520"
+        SET "BM.THM_CNF_BM_VER_Y" "17"
+
+        SET "BM.THM_CNF_MENU_TITLE_X" "30"
+        SET "BM.THM_CNF_MENU_TITLE_Y" "49"
+        SET "BM.THM_CNF_MENU_TITLE_WIDTH" "410"
+        SET "BM.THM_CNF_MENU_TITLE_HEIGHT" "32"
+
+        SET "BM.THM_CNF_SCROLLER_X" "95"
+        SET "BM.THM_CNF_SCROLLER_Y" "393"
+        SET "BM.THM_CNF_SCROLLER_WIDTH" "478"
+        SET "BM.THM_CNF_SCROLLER_HEIGHT" "32"
+
+        SET "BM.THM_CNF_DISC_IMG_X" "584"
+        SET "BM.THM_CNF_DISC_IMG_Y" "442"
+        SET "BM.THM_CNF_DISC_IMG_WIDTH" "44"
+        SET "BM.THM_CNF_DISC_IMG_HEIGHT" "52"
+
+    ELSEIF EQU "$BM.CNF_VMODE$" "2"
+        # VGA
+        SET "BM.THM_CNF_MENU_X" "46"
+        SET "BM.THM_CNF_MENU_Y" "222"
+        SET "BM.THM_CNF_MENU_WIDTH" "540"
+        SET "BM.THM_CNF_MENU_HEIGHT" "201"
+
+        SET "BM.THM_CNF_MENU_IMG_X" "0"
+        SET "BM.THM_CNF_MENU_IMG_Y" "0"
+        SET "BM.THM_CNF_MENU_IMG_WIDTH" "640"
+        SET "BM.THM_CNF_MENU_IMG_HEIGHT" "512"
+
+        SET "BM.THM_CNF_BM_VER_X" "483"
+        SET "BM.THM_CNF_BM_VER_Y" "133"
+
+        SET "BM.THM_CNF_MENU_TITLE_X" "45"
+        SET "BM.THM_CNF_MENU_TITLE_Y" "197"
+        SET "BM.THM_CNF_MENU_TITLE_WIDTH" "410"
+        SET "BM.THM_CNF_MENU_TITLE_HEIGHT" "32"
+
+        SET "BM.THM_CNF_SCROLLER_X" "44"
+        SET "BM.THM_CNF_SCROLLER_Y" "457"
+        SET "BM.THM_CNF_SCROLLER_WIDTH" "550"
+        SET "BM.THM_CNF_SCROLLER_HEIGHT" "32"
+
+        SET "BM.THM_CNF_DISC_IMG_X" "26"
+        SET "BM.THM_CNF_DISC_IMG_Y" "14"
+        SET "BM.THM_CNF_DISC_IMG_WIDTH" "37"
+        SET "BM.THM_CNF_DISC_IMG_HEIGHT" "56"
+
+    ELSE
+        # 480P
+        SET "BM.THM_CNF_MENU_X" "46"
+        SET "BM.THM_CNF_MENU_Y" "222"
+        SET "BM.THM_CNF_MENU_WIDTH" "540"
+        SET "BM.THM_CNF_MENU_HEIGHT" "201"
+
+        SET "BM.THM_CNF_MENU_IMG_X" "0"
+        SET "BM.THM_CNF_MENU_IMG_Y" "0"
+        SET "BM.THM_CNF_MENU_IMG_WIDTH" "640"
+        SET "BM.THM_CNF_MENU_IMG_HEIGHT" "512"
+
+        SET "BM.THM_CNF_BM_VER_X" "483"
+        SET "BM.THM_CNF_BM_VER_Y" "133"
+
+        SET "BM.THM_CNF_MENU_TITLE_X" "45"
+        SET "BM.THM_CNF_MENU_TITLE_Y" "197"
+        SET "BM.THM_CNF_MENU_TITLE_WIDTH" "410"
+        SET "BM.THM_CNF_MENU_TITLE_HEIGHT" "32"
+
+        SET "BM.THM_CNF_SCROLLER_X" "44"
+        SET "BM.THM_CNF_SCROLLER_Y" "457"
+        SET "BM.THM_CNF_SCROLLER_WIDTH" "550"
+        SET "BM.THM_CNF_SCROLLER_HEIGHT" "32"
+
+        SET "BM.THM_CNF_DISC_IMG_X" "26"
+        SET "BM.THM_CNF_DISC_IMG_Y" "14"
+        SET "BM.THM_CNF_DISC_IMG_WIDTH" "37"
+        SET "BM.THM_CNF_DISC_IMG_HEIGHT" "56"
+    ENDIF
+
+    SET "BM.LOADED_THEME_SCRIPT" "$ARG0$"
+    KEEP
+    RETURN "0"
+
+:UNLOAD
+    SET "BM.MENU_IMG" ""
+    SET "BM.LOADED_THEME_SCRIPT" ""
+    UNLOADING "CHIPINSIDE_MENU"
+
+    EXIT "0"
