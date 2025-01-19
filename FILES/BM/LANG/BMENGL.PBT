@@ -266,7 +266,7 @@ SET "BM.TXT_SECONDARY_DNS" "Secondary DNS Server"
 SET "BM.TXT_HINT_SECONDARY_DNS" "This is the IP address of the Secondary DNS server."
 
 # HDD Configuration Menu
-SET "BM.TXT_HDD_CONFIG" "HDD Configuration"
+SET "BM.TXT_HDD_CONFIG" "HDD"
 SET "BM.TXT_HINT_HDD_CONFIG" "Change your PS2 HDD Settings."
 
 SET "BM.TXT_START_HDD" "Start HDD"
@@ -276,7 +276,7 @@ SET "BM.TXT_AUTOSTART_HDD" "Auto-start HDD"
 SET "BM.TXT_HINT_AUTOSTART_HDD" "Automaticaly load HDD drivers and mount HDD on BM startup."
 
 # Autoload Configuration
-SET "BM.TXT_AUTOLOAD_CONFIG" "Autoload Configuration"
+SET "BM.TXT_AUTOLOAD_CONFIG" "Autoload"
 SET "BM.TXT_HINT_AUTOLOAD_CONFIG" "Setup Autoloading of various types of software."
 
 SET "BM.TXT_AUTOLOAD" "Autoload"
@@ -321,7 +321,7 @@ SET "BM.TXT_AL_DELAY" "Autoload Delay(sec)"
 SET "BM.TXT_HINT_AL_DELAY" "Set the idle delay, in seconds, before BM will Autoload."
 
 # PS1 Configuration Menu
-SET "BM.TXT_PS1_CONFIG" "PS1 Configuration"
+SET "BM.TXT_PS1_CONFIG" "PS1"
 SET "BM.TXT_HINT_PS1_CONFIG" "Change the settings for PS1 games and software."
 
 SET "BM.TXT_DISC_SPEED" "Disc Speed"
@@ -350,7 +350,7 @@ SET "BM.TXT_SCREEN_MOD" "Screen X/Y Modifier"
 SET "BM.TXT_HINT_SCREEN_MOD" "This modifier is used to offset the X(horizontal) and Y(vertical) video position of software."
 
 # PS2 Configuration Menu
-SET "BM.TXT_PS2_CONFIG" "PS2 Configuration"
+SET "BM.TXT_PS2_CONFIG" "PS2"
 SET "BM.TXT_HINT_PS2_CONFIG" "Change the settings for PS2 games and software."
 
 SET "BM.TXT_MEGAMEM_PATCHER" "MegaMemory Patcher"
@@ -363,7 +363,7 @@ SET "BM.TXT_DVDDL_PATCHER" "DVD+R Dual Layer Patcher"
 SET "BM.TXT_HINT_DVDDL_PATCHER" "Turn on/off patcher for DVD+R Dual Layer discs."
 
 # DVD Configuration Menu
-SET "BM.TXT_DVD_CONFIG" "DVD Video Configuration"
+SET "BM.TXT_DVD_CONFIG" "DVD Video"
 SET "BM.TXT_HINT_DVD_CONFIG" "Change the settings for DVD Videos."
 
 SET "BM.TXT_DVD_VIDEO_FIXES" "DVD Video Fixes"
@@ -393,14 +393,14 @@ SET "BM.TXT_BOOT_SLEEP" "Boot in Sleep Mode"
 SET "BM.TXT_HINT_BOOT_SLEEP" "Boot the disc with all enhancements and Crystal Chip disabled."
 
 # Theme Manager
-SET "BM.TXT_THEME_MANAGER" "Theme Manager"
+SET "BM.TXT_THEME_MANAGER" "Theme"
 SET "BM.TXT_HINT_THEME_MANAGER" "Configure, change, install and remove your BootManager themes."
 SET "BM.TXT_SELECTED_THEME" "Selected Theme"
 SET "BM.TXT_MANAGE_THEME" "Manage Themes"
 
 # Theme Configuration
 SET "BM.TXT_THEMES" "Themes"
-SET "BM.TXT_THEME_CONFIG" "Theme Configuration"
+SET "BM.TXT_THEME_CONFIG" "Theme"
 SET "BM.TXT_HINT_THEME_CONFIG" "Configure the BootManager menu theme."
 
 SET "BM.TXT_XY" "X/Y Position"
@@ -467,7 +467,7 @@ SET "BM.TXT_PS1_FAIL" "PS1 disc authentication failed!"
 SET "BM.TXT_CHECK_SX" "Please check your CrystalChip SX wire."
 
 # Misc Config
-SET "BM.TXT_MISC_CONFIG" "Miscellaneous Config"
+SET "BM.TXT_MISC_CONFIG" "Miscellaneous"
 SET "BM.TXT_HINT_MISC_CONFIG" "Miscellaneous configuration options that don't fit in any other category."
 
 SET "BM.TXT_GS_HOOK" "GS Hook"
@@ -508,7 +508,7 @@ SET "BM.TXT_DONE" "Done"
 SET "BM.TXT_RETURN_CONFIG" "Return to Configuration Menu."
 
 #Lockout/Pin Mode
-SET "BM.TXT_CNF_LOCKOUT" "Security Settings"
+SET "BM.TXT_CNF_LOCKOUT" "Security"
 SET "BM.TXT_CNF_LOCKOUT_HINT" "Lockout functions from BootManager with a PIN."
 SET "BM.TXT_CNF_LOCKOUT_LABEL1" "Lockout all functions except for"
 SET "BM.TXT_CNF_LOCKOUT_LABEL2" "booting discs and apps."

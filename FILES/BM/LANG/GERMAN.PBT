@@ -48,20 +48,20 @@ SET "BM.TXT_BOOT" "BOOT"
 SET "BM.TXT_APP" "PROG"
 SET "BM.TXT_STANDARD" "Standard"
 SET "BM.TXT_FAST" "Schnell"
-SET "BM.TXT_SMOOTH" "Fließend"
+SET "BM.TXT_SMOOTH" "Flieï¿½end"
 SET "BM.TXT_AUTHOR" "Author(en)"
 SET "BM.TXT_VERSION" "Version"
 SET "BM.TXT_DESC" "Beschreibung"
-SET "BM.TXT_DELAY" "Verzögerung(Sek)"
+SET "BM.TXT_DELAY" "Verzï¿½gerung(Sek)"
 SET "BM.TXT_CONFIRM" "Sind Sie sicher?"
 SET "BM.TXT_BACK" "Zum Anfang"
-SET "BM.TXT_HINT_BACK" "Zurück zum Anfang dieses Menüs."
-SET "BM.TXT_CHOOSE_DEST" "Wähle Zielort"
-SET "BM.TXT_MAIN" "Zurück zum Hauptmenü"
+SET "BM.TXT_HINT_BACK" "Zurï¿½ck zum Anfang dieses Menï¿½s."
+SET "BM.TXT_CHOOSE_DEST" "Wï¿½hle Zielort"
+SET "BM.TXT_MAIN" "Zurï¿½ck zum Hauptmenï¿½"
 SET "BM.TXT_CURRENT" "Aktuell"
-SET "BM.TXT_CONFIRM_CHOICE" "Auswahl bestätigen"
-SET "BM.TXT_HINT_CANCEL_CHOICE" "Abbrechen und zum vorherigen Menü zurückkehren."
-SET "BM.TXT_HINT_CONFIRM_CHOICE" "Bestätigt die gewählte Option."
+SET "BM.TXT_CONFIRM_CHOICE" "Auswahl bestï¿½tigen"
+SET "BM.TXT_HINT_CANCEL_CHOICE" "Abbrechen und zum vorherigen Menï¿½ zurï¿½ckkehren."
+SET "BM.TXT_HINT_CONFIRM_CHOICE" "Bestï¿½tigt die gewï¿½hlte Option."
 
 #Media
 SET "BM.TXT_PS1" "PS1"
@@ -72,27 +72,27 @@ SET "BM.TXT_OTHER" "Andere"
 SET "BM.TXT_NODISC" "Keine Disk"
 
 SET "BM.TXT_LANGUAGE" "Sprache"
-SET "BM.TXT_HINT_BM_LANG" "Ändere die Sprache des BootManagers."
+SET "BM.TXT_HINT_BM_LANG" "ï¿½ndere die Sprache des BootManagers."
 SET "BM.TXT_INSTALL_LANG" "Installiere Sprache"
-SET "BM.TXT_HINT_INSTALL_LANG" "Installiere zusätzliche Sprachdateien."
+SET "BM.TXT_HINT_INSTALL_LANG" "Installiere zusï¿½tzliche Sprachdateien."
 SET "BM.TXT_REMOVE_LANG" "Entferne Sprache"
 SET "BM.TXT_HINT_REMOVE_LANG" "Entferne installierte Sprachdateien."
-SET "BM.TXT_CHOOSE_LANG" "Wähle Sprache"
-SET "BM.TXT_SOURCE_DEV" "Wähle Quelllaufwerk"
-SET "BM.TXT_LANG_INST_AVAIL" "Verfügbare Sprachen"
+SET "BM.TXT_CHOOSE_LANG" "Wï¿½hle Sprache"
+SET "BM.TXT_SOURCE_DEV" "Wï¿½hle Quelllaufwerk"
+SET "BM.TXT_LANG_INST_AVAIL" "Verfï¿½gbare Sprachen"
 SET "BM.TXT_LANG_REMOVE_AVAIL" "Installierte Sprachen"
 
 # Main Menu
-SET "BM.TXT_MAIN_MENU" "Hauptmenü"
+SET "BM.TXT_MAIN_MENU" "Hauptmenï¿½"
 
 # Install BootManager
 SET "BM.TXT_INST_BM" "BootManager installieren"
 SET "BM.TXT_HINT_INST_BM" "BootManager installieren."
-SET "BM.TXT_CHOOSE_INST_BM" "Wähle Installationsoption"
+SET "BM.TXT_CHOOSE_INST_BM" "Wï¿½hle Installationsoption"
 SET "BM.TXT_FULL" "Voll"
 SET "BM.TXT_HINT_FULL" "Installiere BootManager mit allen Laufwerkstreibern."
 SET "BM.TXT_MINIMAL" "Minimal"
-SET "BM.TXT_HINT_MINIMAL" "Installiere BootManager ohne zusätzliche Laufwerkstreiber für USB, HDD und Netzwerk."
+SET "BM.TXT_HINT_MINIMAL" "Installiere BootManager ohne zusï¿½tzliche Laufwerkstreiber fï¿½r USB, HDD und Netzwerk."
 SET "BM.TXT_INSTALL_BM_TO" "Installiere BootManager nach..."
 
 # Firmware Manager
@@ -104,15 +104,26 @@ SET "BM.TXT_HINT_FORMAT_DFFS" "Formatiere den Crystal Chip Flash."
 SET "BM.TXT_DFFS_REM_BM" "Entferne dffs:/BM"
 SET "BM.TXT_HINT_DFFS_REM_BM" "Entferne BootManager Verzeichnis vom Crystal Chip Flash."
 SET "BM.TXT_FW_MANAGER" "Firmware Manager"
-SET "BM.TXT_HINT_FW_MANAGER" "Firmware Manager erlaubt es Ihnen die Crystal Chip Firmware zu aktualisieren un zu löschen."
+SET "BM.TXT_HINT_FW_MANAGER" "Firmware Manager erlaubt es Ihnen die Crystal Chip Firmware zu aktualisieren un zu lï¿½schen."
 SET "BM.TXT_UPG_FW" "Firmware aktualisieren"
 SET "BM.TXT_HINT_UPG_FW" "Aktualisiert die CrystalChip Firmware von einer CCI Datei."
-SET "BM.TXT_ERASE_FW" "Firmware löschen"
-SET "BM.TXT_HINT_ERASE_FW" "Den kompletten Inhalt des CrystalChip Flash/EEPROM löschen."
-SET "BM.TXT_ASK_ERASE_FW" "Sind Sie sicher dass Sie die Firmware löschen wollen?"
+SET "BM.TXT_ERASE_FW" "Firmware lï¿½schen"
+SET "BM.TXT_HINT_ERASE_FW" "Den kompletten Inhalt des CrystalChip Flash/EEPROM lï¿½schen."
+SET "BM.TXT_ASK_ERASE_FW" "Sind Sie sicher dass Sie die Firmware lï¿½schen wollen?"
+
+SET "BM.TXT_FW_TITLE" "Firmware Variations:"
+SET "BM.TXT_FW_QUESTION" "Run Boot Manager from which interface?"
+SET "BM.TXT_FW_MC0" "1- BM runs from Memory Card 1"
+SET "BM.TXT_FW_MC0_HINT" "Install CC FW and runs BM on MemCard1"
+SET "BM.TXT_FW_MC1" "2- BM runs from Memory Card 2"
+SET "BM.TXT_FW_MC1_HINT" "Install CC FW and runs BM on MemCard1"
+SET "BM.TXT_FW_USB" "3- BM runs from USB"
+SET "BM.TXT_FW_USB_HINT" "Install CC FW and runs BM on USB. IMPORTANT: USB Drivers MUST be installed to MemCard1 via Device Manager"
+SET "BM.TXT_FW_HDD" "4- BM runs from HDD"
+SET "BM.TXT_FW_HDD_HINT" "Install CC FW and runs BM on HDD. IMPORTANT: HDD Drivers MUST be installed to MemCard1 via Device Manager"
 
 # Reload Menu
-SET "BM.TXT_RELOAD_MENU" "Menü neu laden"
+SET "BM.TXT_RELOAD_MENU" "Menï¿½ neu laden"
 SET "BM.TXT_HINT_RELOAD_MENU" "Neuladen der BMMENUS.PBT Datei."
 
 # Boot Menu
@@ -121,7 +132,7 @@ SET "BM.TXT_HINT_BOOT_MENU" "Startet Spiele und Programme von CD/DVD."
 
 # Application Browser
 SET "BM.TXT_APP_BROWSER" "Programm Manager"
-SET "BM.TXT_HINT_APP_BROWSER" "Lädt und installiert Homebrew Programme von Memory Card, CD/DVD, USB, HDD, etc."
+SET "BM.TXT_HINT_APP_BROWSER" "Lï¿½dt und installiert Homebrew Programme von Memory Card, CD/DVD, USB, HDD, etc."
 SET "BM.TXT_APP" "Programm(e)"
 SET "BM.TXT_APPS" "Programme"
 SET "BM.TXT_DEV" "Laufwerk(e)"
@@ -129,7 +140,7 @@ SET "BM.TXT_DEVS" "Laufwerke"
 SET "BM.TXT_THM" "Theme(s)"
 SET "BM.TXT_THMS" "Themes"
 SET "BM.TXT_MENU_INSTALL" "Installieren"
-SET "BM.TXT_INSTALL_AVAIL" "Verfügbar auf"
+SET "BM.TXT_INSTALL_AVAIL" "Verfï¿½gbar auf"
 SET "BM.TXT_MENU_REMOVE" "Entfernen"
 SET "BM.TXT_REMOVE_AVAIL" "Installiert auf"
 
@@ -137,7 +148,7 @@ SET "BM.TXT_REMOVE_AVAIL" "Installiert auf"
 SET "BM.TXT_MENU_RUN" "Starten"
 SET "BM.TXT_HINT_RUN_APP" "Startet ein Programm von einem Laufwerk."
 SET "BM.TXT_RUN_APP_FROM" "Starte Programm von"
-SET "BM.TXT_RUN_AVAIL" "Ausführbar auf"
+SET "BM.TXT_RUN_AVAIL" "Ausfï¿½hrbar auf"
 
 # Install Application Browser
 SET "BM.TXT_HINT_INSTALL_APP" "Installiert ein Programm von einem Laufwerk auf ein anderes."
@@ -153,19 +164,19 @@ SET "BM.TXT_DEV_MANAGER" "Laufwerk Manager"
 SET "BM.TXT_HINT_DEV_MANAGER" "Installiere and entferne Laufwerktreiber."
 
 # Install Device
-SET "BM.TXT_HINT_INSTALL_DEV" "Installiere die Treiber für Laufwerke."
+SET "BM.TXT_HINT_INSTALL_DEV" "Installiere die Treiber fï¿½r Laufwerke."
 SET "BM.TXT_INSTALL_DEV_FROM" "Installiere Laufwerktreiber von"
 SET "BM.TXT_INSTALL_DEV_TO" "Installiere Laufwerktreiber auf"
 
 # Remove Device
-SET "BM.TXT_HINT_REMOVE_DEV" "Entferne die Treiber für Laufwerke."
+SET "BM.TXT_HINT_REMOVE_DEV" "Entferne die Treiber fï¿½r Laufwerke."
 SET "BM.TXT_REMOVE_DEV_FROM" "Entferne Laufwerktreiber von"
 
 # Devices
 SET "BM.TXT_MC_DESC" "Memory Karte Steckplatz"
 SET "BM.TXT_CCFLASH_DESC" "Crystal Chip Flashlaufwerk"
 SET "BM.TXT_CDVD_DESC" "CD/DVD Laufwerk"
-SET "BM.TXT_HOST_DESC" "PC Host über PS2Client"
+SET "BM.TXT_HOST_DESC" "PC Host ï¿½ber PS2Client"
 SET "BM.TXT_HOST_DESC_1" "PC Host Treiber"
 SET "BM.TXT_USB_DESC" "USB Hard Festplatte/Stick"
 SET "BM.TXT_USB_DESC_1" "USB Treiber"
@@ -180,23 +191,23 @@ SET "BM.TXT_MC_MANAGER" "Memory Card Manager"
 SET "BM.TXT_HINT_MC_MANAGER" "Formatiert Memory Cards, entfernt den BootManager, etc."
 
 SET "BM.TXT_MC_REM_ALL_APPS" "Alle Programme entfernen"
-SET "BM.TXT_HINT_MC_REM_ALL_APPS" "Löscht alle Programme auf der Memory Card in Steckplatz 1."
+SET "BM.TXT_HINT_MC_REM_ALL_APPS" "Lï¿½scht alle Programme auf der Memory Card in Steckplatz 1."
 SET "BM.TXT_MC_REM_BOOT" "Entferne mc0:/BOOT"
-SET "BM.TXT_HINT_MC_REM_BOOT" "Löscht das BootManager 1.x Verzeichnis auf der Memory Card in Steckplatz 1."
+SET "BM.TXT_HINT_MC_REM_BOOT" "Lï¿½scht das BootManager 1.x Verzeichnis auf der Memory Card in Steckplatz 1."
 SET "BM.TXT_MC_REM_BM" "Entferne mc0:/BM"
-SET "BM.TXT_HINT_MC_REM_BM" "Löscht das BootManager 2.x Verzeichnis auf der Memory Card in Steckplatz 1."
+SET "BM.TXT_HINT_MC_REM_BM" "Lï¿½scht das BootManager 2.x Verzeichnis auf der Memory Card in Steckplatz 1."
 SET "BM.TXT_MC0_COPY_HOST" "Kopiere mc0:/* nach HOST"
 SET "BM.TXT_HINT_MC0_COPY_HOST" "Kopiert den Inhalt der Memory Card in Steckplatz 1 ins HOST-Verzeichnis."
 SET "BM.TXT_MC1_COPY_HOST" "Kopiere mc1:/* to HOST"
 SET "BM.TXT_HINT_MC1_COPY_HOST" "Kopiert den Inhalt der Memory Card in Steckplatz 1 ins HOST-Verzeichnis."
-SET "BM.TXT_MC0_ERASE" "Lösche mc0:/*"
-SET "BM.TXT_HINT_MC0_ERASE" "Löscht den kompletten Inhalt der Memory Card in Steckplatz 1."
-SET "BM.TXT_MC1_ERASE" "Lösche mc1:/*"
-SET "BM.TXT_HINT_MC1_ERASE" "Löscht den kompletten Inhalt der Memory Card in Steckplatz 2."
+SET "BM.TXT_MC0_ERASE" "Lï¿½sche mc0:/*"
+SET "BM.TXT_HINT_MC0_ERASE" "Lï¿½scht den kompletten Inhalt der Memory Card in Steckplatz 1."
+SET "BM.TXT_MC1_ERASE" "Lï¿½sche mc1:/*"
+SET "BM.TXT_HINT_MC1_ERASE" "Lï¿½scht den kompletten Inhalt der Memory Card in Steckplatz 2."
 
 # System Information
 SET "BM.TXT_SYS_INFO" "System Informationen"
-SET "BM.TXT_HINT_SYS_INFO" "Überblick über die Hardware der Konsole."
+SET "BM.TXT_HINT_SYS_INFO" "ï¿½berblick ï¿½ber die Hardware der Konsole."
 SET "BM.TXT_CONSOLE_BIOS" "Konsolen BIOS ROM"
 SET "BM.TXT_CONSOLE_VERSION" "Konsolenversion"
 SET "BM.TXT_CONSOLE_REGION" "Konsolenregion"
@@ -204,16 +215,16 @@ SET "BM.TXT_CONSOLE_MODEL" "Konsolenmodel"
 
 # Configuration Menu
 SET "BM.TXT_CONFIGURATION" "Konfiguration"
-SET "BM.TXT_HINT_CONFIGURATION" "Ändert die Einstellungen von BootManager und CrystalChip."
+SET "BM.TXT_HINT_CONFIGURATION" "ï¿½ndert die Einstellungen von BootManager und CrystalChip."
 SET "BM.TXT_INTERF_CONFIG" "Interface Konfiguration"
 SET "BM.TXT_SOFTWARE_CONFIG" "Software Konfiguration"
 
 # BootManager Configuration
 SET "BM.TXT_BM_CONFIG" "BootManager Konfiguration"
-SET "BM.TXT_HINT_BM_CONFIG" "Ändere die Einstellungen des BootManagers."
+SET "BM.TXT_HINT_BM_CONFIG" "ï¿½ndere die Einstellungen des BootManagers."
 
 SET "BM.TXT_BM_VIDEO_MODE" "BM Anzeigemodus"
-SET "BM.TXT_HINT_BM_VIDEO_MODE" "!! ACHTUNG !! Diese Einstellung ändert den Anzeigemodus des BootManagers!"
+SET "BM.TXT_HINT_BM_VIDEO_MODE" "!! ACHTUNG !! Diese Einstellung ï¿½ndert den Anzeigemodus des BootManagers!"
 
 SET "BM.TXT_BM_SCREEN_POS" "BM Bildschirmposition"
 SET "BM.TXT_HINT_BM_SCREEN_POS" "Anpassen der BootManager Position auf dem Bildschirm."
@@ -226,7 +237,7 @@ SET "BM.TXT_HINT_SCROLLBAR_SPEED" "Bestimmt die Laufgeschwindigkeit der Hinweisl
 
 # Network Configuration Menu
 SET "BM.TXT_NET_CONFIG" "Netzwerk Konfiguration"
-SET "BM.TXT_HINT_NET_CONFIG" "Ändere die PS2 Netzwerk Einstellungen."
+SET "BM.TXT_HINT_NET_CONFIG" "ï¿½ndere die PS2 Netzwerk Einstellungen."
 
 SET "BM.TXT_START_NET" "Starte Netzwerk"
 SET "BM.TXT_HINT_START_NET" "Starte das PS2 Netzwerk."
@@ -249,14 +260,14 @@ SET "BM.TXT_HINT_SUBNET_MASK" "Dies ist die Subnet Maske des Netzwerks, normaler
 SET "BM.TXT_DEF_GATEWAY" "Standard Gateway"
 SET "BM.TXT_HINT_DEF_GATEWAY" "Dies ist die IP Addresse des Standard Netzwerk Gateways."
 
-SET "BM.TXT_PRIMARY_DNS" "Primärer DNS Server"
-SET "BM.TXT_HINT_PRIMARY_DNS" "Dies ist die IP Addresse des primären DNS Servers."
-SET "BM.TXT_SECONDARY_DNS" "Sekundärer DNS Server"
-SET "BM.TXT_HINT_SECONDARY_DNS" "Dies ist die IP Addresse des sekundären DNS Servers."
+SET "BM.TXT_PRIMARY_DNS" "Primï¿½rer DNS Server"
+SET "BM.TXT_HINT_PRIMARY_DNS" "Dies ist die IP Addresse des primï¿½ren DNS Servers."
+SET "BM.TXT_SECONDARY_DNS" "Sekundï¿½rer DNS Server"
+SET "BM.TXT_HINT_SECONDARY_DNS" "Dies ist die IP Addresse des sekundï¿½ren DNS Servers."
 
 # HDD Configuration Menu
 SET "BM.TXT_HDD_CONFIG" "HDD Konfiguration"
-SET "BM.TXT_HINT_HDD_CONFIG" "Ändere die Einstellungen der PS2 IDE Festplatte."
+SET "BM.TXT_HINT_HDD_CONFIG" "ï¿½ndere die Einstellungen der PS2 IDE Festplatte."
 
 SET "BM.TXT_START_HDD" "Starte HDD"
 SET "BM.TXT_HINT_START_HDD" "Lade HDD Treiber und mounte die HDD."
@@ -266,7 +277,7 @@ SET "BM.TXT_HINT_AUTOSTART_HDD" "Automatisches laden der HDD Treiber und mounten
 
 # Autoload Configuration
 SET "BM.TXT_AUTOLOAD_CONFIG" "Autoload Konfiguration"
-SET "BM.TXT_HINT_AUTOLOAD_CONFIG" "Konfiguriere das Autoload Verhalten für die verschiedenen Software-Typen."
+SET "BM.TXT_HINT_AUTOLOAD_CONFIG" "Konfiguriere das Autoload Verhalten fï¿½r die verschiedenen Software-Typen."
 
 SET "BM.TXT_AUTOLOAD" "Autoload"
 SET "BM.TXT_HINT_AUTOLOAD" "Autoload an und aus schalten."
@@ -274,50 +285,50 @@ SET "BM.TXT_HINT_AUTOLOAD" "Autoload an und aus schalten."
 SET "BM.TXT_ACTION" "Aktion"
 
 SET "BM.TXT_AUTOLOAD_PS1" "Autoload PS1"
-SET "BM.TXT_HINT_AL_ACT_PS1" "Diese Aktion wird ausgeführt, wenn eine PS1 Disk gestartet wird."
-SET "BM.TXT_AL_PS1_APP_FROM" "Wähle PS1 Autoload Programm von"
-SET "BM.TXT_AL_PS1_AVAIL" "Verfügbar für PS1 Autoload auf"
+SET "BM.TXT_HINT_AL_ACT_PS1" "Diese Aktion wird ausgefï¿½hrt, wenn eine PS1 Disk gestartet wird."
+SET "BM.TXT_AL_PS1_APP_FROM" "Wï¿½hle PS1 Autoload Programm von"
+SET "BM.TXT_AL_PS1_AVAIL" "Verfï¿½gbar fï¿½r PS1 Autoload auf"
 
 SET "BM.TXT_AUTOLOAD_PS2" "Autoload PS2"
-SET "BM.TXT_HINT_AL_ACT_PS2" "Diese Aktion wird ausgeführt, wenn eine PS2 Disk gestartet wird."
-SET "BM.TXT_AL_PS2_APP_FROM" "Wähle PS2 Autoload Programm von"
-SET "BM.TXT_AL_PS2_AVAIL" "Verfügbar für PS2 Autoload auf"
+SET "BM.TXT_HINT_AL_ACT_PS2" "Diese Aktion wird ausgefï¿½hrt, wenn eine PS2 Disk gestartet wird."
+SET "BM.TXT_AL_PS2_APP_FROM" "Wï¿½hle PS2 Autoload Programm von"
+SET "BM.TXT_AL_PS2_AVAIL" "Verfï¿½gbar fï¿½r PS2 Autoload auf"
 
 SET "BM.TXT_AUTOLOAD_DVDV" "Autoload DVD Video"
-SET "BM.TXT_HINT_AL_ACT_DVDV" "Diese Aktion wird ausgeführt, wenn eine DVD Video Disk gestartet wird."
-SET "BM.TXT_AL_DVDV_APP_FROM" "Wähle DVD Video Autoload Programm von"
-SET "BM.TXT_AL_DVDV_AVAIL" "Verfügbar für DVD Video Autoload auf"
+SET "BM.TXT_HINT_AL_ACT_DVDV" "Diese Aktion wird ausgefï¿½hrt, wenn eine DVD Video Disk gestartet wird."
+SET "BM.TXT_AL_DVDV_APP_FROM" "Wï¿½hle DVD Video Autoload Programm von"
+SET "BM.TXT_AL_DVDV_AVAIL" "Verfï¿½gbar fï¿½r DVD Video Autoload auf"
 
 SET "BM.TXT_AUTOLOAD_CDDA" "Autoload CD Audio"
-SET "BM.TXT_HINT_AL_ACT_CDDA" "Diese Aktion wird ausgeführt, wenn eine CD Audio Disk gestartet wird."
-SET "BM.TXT_AL_CDDA_APP_FROM" "Wähle CD Audio Autoload Programm von"
-SET "BM.TXT_AL_CDDA_AVAIL" "Verfügbar für CD Audio Autoload auf"
+SET "BM.TXT_HINT_AL_ACT_CDDA" "Diese Aktion wird ausgefï¿½hrt, wenn eine CD Audio Disk gestartet wird."
+SET "BM.TXT_AL_CDDA_APP_FROM" "Wï¿½hle CD Audio Autoload Programm von"
+SET "BM.TXT_AL_CDDA_AVAIL" "Verfï¿½gbar fï¿½r CD Audio Autoload auf"
 
 SET "BM.TXT_AUTOLOAD_OTHER" "Autoload Andere Disk"
-SET "BM.TXT_HINT_AL_ACT_OTHER" "Diese Aktion wird ausgeführt, wenn ein anderer Disktyp gestartet wird."
-SET "BM.TXT_AL_OTHER_APP_FROM" "Wähle Andere Disk Autoload Programm von"
-SET "BM.TXT_AL_OTHER_AVAIL" "Verfügbar für Andere Disk Autoload auf"
+SET "BM.TXT_HINT_AL_ACT_OTHER" "Diese Aktion wird ausgefï¿½hrt, wenn ein anderer Disktyp gestartet wird."
+SET "BM.TXT_AL_OTHER_APP_FROM" "Wï¿½hle Andere Disk Autoload Programm von"
+SET "BM.TXT_AL_OTHER_AVAIL" "Verfï¿½gbar fï¿½r Andere Disk Autoload auf"
 
 SET "BM.TXT_AUTOLOAD_NODISC" "Autoload Keine Disk"
-SET "BM.TXT_HINT_AL_ACT_NODISC" "Diese Aktion wird ausgeführt, wenn keine Disk eingelegt ist."
-SET "BM.TXT_AL_NODISC_APP_FROM" "Wähle Keine Disk Autoload Programm von"
-SET "BM.TXT_AL_NODISC_AVAIL" "Verfügbar für Keine Disk Autoload auf"
+SET "BM.TXT_HINT_AL_ACT_NODISC" "Diese Aktion wird ausgefï¿½hrt, wenn keine Disk eingelegt ist."
+SET "BM.TXT_AL_NODISC_APP_FROM" "Wï¿½hle Keine Disk Autoload Programm von"
+SET "BM.TXT_AL_NODISC_AVAIL" "Verfï¿½gbar fï¿½r Keine Disk Autoload auf"
 
 SET "BM.TXT_SET_AL_APP" "Bestimme Autoload Programm"
-SET "BM.TXT_HINT_SET_AL_APP" "Wähle das Programm, das beim Autoload dieser Disk ausgeführt werden soll."
+SET "BM.TXT_HINT_SET_AL_APP" "Wï¿½hle das Programm, das beim Autoload dieser Disk ausgefï¿½hrt werden soll."
 
-SET "BM.TXT_AL_DELAY" "Autoload Verzögerung(Sek)"
+SET "BM.TXT_AL_DELAY" "Autoload Verzï¿½gerung(Sek)"
 SET "BM.TXT_HINT_AL_DELAY" "Bestimmt die Leerlaufzeit, in Sekunden, bevor der BootManager den Autoload aktiviert."
 
 # PS1 Configuration Menu
 SET "BM.TXT_PS1_CONFIG" "PS1 Konfiguration"
-SET "BM.TXT_HINT_PS1_CONFIG" "Ändere die Einstellungen für PS1 Spiele und Software."
+SET "BM.TXT_HINT_PS1_CONFIG" "ï¿½ndere die Einstellungen fï¿½r PS1 Spiele und Software."
 
 SET "BM.TXT_DISC_SPEED" "Disk Geschwindigkeit"
-SET "BM.TXT_HINT_DISC_SPEED" "Diese Option erlaubt es, die PS1-Disk Lese-Geschwindigkeit zu erhöhen. Bitte beachten Sie, dass diese Option eventuell nicht mit jeder PS1 Software kompatibel ist."
+SET "BM.TXT_HINT_DISC_SPEED" "Diese Option erlaubt es, die PS1-Disk Lese-Geschwindigkeit zu erhï¿½hen. Bitte beachten Sie, dass diese Option eventuell nicht mit jeder PS1 Software kompatibel ist."
 
 SET "BM.TXT_TEX_MAPPING" "Texturen-Mapping"
-SET "BM.TXT_HINT_TEX_MAPPING" "Diese Option aktiviert die Texturglättung für PS1 Software. Bitte beachten Sie, dass diese Option eventuell nicht mit jeder PS1 Software kompatibel ist."
+SET "BM.TXT_HINT_TEX_MAPPING" "Diese Option aktiviert die Texturglï¿½ttung fï¿½r PS1 Software. Bitte beachten Sie, dass diese Option eventuell nicht mit jeder PS1 Software kompatibel ist."
 
 # Common for PS1 and PS2
 SET "BM.TXT_NTSC_SW_VID_FIXES" "NTSC Anzeige-Korrekturen"
@@ -327,10 +338,10 @@ SET "BM.TXT_PAL_SW_VID_FIXES" "PAL Anzeige-Korrekturen"
 SET "BM.TXT_HINT_PAL_SW_VID_FIXES" "Schalte PAL-Software Anzeige-Korrekturen an oder aus."
 
 SET "BM.TXT_FORCE_VSYNC" "Erzwinge Vertical Sync"
-SET "BM.TXT_HINT_FORCE_VSYNC" "Erzwinge Vertical Sync für die Software."
+SET "BM.TXT_HINT_FORCE_VSYNC" "Erzwinge Vertical Sync fï¿½r die Software."
 
 SET "BM.TXT_FORCE_COLOR" "Erzwinge Farbausgabe"
-SET "BM.TXT_HINT_FORCE_COLOR" "Erzwinge Farbausgabe für die Software."
+SET "BM.TXT_HINT_FORCE_COLOR" "Erzwinge Farbausgabe fï¿½r die Software."
 
 SET "BM.TXT_SCREEN_MODS" "Bildposition Modifizierung"
 SET "BM.TXT_HINT_SCREEN_MODS" "Diese Einstellung erlaubt das Ein- oder Ausschalten der Bildschirmpositions Einstellungen."
@@ -340,20 +351,20 @@ SET "BM.TXT_HINT_SCREEN_X_MOD" "Bestimmt die X(horizontale) und Y(vertikale) Anz
 
 # PS2 Configuration Menu
 SET "BM.TXT_PS2_CONFIG" "PS2 Konfiguration"
-SET "BM.TXT_HINT_PS2_CONFIG" "Ändere die Einstellungen für PS2 Spiele und Software."
+SET "BM.TXT_HINT_PS2_CONFIG" "ï¿½ndere die Einstellungen fï¿½r PS2 Spiele und Software."
 
 SET "BM.TXT_MEGAMEM_PATCHER" "MegaMemory Patcher"
-SET "BM.TXT_HINT_MEGAMEM_PATCHER" "Ein/Ausschalten des Patches zum Benutzen älterer MegaMemory/MAX Memory Karten."
+SET "BM.TXT_HINT_MEGAMEM_PATCHER" "Ein/Ausschalten des Patches zum Benutzen ï¿½lterer MegaMemory/MAX Memory Karten."
 
 SET "BM.TXT_ATAD_PATCHER" "ATAD(HDD) Patcher"
-SET "BM.TXT_HINT_ATAD_PATCHER" "Ein/Ausschalten des ATAD-Patches zum Benutzen von nicht-Sony HDDs mit HDD-unterstützten PS2 Spielen."
+SET "BM.TXT_HINT_ATAD_PATCHER" "Ein/Ausschalten des ATAD-Patches zum Benutzen von nicht-Sony HDDs mit HDD-unterstï¿½tzten PS2 Spielen."
 
 SET "BM.TXT_DVDDL_PATCHER" "DVD+R Dual Layer Patcher"
 SET "BM.TXT_HINT_DVDDL_PATCHER" "Ein/Ausschalten des DVD+R Dual Layer Disk Patches."
 
 # DVD Configuration Menu
 SET "BM.TXT_DVD_CONFIG" "DVD Konfiguration"
-SET "BM.TXT_HINT_DVD_CONFIG" "Ändere die Einstellungen für DVDs."
+SET "BM.TXT_HINT_DVD_CONFIG" "ï¿½ndere die Einstellungen fï¿½r DVDs."
 
 SET "BM.TXT_DVD_VIDEO_FIXES" "DVD Anzeige-Korrekturen"
 SET "BM.TXT_HINT_DVD_VIDEO_FIXES" "Schalte DVD Anzeige-Korrekturen an oder aus."
@@ -362,20 +373,20 @@ SET "BM.TXT_REGION_FREE" "Region Abschalten"
 SET "BM.TXT_HINT_REGION_FREE" "Diese Fuktion erlaubt es importierte DVDs mit der PS2 anzusehen."
 
 SET "BM.TXT_DVD_PLAYER_REGION" "DVD-Player Region"
-SET "BM.TXT_HINT_DVD_PLAYER_REGION" "Dieses Feature erlaubt es die DVD-Player Region für RCE-geschützte Filme einzustellen. Normalerweise sollte der Wert 1 gesetzt sein."
+SET "BM.TXT_HINT_DVD_PLAYER_REGION" "Dieses Feature erlaubt es die DVD-Player Region fï¿½r RCE-geschï¿½tzte Filme einzustellen. Normalerweise sollte der Wert 1 gesetzt sein."
 
 SET "BM.TXT_RGB_FIX" "RGB-Fix"
-SET "BM.TXT_HINT_RGB_FIX" "Dieser Fix erlaubt es den Grünstich beim anschauen von DVD-Filmen zu entfernen."
+SET "BM.TXT_HINT_RGB_FIX" "Dieser Fix erlaubt es den Grï¿½nstich beim anschauen von DVD-Filmen zu entfernen."
 
 SET "BM.TXT_VIDEO_STAB" "Bild-Stabilisation"
-SET "BM.TXT_HINT_VIDEO_STAB" "Hier kann die Macrovision-Ausgabe deaktiviert werden, was manchmal zu einer verbesserten Bildqualität führt."
+SET "BM.TXT_HINT_VIDEO_STAB" "Hier kann die Macrovision-Ausgabe deaktiviert werden, was manchmal zu einer verbesserten Bildqualitï¿½t fï¿½hrt."
 
-SET "BM.TXT_HINT_FORCE_COLOR_DVD" "Dieses Feature erlaubt eine bestimmte Farbausgabe für DVD-Filme zu erzwingen."
+SET "BM.TXT_HINT_FORCE_COLOR_DVD" "Dieses Feature erlaubt eine bestimmte Farbausgabe fï¿½r DVD-Filme zu erzwingen."
 
 # Disc Boot Menu
-SET "BM.TXT_BOOT_MENU" "Disk Boot Menü"
+SET "BM.TXT_BOOT_MENU" "Disk Boot Menï¿½"
 SET "BM.TXT_BOOT_ENHANCED" "Boote im Erweiterten Modus"
-SET "BM.TXT_HINT_BOOT_ENHANCED" "Boote die Disk mit allen momentan gewählten Verbesserungen."
+SET "BM.TXT_HINT_BOOT_ENHANCED" "Boote die Disk mit allen momentan gewï¿½hlten Verbesserungen."
 SET "BM.TXT_BOOT_MINIMAL" "Boote im Minimal Modus"
 SET "BM.TXT_HINT_BOOT_MINIMAL" "Boote die Disk mit mimimalen Verbesserungen."
 SET "BM.TXT_BOOT_SLEEP" "Boote im Schlaf Modus"
@@ -383,56 +394,56 @@ SET "BM.TXT_HINT_BOOT_SLEEP" "Boote die Disk mit abgeschalteten Verbesserungen u
 
 # Theme Manager
 SET "BM.TXT_THEME_MANAGER" "Theme Manager"
-SET "BM.TXT_HINT_THEME_MANAGER" "Konfiguriere, ändere, installiere and entferne BootManager Themes."
-SET "BM.TXT_SELECTED_THEME" "Gewähltes Theme"
+SET "BM.TXT_HINT_THEME_MANAGER" "Konfiguriere, ï¿½ndere, installiere and entferne BootManager Themes."
+SET "BM.TXT_SELECTED_THEME" "Gewï¿½hltes Theme"
 SET "BM.TXT_MANAGE_THEME" "Manage Themes"
 
 # Theme Configuration
 SET "BM.TXT_THEMES" "Themes"
 SET "BM.TXT_THEME_CONFIG" "Theme Konfiguration"
-SET "BM.TXT_HINT_THEME_CONFIG" "Konfiguriere das BootManager Menü Theme."
+SET "BM.TXT_HINT_THEME_CONFIG" "Konfiguriere das BootManager Menï¿½ Theme."
 
 SET "BM.TXT_XY" "X/Y Position"
-SET "BM.TXT_WH" "Breite/Höhe"
+SET "BM.TXT_WH" "Breite/Hï¿½he"
 
-SET "BM.TXT_THEME_MENU_IMG" "Menü Bild"
-SET "BM.TXT_HINT_THEME_MENU_IMG_XY" "Passe die X/Y Bildschirm Position des Menü Hintergrundbilds an."
-SET "BM.TXT_HINT_THEME_MENU_IMG_WH" "Passe die Breite/Höhe des Menü Hintergrundbilds an."
+SET "BM.TXT_THEME_MENU_IMG" "Menï¿½ Bild"
+SET "BM.TXT_HINT_THEME_MENU_IMG_XY" "Passe die X/Y Bildschirm Position des Menï¿½ Hintergrundbilds an."
+SET "BM.TXT_HINT_THEME_MENU_IMG_WH" "Passe die Breite/Hï¿½he des Menï¿½ Hintergrundbilds an."
 
 SET "BM.TXT_THEME_DISC_IMG" "Disk Bild"
 SET "BM.TXT_HINT_DISC_IMG_XY" "Passe die X/Y Bildschirm Position des Disk Bildes an."
-SET "BM.TXT_HINT_DISC_IMG_WH" "Passe die Breite/Höhe des Disk Bildes an."
+SET "BM.TXT_HINT_DISC_IMG_WH" "Passe die Breite/Hï¿½he des Disk Bildes an."
 
-SET "BM.TXT_THEME_MENU_TEXT" "Menü"
-SET "BM.TXT_HINT_THEME_MENU_XY" "Passe die X/Y Bildschirm Position des Menüs an."
-SET "BM.TXT_HINT_THEME_MENU_WH" "Passe die Breite/Höhe des Menüs an."
+SET "BM.TXT_THEME_MENU_TEXT" "Menï¿½"
+SET "BM.TXT_HINT_THEME_MENU_XY" "Passe die X/Y Bildschirm Position des Menï¿½s an."
+SET "BM.TXT_HINT_THEME_MENU_WH" "Passe die Breite/Hï¿½he des Menï¿½s an."
 
-SET "BM.TXT_THEME_MENU_TITLE" "Menü Titel"
-SET "BM.TXT_HINT_THEME_MENU_TITLE_XY" "Passe die X/Y Bildschirm Position des Menü Titels an."
-SET "BM.TXT_HINT_THEME_MENU_TITLE_WH" "Passe die Breite/Höhe des Menü Titels an."
+SET "BM.TXT_THEME_MENU_TITLE" "Menï¿½ Titel"
+SET "BM.TXT_HINT_THEME_MENU_TITLE_XY" "Passe die X/Y Bildschirm Position des Menï¿½ Titels an."
+SET "BM.TXT_HINT_THEME_MENU_TITLE_WH" "Passe die Breite/Hï¿½he des Menï¿½ Titels an."
 
 SET "BM.TXT_BM_VERSION" "BM Versionslabel"
 SET "BM.TXT_HINT_BM_VERSION" "Passe die X/Y Bildschirm Position des BM Versionstextes an."
 
 SET "BM.TXT_THEME_SCROLLER" "Hinweisleiste"
 SET "BM.TXT_HINT_THEME_SCROLLER_XY" "Passe die X/Y Bildschirm Position der Hinweisleiste an."
-SET "BM.TXT_HINT_THEME_SCROLLER_WH" "Passe die Breite/Höhe der Hinweisleiste an."
+SET "BM.TXT_HINT_THEME_SCROLLER_WH" "Passe die Breite/Hï¿½he der Hinweisleiste an."
 
 SET "BM.TXT_THEME_COLOR" "Theme Farben"
 SET "BM.TXT_THEME_BG_COLOR" "Hintergrund Farbe"
-SET "BM.TXT_HINT_THEME_BG_COLOR" "Wähle die Farbe für den Hintergrund."
+SET "BM.TXT_HINT_THEME_BG_COLOR" "Wï¿½hle die Farbe fï¿½r den Hintergrund."
 SET "BM.TXT_THEME_FONT_COLOR" "Schrift Farbe"
-SET "BM.TXT_HINT_THEME_FONT_COLOR" "Wähle die Farbe für die Menüschrift."
+SET "BM.TXT_HINT_THEME_FONT_COLOR" "Wï¿½hle die Farbe fï¿½r die Menï¿½schrift."
 SET "BM.TXT_THEME_FONT_COLOR_LABEL" "Titelschrift Farbe"
-SET "BM.TXT_HINT_THEME_FONT_COLOR_LABEL" "Wähle die Farbe für Titelschrift und Versionslabel."
+SET "BM.TXT_HINT_THEME_FONT_COLOR_LABEL" "Wï¿½hle die Farbe fï¿½r Titelschrift und Versionslabel."
 SET "BM.TXT_THEME_FONT_COLOR_SCROLLER" "Hinweisleiste Farbe"
-SET "BM.TXT_HINT_THEME_FONT_COLOR_SCROLLER" "Wähle die Farbe für die Hinweisleiste."
+SET "BM.TXT_HINT_THEME_FONT_COLOR_SCROLLER" "Wï¿½hle die Farbe fï¿½r die Hinweisleiste."
 
 # Change Theme
-SET "BM.TXT_MENU_CHANGE" "Ändern"
-SET "BM.TXT_HINT_THEME_CHANGE" "Wähle ein neues Theme und ändere das Aussehen von BM."
-SET "BM.TXT_CHANGE_THM_FROM" "Wähle Theme von"
-SET "BM.TXT_CHANGE_AVAIL" "Verfügbare Themes auf"
+SET "BM.TXT_MENU_CHANGE" "ï¿½ndern"
+SET "BM.TXT_HINT_THEME_CHANGE" "Wï¿½hle ein neues Theme und ï¿½ndere das Aussehen von BM."
+SET "BM.TXT_CHANGE_THM_FROM" "Wï¿½hle Theme von"
+SET "BM.TXT_CHANGE_AVAIL" "Verfï¿½gbare Themes auf"
 
 # Install Themes
 SET "BM.TXT_HINT_THEME_INSTALL" "Installiere ein Theme von einem Laufwerk auf ein anderes."
@@ -448,29 +459,29 @@ SET "BM.TXT_PS1_TEST_INFO" "Disk Test wird jetzt die Crystal Chip PS1(aka SCEx) 
 SET "BM.TXT_START_PS1_TEST" "Starte PS1 Disk Test"
 
 SET "BM.TXT_DISC_TEST" "Disk Test"
-SET "BM.TXT_HINT_DISC_TEST" "Disk Test erlaubt es die Crystal Chip Installation zu überprüfen, durch testen der PS1(aka SCEx) Authentifikation."
+SET "BM.TXT_HINT_DISC_TEST" "Disk Test erlaubt es die Crystal Chip Installation zu ï¿½berprï¿½fen, durch testen der PS1(aka SCEx) Authentifikation."
 
 SET "BM.TXT_PS1_WORK" "PS1 Disk Authentifikation funktioniert!"
 SET "BM.TXT_PS1_FAIL" "PS1 Disk Authentifikation fehlgeschlagen!"
 
-SET "BM.TXT_CHECK_SX" "Bitte den CrystalChip SX Draht überprüfen."
+SET "BM.TXT_CHECK_SX" "Bitte den CrystalChip SX Draht ï¿½berprï¿½fen."
 
 # Misc Config
 SET "BM.TXT_MISC_CONFIG" "Verschiedene Konfigurationen"
 SET "BM.TXT_HINT_MISC_CONFIG" "Verschiedene Konfigurationsoptionen die in keine andere Kategorie passen."
 
 SET "BM.TXT_GS_HOOK" "GS Hook"
-SET "BM.TXT_HINT_GS_HOOK" "Der CrystalChip GS Hook wird benutzt um erweiterte Anzeige-Korrekturen für PS2 Software zu aktivieren, ist aber eventuell inkompatibel mit manchen Spielen."
+SET "BM.TXT_HINT_GS_HOOK" "Der CrystalChip GS Hook wird benutzt um erweiterte Anzeige-Korrekturen fï¿½r PS2 Software zu aktivieren, ist aber eventuell inkompatibel mit manchen Spielen."
 
 SET "BM.TXT_IGR" "In-Game Reset"
-SET "BM.TXT_HINT_IGR" "In-Game Reset(IGR) erlaubt es durch drücken und halten von L1+L2+R1+R2+Start+Select die PS2 aus einem PS2 Spiel heraus neu zu starten."
+SET "BM.TXT_HINT_IGR" "In-Game Reset(IGR) erlaubt es durch drï¿½cken und halten von L1+L2+R1+R2+Start+Select die PS2 aus einem PS2 Spiel heraus neu zu starten."
 
 # Video Wizard
 SET "BM.TXT_VID_WIZ" "Video Wizard"
-SET "BM.TXT_VID_WIZ_1" "Dieser Wizard hilft dabei die Anzeigemodi herauszufinden die der Fernseher unterstützt."
-SET "BM.TXT_VID_WIZ_2" "Wenn der Wizard abgeschlossen ist, wird er automatisch die besten Anzeige-Korrektur Optionen für das TV-Gerät wählen."
-SET "BM.TXT_VID_WIZ_3" "Jeder Schritt testet einen anderen Modus und es muss die passende Option gewählt werden zu dem was auf dem Bildschirm zu sehen ist."
-SET "BM.TXT_VID_WIZ_4" "Wenn nach 10 Sekunden nichts zu sehen ist einmal X drücken und 10 Sekunden auf den nächsten Bildschirm warten."
+SET "BM.TXT_VID_WIZ_1" "Dieser Wizard hilft dabei die Anzeigemodi herauszufinden die der Fernseher unterstï¿½tzt."
+SET "BM.TXT_VID_WIZ_2" "Wenn der Wizard abgeschlossen ist, wird er automatisch die besten Anzeige-Korrektur Optionen fï¿½r das TV-Gerï¿½t wï¿½hlen."
+SET "BM.TXT_VID_WIZ_3" "Jeder Schritt testet einen anderen Modus und es muss die passende Option gewï¿½hlt werden zu dem was auf dem Bildschirm zu sehen ist."
+SET "BM.TXT_VID_WIZ_4" "Wenn nach 10 Sekunden nichts zu sehen ist einmal X drï¿½cken und 10 Sekunden auf den nï¿½chsten Bildschirm warten."
 SET "BM.TXT_VID_WIZ_START" "Test starten"
 SET "BM.TXT_HINT_VID_WIZ_START" "Startet den Video Wizard Anzeigemodus Test."
 
@@ -479,7 +490,7 @@ SET "BM.TXT_TEST_50HZ" "Teste 50Hz"
 SET "BM.TXT_TEST_PAL" "Teste PAL Farbe"
 SET "BM.TXT_TEST_60HZ" "Teste 60Hz"
 SET "BM.TXT_TEST_NTSC" "Teste NTSC Farbe"
-SET "BM.TXT_CAN_YOU_READ" "Können Sie diesen Bildschirm lesen?"
+SET "BM.TXT_CAN_YOU_READ" "Kï¿½nnen Sie diesen Bildschirm lesen?"
 SET "BM.TXT_YES_BUT" "Ja, aber der Bildschrim 'rollt'."
 SET "BM.TXT_SCREEN_COLOR" "Ist dieser Bildschrim in Farbe?"
 
@@ -494,18 +505,36 @@ SET "BM.TXT_PAL_NO" "Ihr Fernseher kann PAL Farbe nicht anzeigen."
 SET "BM.TXT_NTSC_YES" "Ihr Fernseher kann NTSC Farbe anzeigen."
 SET "BM.TXT_NTSC_NO" "Ihr Fernseher kann NTSC Farbe nicht anzeigen."
 SET "BM.TXT_DONE" "Fertig"
-SET "BM.TXT_RETURN_CONFIG" "Zum Konfigurationsmenü zurückkehren."
+SET "BM.TXT_RETURN_CONFIG" "Zum Konfigurationsmenï¿½ zurï¿½ckkehren."
+
+#Lockout/Pin Mode
+SET "BM.TXT_CNF_LOCKOUT" "Security"
+SET "BM.TXT_CNF_LOCKOUT_HINT" "Lockout functions from BootManager with a PIN."
+SET "BM.TXT_CNF_LOCKOUT_LABEL1" "Lockout all functions except for"
+SET "BM.TXT_CNF_LOCKOUT_LABEL2" "booting discs and apps."
+SET "BM.TXT_CNF_LOCKOUT_LABEL3" "Input your PIN to unlock all functions."
+SET "BM.TXT_CNF_LOCKOUT_LABEL4" "To clear a forgotten PIN, reinstall BootManager."
+SET "BM.TXT_PIN_SETUP" "Choose a PIN"
+SET "BM.TXT_PIN_SETUP_HINT" "Input a PIN to be used to lockout advanced functions in BootManager."
+SET "BM.TXT_PIN_CONF" "Confirm your chosen PIN"
+SET "BM.TXT_PIN_CONF_HINT" "Confirm your PIN to be used to lockout advanced functions in BootManager"
+SET "BM.TXT_PIN_UNLOCK" "Input your PIN to unlock all menus."
+SET "BM.TXT_PIN_UNLOCK_HINT" "To unlock all functions please input your PIN. This will unlock until a PIN is setup again."
+SET "BM.TXT_INCORRECT_PIN" "PIN is incorrect. Try again or reset by reinstalling BM via disc"
+SET "BM.TXT_PIN_SET" "BootManager menus locked!
+SET "BM.TXT_UNLOCKED" "BootManger menus unlocked!"
+SET "BM.TXT_LOCKOUT_WARNING" "Advanced functions locked."
 
 #Messages
 SET "BM.TXT_SAVE_CONF_FAIL" "Speichern der Konfigurationseinstellungen fehlgeschlagen!"
 SET "BM.TXT_SAVE_THM_FAIL" "Speichern der Theme Konfigurationseinstellungen fehlgeschlagen!"
-SET "BM.TXT_DEL_FW_FAIL" "Löschen der Firmware fehlgeschlagen!"
+SET "BM.TXT_DEL_FW_FAIL" "Lï¿½schen der Firmware fehlgeschlagen!"
 SET "BM.TXT_CREATE_FAIL" "Fehler beim Erstellen von"
 SET "BM.TXT_COPY_FAIL" "Fehler beim Kopieren von"
 SET "BM.TXT_COPY_DEF_THM_FAIL" "Fehler beim Kopieren des standard Themes!"
 SET "BM.TXT_INST_FAIL" "Fehler bei der Installation von"
 SET "BM.TXT_REM_FAIL" "Fehler beim Entfernen von"
-SET "BM.TXT_NO_CC" "Nicht unterstützter CrystalChip"
+SET "BM.TXT_NO_CC" "Nicht unterstï¿½tzter CrystalChip"
 SET "BM.TXT_PROGFW_FAIL" "Programmieren der Firmware fehlgeschlagen!"
 SET "BM.TXT_PROGFW_DONE" "Firmware erfolgreich aktualisiert!"
 
