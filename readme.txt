@@ -1,6 +1,6 @@
 Crystal Chips - http://www.crystal-chips.com/
 
-This is the Crystal Chips software release 34 v3 by R3Z3N Jan 11 2025
+This is the Crystal Chips software release 34 v3 by R3Z3N Jan 18 2025
 
 Included in this package are firmware source codes for all revisions of Crystal Chips, support tools, BootManager and
 associated scripts and applications.  This software is written by Crystal Chips for the express use on Crystal Chips
@@ -48,6 +48,8 @@ Release 34 V3 by R3Z3N Dec 11 2024
               IE CC1.0-1.2 can choose BM run point, CC2.0 DFFS only.
        
         - Show Info gives a little more clarity IE where is BM executed from, what console region codes stand for etc.
+
+	- Cotton Candy theme added, each version of the Crystal Chip is represented!
     
     To Do:
 	- Fix FW for running BM via USB/HDD specific firmware. Though do we want that?I think it to be too convoluted
