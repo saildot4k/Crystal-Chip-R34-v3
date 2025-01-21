@@ -6,6 +6,8 @@
 # This script is used by BootManager to create and control the menu system.
 #
 # Modification: R3Z3N has modified this so that APPS and FW choices can be made when booted from CD. DFFS options removed for CC 1.0 and 1.1.
+# Added Security configuration, a pin lockout of advanced functions. 0000 disables, as does reinstalling BM as it wipes configs.
+#
 #SET "BM.INSTALLER_MODE" "1"
 
 # Keep this script resident in memory to speed up calls to it.
