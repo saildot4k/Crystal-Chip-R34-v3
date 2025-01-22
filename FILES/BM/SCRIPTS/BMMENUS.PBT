@@ -108,6 +108,7 @@ GOTO "$ARG1$"
             ADDWIDGET "LABEL" ""
             ADDWIDGET "LABEL" ""
             ADDWIDGET "LABEL" ""
+            ADDWIDGET "LABEL" ""
             ADDWIDGET "LABEL" "$BM.TXT_LOCKOUT_WARNING$"
         ENDIF
     ENDIF
