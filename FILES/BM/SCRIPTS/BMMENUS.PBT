@@ -106,9 +106,6 @@ GOTO "$ARG1$"
         IF NEQ "$BM.CNF_PIN_NUM0$$BM.CNF_PIN_NUM1$" "00"
             ADDWIDGET "LABEL" ""
             ADDWIDGET "LABEL" ""
-            ADDWIDGET "LABEL" ""
-            ADDWIDGET "LABEL" ""
-            ADDWIDGET "LABEL" ""
             ADDWIDGET "LABEL" "$BM.TXT_LOCKOUT_WARNING$"
         ENDIF
     ENDIF

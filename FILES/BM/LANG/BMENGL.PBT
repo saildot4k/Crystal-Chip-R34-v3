@@ -216,7 +216,7 @@ SET "BM.TXT_CONSOLE_MODEL" "Console Model"
 # Configuration Menu
 SET "BM.TXT_CONFIGURATION" "Configuration"
 SET "BM.TXT_HINT_CONFIGURATION" "Change BootManager and CrystalChip settings."
-SET "BM.TXT_INTERF_CONFIG" "Interface Configuration"
+SET "BM.TXT_INTERF_CONFIG" "Interface"
 SET "BM.TXT_SOFTWARE_CONFIG" "Software Configuration"
 
 # BootManager Configuration
@@ -236,7 +236,7 @@ SET "BM.TXT_SCROLLBAR_SPEED" "Hint Scrollbar Speed"
 SET "BM.TXT_HINT_SCROLLBAR_SPEED" "Set the speed of the Hint Scrollbar."
 
 # Network Configuration Menu
-SET "BM.TXT_NET_CONFIG" "Network Configuration"
+SET "BM.TXT_NET_CONFIG" "Network"
 SET "BM.TXT_HINT_NET_CONFIG" "Change your PS2 Network Settings."
 
 SET "BM.TXT_START_NET" "Start Network"
