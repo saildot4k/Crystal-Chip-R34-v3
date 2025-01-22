@@ -12,3 +12,10 @@ Steps for upgrading to BM 2.0 from BM 1.x
 4. Return to the main menu and choose Upgrade Firmware.
 5. Choose "Install BootManager" and select the Memory Card or CC Flash you wish to install it to.
 6. When it's finished installing, reset the PS2.
+
+NOTE: 
+- CC1.0-1.2 REQUIRE a memory card to use BootManager. This is hardcoded in the firmware to use memory card 1 or 2 depending on firmware choice. 
+- CC2.0 and 2.0SLE run BootManger from the dataflash. 
+
+- CC1.2 and later can upgrade to the 4MB DataFlash (AT45DB321D- S or MW) 
+Directions to come....need to do some scripting...would prefer end user doesn't have to follow complicated directions- sincerely R3Z3N	
