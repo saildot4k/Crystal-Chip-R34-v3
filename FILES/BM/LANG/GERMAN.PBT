@@ -1,6 +1,6 @@
 #
 # German translation of Crystal Chips BootManager menu for BMMENUS.PBT v1.4
-# Only intended to use with the R34 modified v2 release by Jones23.
+# Only intended to use with the R34 modified v3 release by R3Z3N.
 #
 
 # Check the menu script version to be sure this script supports it.
@@ -111,16 +111,16 @@ SET "BM.TXT_ERASE_FW" "Firmware l�schen"
 SET "BM.TXT_HINT_ERASE_FW" "Den kompletten Inhalt des CrystalChip Flash/EEPROM l�schen."
 SET "BM.TXT_ASK_ERASE_FW" "Sind Sie sicher dass Sie die Firmware l�schen wollen?"
 
-SET "BM.TXT_FW_TITLE" "Firmware Variations:"
-SET "BM.TXT_FW_QUESTION" "Run Boot Manager from which interface?"
-SET "BM.TXT_FW_MC0" "1- BM runs from Memory Card 1"
-SET "BM.TXT_FW_MC0_HINT" "Install CC FW and runs BM on MemCard1"
-SET "BM.TXT_FW_MC1" "2- BM runs from Memory Card 2"
-SET "BM.TXT_FW_MC1_HINT" "Install CC FW and runs BM on MemCard1"
-SET "BM.TXT_FW_USB" "3- BM runs from USB"
-SET "BM.TXT_FW_USB_HINT" "Install CC FW and runs BM on USB. IMPORTANT: USB Drivers MUST be installed to MemCard1 via Device Manager"
-SET "BM.TXT_FW_HDD" "4- BM runs from HDD"
-SET "BM.TXT_FW_HDD_HINT" "Install CC FW and runs BM on HDD. IMPORTANT: HDD Drivers MUST be installed to MemCard1 via Device Manager"
+SET "BM.TXT_FW_TITLE" "Firmware-Varianten:"
+SET "BM.TXT_FW_QUESTION" "Boot-Manager von welcher Schnittstelle aus ausführen?"
+SET "BM.TXT_FW_MC0" "1- BM läuft von Speicherkarte 1"
+SET "BM.TXT_FW_MC0_HINT" "Installiere CC FW und führe BM auf MemCard1 aus"
+SET "BM.TXT_FW_MC1" "2- BM läuft von Speicherkarte 2"
+SET "BM.TXT_FW_MC1_HINT" "Installiere CC FW und führe BM auf MemCard1 aus"
+SET "BM.TXT_FW_USB" "3- BM läuft von USB"
+SET "BM.TXT_FW_USB_HINT" "Installiere CC FW und führe BM auf USB aus. WICHTIG: USB-Treiber MÜSSEN über den Geräte-Manager auf MemCard1 installiert werden"
+SET "BM.TXT_FW_HDD" "4- BM läuft von HDD"
+SET "BM.TXT_FW_HDD_HINT" "Installiere CC FW und führe BM auf HDD aus. WICHTIG: HDD-Treiber MÜSSEN über den Gerätemanager auf MemCard1 installiert"
 
 # Reload Menu
 SET "BM.TXT_RELOAD_MENU" "Men� neu laden"
@@ -508,22 +508,22 @@ SET "BM.TXT_DONE" "Fertig"
 SET "BM.TXT_RETURN_CONFIG" "Zum Konfigurationsmen� zur�ckkehren."
 
 #Lockout/Pin Mode
-SET "BM.TXT_CNF_LOCKOUT" "Security"
-SET "BM.TXT_CNF_LOCKOUT_HINT" "Lockout functions from BootManager with a PIN."
-SET "BM.TXT_CNF_LOCKOUT_LABEL1" "Lockout all functions except for"
-SET "BM.TXT_CNF_LOCKOUT_LABEL2" "booting discs and apps."
-SET "BM.TXT_CNF_LOCKOUT_LABEL3" "Input your PIN to unlock all functions."
-SET "BM.TXT_CNF_LOCKOUT_LABEL4" "To clear a forgotten PIN, reinstall BootManager."
-SET "BM.TXT_PIN_SETUP" "Choose a PIN"
-SET "BM.TXT_PIN_SETUP_HINT" "Input a PIN to be used to lockout advanced functions in BootManager."
-SET "BM.TXT_PIN_CONF" "Confirm your chosen PIN"
-SET "BM.TXT_PIN_CONF_HINT" "Confirm your PIN to be used to lockout advanced functions in BootManager"
-SET "BM.TXT_PIN_UNLOCK" "Input your PIN to unlock all menus."
-SET "BM.TXT_PIN_UNLOCK_HINT" "To unlock all functions please input your PIN. This will unlock until a PIN is setup again."
-SET "BM.TXT_INCORRECT_PIN" "PIN is incorrect. Try again or reset by reinstalling BM via disc"
-SET "BM.TXT_PIN_SET" "BootManager menus locked!
-SET "BM.TXT_UNLOCKED" "BootManger menus unlocked!"
-SET "BM.TXT_LOCKOUT_WARNING" "Advanced functions locked."
+SET "BM.TXT_CNF_LOCKOUT" "Sicherheit"
+SET "BM.TXT_CNF_LOCKOUT_HINT" "Funktionen des BootManagers mit einer PIN sperren."
+SET "BM.TXT_CNF_LOCKOUT_LABEL1" "Alle Funktionen sperren außer"
+SET "BM.TXT_CNF_LOCKOUT_LABEL2" "Bootdisketten und Apps."
+SET "BM.TXT_CNF_LOCKOUT_LABEL3" "Geben Sie Ihre PIN ein, um alle Funktionen freizuschalten."
+SET "BM.TXT_CNF_LOCKOUT_LABEL4" "Um eine vergessene PIN zu löschen, installieren Sie den BootManager neu."
+SET "BM.TXT_PIN_SETUP" "Wählen Sie eine PIN"
+SET "BM.TXT_PIN_SETUP_HINT" "Geben Sie eine PIN ein, mit der erweiterte Funktionen im BootManager gesperrt werden sollen."
+SET "BM.TXT_PIN_CONF" "Bestätigen Sie Ihre gewählte PIN"
+SET "BM.TXT_PIN_CONF_HINT" "Bestätigen Sie Ihre PIN, die zum Sperren erweiterter Funktionen im BootManager verwendet werden soll"
+SET "BM.TXT_PIN_UNLOCK" "Geben Sie Ihre PIN ein, um alle Menüs zu entsperren."
+SET "BM.TXT_PIN_UNLOCK_HINT" "Um alle Funktionen zu entsperren, geben Sie bitte Ihre PIN ein. Dies wird entsperrt, bis eine neue PIN eingerichtet wird."
+SET "BM.TXT_INCORRECT_PIN" "PIN ist falsch. Versuchen Sie es erneut oder setzen Sie es zurück, indem Sie BM über eine CD neu installieren"
+SET "BM.TXT_PIN_SET" "BootManager-Menüs gesperrt!"
+SET "BM.TXT_UNLOCKED" "BootManager-Menüs entsperrt!"
+SET "BM.TXT_LOCKOUT_WARNING" "Erweiterte Funktionen gesperrt."
 
 #Messages
 SET "BM.TXT_SAVE_CONF_FAIL" "Speichern der Konfigurationseinstellungen fehlgeschlagen!"

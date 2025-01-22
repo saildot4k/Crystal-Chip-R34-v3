@@ -1,6 +1,6 @@
 #
 # English translation of Crystal Chips BootManager menu for BMMENUS.PBT v1.4
-# Only intended to use with the R34 modified v2 release by Jones23.
+# Only intended to use with the R34 modified v3 release by R3Z3N.
 #
 
 # Check the menu script version to be sure this script supports it.
@@ -521,7 +521,7 @@ SET "BM.TXT_PIN_CONF_HINT" "Confirm your PIN to be used to lockout advanced func
 SET "BM.TXT_PIN_UNLOCK" "Input your PIN to unlock all menus."
 SET "BM.TXT_PIN_UNLOCK_HINT" "To unlock all functions please input your PIN. This will unlock until a PIN is setup again."
 SET "BM.TXT_INCORRECT_PIN" "PIN is incorrect. Try again or reset by reinstalling BM via disc"
-SET "BM.TXT_PIN_SET" "BootManager menus locked!
+SET "BM.TXT_PIN_SET" "BootManager menus locked!"
 SET "BM.TXT_UNLOCKED" "BootManger menus unlocked!"
 SET "BM.TXT_LOCKOUT_WARNING" "Advanced functions locked."
 
