@@ -27,7 +27,7 @@ RETURN "-1"
 :INSTALL
     IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/WLE_ISR_EXFAT"
         MESSAGE "Failed installing $TITLE$!"
-        RRM "$ARG2$:/BM/APPS/WLE_ISR_EXFAT_EXFAT"
+        RRM "$ARG2$:/BM/APPS/WLE_ISR_EXFAT"
         RETURN -1
     ENDIF
     EXIT 0

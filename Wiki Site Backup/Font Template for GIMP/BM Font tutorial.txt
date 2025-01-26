@@ -1,13 +1,22 @@
-#
-# BM Theme displaying the chip installed in this system. Autodetects except for 2.0 SLE in which case user must install the SLE variant.
-#
+Description:
+TGA File with top left and RLE compression
+The characters are in an area of 15 x 15 pixels with a 1 pixel spacing around each character.
+The image size is 256 x 256 and the texture origin is top left, meaning the top & left side has a 1 pixel border.
 
-#
+Included you will find a template with grid outlining where all the charachters go. One of the layers is BMFONT.TGA, the DEFAULT BMFONT.TGA font  (which is built into BM.ELF). DO NOT FLATTEN LAYERS WITH THIS IMAGE. This will help you determine which character goes where. Once you flatten, make sure you have an alpha layer. Look at any of the CottonCandy themes for usage and renaming as needed within THMINFO.PBT
+
+Test each video mode and alter the config as needed and edit THMINFO.PBT with the new values that work for placement/color of menu items.
+
+
+Example below:
+
+
+#####################################################
 # Change this information to describe the theme.
-SET "TITLE" "Cotton Candy Slim CC2.0 SLE"
+SET "TITLE" "YOUR TITLE HERE"
 SET "VERSION" "v1.0"
-SET "AUTHOR" "R3Z3N"
-SET "DESCRIPTION" "Blue and Purple theme with a background of the CC 2.0 SLE"
+SET "AUTHOR" "YOU"
+SET "DESCRIPTION" "Pretty Colors this aint"
 #
 
 # Do not change these 2 lines!
@@ -23,14 +32,13 @@ RETURN "-1"
     EXIT "0"
 
 :INSTALL
-    IF FAIL COPY "$PWD$" "$ARG2$/COTTONCANDY_20SLE"
+    IF FAIL COPY "$PWD$" "$ARG2$/MY_THEME_FOLDER"
         MESSAGE "Failed installing $TITLE$!"
-        RRM "$ARG2$/COTTONCANDY_20SLE"
+        RRM "$ARG2$/MY_THEME_FOLDER"
         RETURN "-1"
     ENDIF
 
     EXIT "0"
-
 
 :REMOVE
     IF FAIL RRM "$PWD$"
@@ -44,12 +52,21 @@ RETURN "-1"
         LOADEXEC "PBAT" "$BM.LOADED_THEME_SCRIPT$" "UNLOAD"
     ENDIF
 
-    IF FAIL LOADIMG "$PWD$/BMMENU.TGA" "COTTONCANDY_20SLE_MENU"
+    IF FAIL LOADIMG "$PWD$/BMMENU.TGA" "MY_THEME_FOLDER_MENU"
         ECHO "Failed loading menu image!"
         RETURN "-1"
     ENDIF
 
-    SET "BM.MENU_IMG_NAME" "COTTONCANDY_20SLE_MENU"
+# Delete this section if not using a font
+    IF FAIL LOADIMG "$PWD$/BMFONT.TGA" "MY_THEME_FOLDER_FONT"
+        ECHO "Failed loading font image!"
+        UNLOADIMG "MY_THEME_FOLDER_MENU"
+        RETURN "-1"
+    ENDIF
+
+    SET "BM.MENU_IMG_NAME" "MY_THEME_FOLDER_MENU"
+# Delete the line below if not using a font
+    SET "BM.FONT_IMG_NAME" "MY_THEME_FOLDER_FONT"
     SET "BM.THM_CNF_BG_COLOR" "0x003C3131"
     SET "BM.THM_CNF_FONT_COLOR_SELECTION" "0x00DCDCDC"
     SET "BM.THM_CNF_FONT_COLOR_LABEL" "0x00FFC7A3"
@@ -182,7 +199,11 @@ RETURN "-1"
 
 :UNLOAD
     SET "BM.MENU_IMG" ""
+    SET "BM.FONT_IMG" ""
     SET "BM.LOADED_THEME_SCRIPT" ""
-    UNLOADIMG "COTTONCANDY_20SLE_MENU"
+    UNLOADIMG "MY_THEME_FOLDER_MENU"
+# Delete the line below if not using a font
+    UNLOADIMG "MY_THEME_FOLDER_FONT"
 
     EXIT "0"
+

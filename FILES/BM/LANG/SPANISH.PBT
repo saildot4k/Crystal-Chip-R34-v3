@@ -12,7 +12,7 @@ ELSEIF NEQ "$BM.MENU_MINOR_VER$" "4"
     EXIT 0
 ENDIF
 
-SET "TÍTULO" "Española"
+SET "TITLE" "Espanola"
 SET "DESC" "Archivo en idioma español".
 
 # Do not change these 2 lines!
