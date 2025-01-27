@@ -1,6 +1,6 @@
 Crystal Chips - http://www.crystal-chips.com/
 
-This is the Crystal Chips software release 34 v3 by R3Z3N Jan 21 2025
+This is the Crystal Chips software release 34 v3 by R3Z3N Jan 26 2025
 
 Included in this package are firmware source codes for all revisions of Crystal Chips, support tools, BootManager and
 associated scripts and applications.  This software is written by Crystal Chips for the express use on Crystal Chips
