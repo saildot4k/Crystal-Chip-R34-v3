@@ -15,7 +15,7 @@ Late CC1.1/CC.1.2 and CC 2.0 can be upgraded to a 4MB DataFlash (AT45DB321D- S o
 
 Release History:
 
-Release 34 V3 by R3Z3N Dec 11 2024
+Release 34 V3 by R3Z3N Jan 21 2025
     Fixes/Changes
         - CC1.X firmware options to run BM from MemCard1 or 2. makeit_nocd does have scripts to
 	      build FW for running from USB/HDD but seems pointless. Options added in BM for full ease
