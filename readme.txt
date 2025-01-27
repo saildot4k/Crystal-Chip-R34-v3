@@ -15,11 +15,17 @@ Late CC1.1/CC.1.2 and CC 2.0 can be upgraded to a 4MB DataFlash (AT45DB321D- S o
 
 Release History:
 
-Release 34 V3 by R3Z3N Jan 21 2025
+Release 34 V3 by R3Z3N Jan 26 2025 (RUNNING CHANGES. I update the date as I go...)
     Fixes/Changes
         - CC1.X firmware options to run BM from MemCard1 or 2. makeit_nocd does have scripts to
 	      build FW for running from USB/HDD but seems pointless. Options added in BM for full ease
               of use.
+
+        - MMCE device support for example SD2PSX, PsxMemCardGen2, MemCardPro2.
+              Follow the same structure on root of MMCE device SD card as 
+              one would for the BM folder. As long as APPINFO.PBT (each app needs one)
+              points to where the ELF exists, then any app can be anywhere, not just
+              device:/BM/APPS/APPFOLDERHEREwithAPPINFO.PBT
 
 	- Security Settings added: when pin is set, advanced settings are unaccessible. 
 
