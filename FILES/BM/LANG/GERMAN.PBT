@@ -174,6 +174,8 @@ SET "BM.TXT_REMOVE_DEV_FROM" "Entferne Laufwerktreiber von"
 
 # Devices
 SET "BM.TXT_MC_DESC" "Memory Karte Steckplatz"
+SET "BM.TXT_MMCE_DESC" "Mehrzweck Speicherkarten Emulator steckplatz"
+SET "BM.TXT_MMCE_DESC_1" "MMCE Treiber"
 SET "BM.TXT_CCFLASH_DESC" "Crystal Chip Flashlaufwerk"
 SET "BM.TXT_CDVD_DESC" "CD/DVD Laufwerk"
 SET "BM.TXT_HOST_DESC" "PC Host �ber PS2Client"

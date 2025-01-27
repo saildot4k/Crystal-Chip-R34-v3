@@ -174,6 +174,8 @@ SET "BM.TXT_REMOVE_DEV_FROM" "Rimuovi driver dispositivo da"
 
 # Dispositivi
 SET "BM.TXT_MC_DESC" "Slot scheda di memoria"
+SET "BM.TXT_MMCE_DESC" "Slot per emulatore di schede di memoria multiuso"
+SET "BM.TXT_MMCE_DESC_1" "Driver MMCE"
 SET "BM.TXT_CCFLASH_DESC" "Crystal Chip FlashDrive"
 SET "BM.TXT_CDVD_DESC" "Unità disco CD/DVD"
 SET "BM.TXT_HOST_DESC" "PC Host tramite PS2Client"

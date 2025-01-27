@@ -174,6 +174,8 @@ SET "BM.TXT_REMOVE_DEV_FROM" "Eliminar los controladores de los dispositivos"
 
 # Devices
 SET "BM.TXT_MC_DESC" "Ranura para tarjeta de memoria"
+SET "BM.TXT_MMCE_DESC" "Ranura para emulador de tarjeta de memoria multipropósito"
+SET "BM.TXT_MMCE_DESC_1" "Unidad MMCE"
 SET "BM.TXT_CCFLASH_DESC" "Unidad Flash Crystal Chip"
 SET "BM.TXT_CDVD_DESC" "Unidad de CD/DVD"
 SET "BM.TXT_HOST_DESC" "Host de PC a través de PS2Client"
