@@ -28,7 +28,9 @@ Release 34 V3 by R3Z3N Jan 26 2025 (RUNNING CHANGES. I update the date as I go..
               device:/BM/APPS/APPFOLDERHEREwithAPPINFO.PBT
 	      UPDATE: A few issues still exist. Keep in mind not all apps support running
 	      from all devices. However I plan on making a change so that user can choose 
-              to autoload USB and/or MMCE just like HDD is currently. Please be patient.
+              to autoload USB and/or MMCE just like HDD is currently. Please be patient. 
+              REASON: sometimes some device drivers interfere with others especially USB
+              with other devices.
 
 	- Security Settings added: when pin is set, advanced settings are unaccessible. 
 
