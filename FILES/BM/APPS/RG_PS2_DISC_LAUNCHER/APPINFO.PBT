@@ -25,9 +25,9 @@ RETURN "-1"
     EXIT "0"
 
 :INSTALL
-    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/"
+    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/RG_PS2_DISC_LAUNCHER"
         MESSAGE "Failed installing $TITLE$!"
-        RRM "$ARG2$:/BM/APPS/"
+        RRM "$ARG2$:/BM/APPS/RG_PS2_DISC_LAUNCHER"
         RETURN -1
     ENDIF
     EXIT 0

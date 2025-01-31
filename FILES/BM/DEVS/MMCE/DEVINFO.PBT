@@ -4,7 +4,7 @@
 
 KEEP
 
-SET "TITLE" "MMCE"
+SET "TITLE" "MMCE SD Card"
 
 # Do not change this.
 GOTO "$ARG1$"
@@ -27,7 +27,7 @@ RETURN "-1"
 :CHECK_PRESENT
     RETURN 0
 
-IF EXISTS "mmce0:/"
+    IF EXISTS "mmce0:/"
         IF NEQ "$BM.MMCE0_PRESENT$" "1"
             LOADEXEC "PBAT" "$BM.SCRIPTS$/BMCONT.PBT" "CHECK" "mmce0"
             SET "BM.MMCE0_PRESENT" "1"

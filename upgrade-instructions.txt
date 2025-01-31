@@ -6,9 +6,10 @@ For information on using Recovery Mode, please see the Hardware Modes informatio
 
 Steps for upgrading to BM 2.0 from BM 1.x
 
-1. Build and burn an upgrade disc.
-2. Boot the disc on the PS2.
-3. Choose "Memory Card Manager", then "Remove mc0:/BOOT" to remove all old BM files and applications.
+1. Build and burn an upgrade disc by running makeit.bat and burning cc-upgrade.bin. 
+	Note: AnyBurn for Windows is recommended: https://www.anyburn.com/download.php
+2. Boot the disc on the PS2. If needed from standby press reset 6x.
+3. Choose "Memory Card Manager", then "Remove mc0:/BOOT" to remove all old BM files and applications if applicable.
 4. Return to the main menu and choose Upgrade Firmware.
 5. Choose "Install BootManager" and select the Memory Card or CC Flash you wish to install it to.
 6. When it's finished installing, reset the PS2.

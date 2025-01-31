@@ -25,9 +25,9 @@ RETURN "-1"
     EXIT "0"
 
 :INSTALL
-    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/"
+    IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/PADTEST"
         MESSAGE "Failed installing $TITLE$!"
-        RRM "$ARG2$:/BM/APPS/"
+        RRM "$ARG2$:/BM/APPS/PADTEST"
         RETURN -1
     ENDIF
     EXIT 0
@@ -40,5 +40,5 @@ RETURN "-1"
     EXIT 0
 
 :RUN
-    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/disk-launcher.elf"
+    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/PADTEST.ELF"
     EXIT "0"

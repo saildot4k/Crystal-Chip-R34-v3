@@ -21,6 +21,7 @@ INCLUDE "COMMON.S"
 ;   1 = Memory Card Slot 2 (COMPLETE)
 ;   2 = NOT YET WORKING DESPITE not changing CC CODE USB HDD(requires USBD.IRX and USB_MASS.IRX to be stored at mc0:/BM/SHARED) BROKEN USING El Isras BDM Assault: USBD.IRX and USBHDFSD.IRX
 ;   3 = CC2.0+ DataFlash(on-chip) (COMPLETE)
+;   4 = EXPERIMENTAL MMCE sd card (exfat formatted)
 ;   9 = EXPERIMENTAL Internal HDD, requires PS2HDD.IRX, PS2FS.IRX, HDDMOUNT.IRX installed to mc0:/BM/SHARED. Uses __common partition
 ;
 ;BOOT_DEV                EQU 0
@@ -691,11 +692,21 @@ txtBM_ELF:              DB "dffs:/BM/BM2.ELF",0
 BIN_IOPLOAD:            INCLUDE BINARY "..\TMP\IOPLOAD.BIN"
 ENDIF
 
+IF BOOT_DEV == 4
+MESSAGE "Booting from MMCE SD Card"
+ALIGN 4
+                        DW txtROM0_XSIO2MAN, txtROM0_XMCMAN, txtMC0_FILEXIO, txtMC0_MMCEMAN, txtBM_ELF
+argc_boot:              DW 5
+txtBM_ELF:              DB "pfs0:/BM/BM2.ELF",0
+txtMC0_IOMANX:          DB "-m mc0:/BM/SHARED/FILEXIO.IRX",0
+txtMC0_PS2DEV9:         DB "-m mc0:/BM/SHARED/MMCEMAN.IRX",0
+ENDIF
+
 IF BOOT_DEV == 9
 MESSAGE "Booting from iHDD"
 ALIGN 4
-                        DW txtROM0_XSIO2MAN, txtROM0_XMCMAN, txtMC0_IOMANX, txtMC0_PS2DEV9, txtMC0_PS2ATAD, txtMC0_PS2HDD, txtMC0_PS2FS, txtMC0_HDDMOUNT
-argc_boot:              DW 8
+                        DW txtROM0_XSIO2MAN, txtROM0_XMCMAN, txtMC0_IOMANX, txtMC0_PS2DEV9, txtMC0_PS2ATAD, txtMC0_PS2HDD, txtMC0_PS2FS, txtMC0_HDDMOUNT, txtBM_ELF
+argc_boot:              DW 9
 txtBM_ELF:              DB "pfs0:/BM/BM2.ELF",0
 txtMC0_IOMANX:          DB "-m mc0:/BM/SHARED/IOMANX.IRX",0
 txtMC0_PS2DEV9:         DB "-m mc0:/BM/SHARED/PS2DEV9.IRX",0

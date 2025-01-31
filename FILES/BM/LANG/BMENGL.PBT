@@ -153,7 +153,7 @@ SET "BM.TXT_RUN_AVAIL" "Executable on"
 # Install Application Browser
 SET "BM.TXT_HINT_INSTALL_APP" "Install an application from one device to another."
 SET "BM.TXT_INSTALL_APP_FROM" "Install Application(s) from"
-SET "BM.TXT_INSTALL_APP_TO" "Install Application to"
+SET "BM.TXT_INSTALL_APP_TO" "Install $TITLE$ to"
 
 # Remove Application Browser
 SET "BM.TXT_HINT_REMOVE_APP" "Remove an application from a device."
