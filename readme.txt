@@ -1,6 +1,8 @@
-Crystal Chips - http://www.crystal-chips.com/
+Crystal Chips website defunct and sqautter took it - http://www.crystal-chips.com/ 
 
 This is the Crystal Chips software release 34 v3 by R3Z3N Jan 26 2025
+A quick look at some updates which is a little old now:
+https://youtu.be/DDvfIPtA8JQ?si=yaUC7vgGEmerZ9iM
 
 Included in this package are firmware source codes for all revisions of Crystal Chips, support tools, BootManager and
 associated scripts and applications.  This software is written by Crystal Chips for the express use on Crystal Chips
@@ -8,8 +10,9 @@ hardware unless otherwise specified.  Software written by other developers are c
 
 !!!! IMPORTANT NOTE !!!!!
 
-You MUST boot the upgrade in Recovery Mode (Press Reset 3x) when an older version of BootManager is installed on your system!  Failure
-to do so may result in a black screen! Otherwise try to press reset 6x and boot the CD.
+You MUST boot the upgrade in Recovery Mode (Press Reset 3x) when an older version of BootManager is installed on your system!
+Failure to do so may result in a black screen! 
+Otherwise try to press reset 6x and boot the CD.
 
 Late CC1.1/CC.1.2 and CC 2.0 can be upgraded to a 4MB DataFlash (AT45DB321D- S or MW) without any source code changes. 
 
@@ -31,6 +34,7 @@ Release 34 V3 by R3Z3N Jan 26 2025 (RUNNING CHANGES. I update the date as I go..
               to autoload USB and/or MMCE just like HDD is currently. Please be patient. 
               REASON: sometimes some device drivers interfere with others especially USB
               with other devices.
+	      https://sd2psxtd.github.io/
 
 	- Security Settings added: when pin is set, advanced settings are unaccessible. 
 
