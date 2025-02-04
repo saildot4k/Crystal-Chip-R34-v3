@@ -1,3 +1,6 @@
+Video Tutorials can be found on Youtube @
+https://www.youtube.com/playlist?list=PLw5XS2QNrOOlTcG4wI5w0h7iK5RcoVj41
+
 Crystal Chips website defunct and sqautter took it - http://www.crystal-chips.com/ 
 
 This is the Crystal Chips software release 34 v3 by R3Z3N Jan 26 2025
