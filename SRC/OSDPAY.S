@@ -19,11 +19,11 @@ INCLUDE "COMMON.S"
 ; Device
 ;   0 = Memory Card Slot 1 (COMPLETE)
 ;   1 = Memory Card Slot 2 (COMPLETE)
-;   2 = NOT YET WORKING DESPITE not changing CC CODE USB HDD(requires USBD.IRX and USB_MASS.IRX to be stored at mc0:/BM/SHARED) BROKEN USING El Isras BDM Assault: USBD.IRX and USBHDFSD.IRX
+;   2 = USB NOT YET WORKING DESPITE not changing CC CODE USB HDD(requires USBD.IRX and USB_MASS.IRX to be stored at mc0:/BM/SHARED) BROKEN USING El Isras BDM Assault: USBD.IRX and USBHDFSD.IRX
 ;   3 = CC2.0+ DataFlash(on-chip) (COMPLETE)
 ;   4 = EXPERIMENTAL MMCE sd card1 (exfat formatted)
 ;   4 = EXPERIMENTAL MMCE sd card2 (exfat formatted)
-;   9 = EXPERIMENTAL Internal HDD, requires PS2HDD.IRX, PS2FS.IRX, HDDMOUNT.IRX installed to mc0:/BM/SHARED. Uses __common partition
+;   9 = Internal HDD, Uses __common partition
 ;
 ;BOOT_DEV                EQU 0
 
@@ -677,11 +677,14 @@ ENDIF
 IF BOOT_DEV == 2
 MESSAGE "Booting from USB"
 ALIGN 4
-                        DW txtROM0_XSIO2MAN, txtROM0_XMCMAN, txtMC0_USBD, txtMC0_USBHDFSD, txtBM_ELF
-argc_boot:              DW 5
+                        DW txtROM0_XSIO2MAN, txtROM0_XMCMAN, txtMC0_BDM, txtMC0_IOMANX, txtMC0_FILEXIO, txtMC0_USBD, txtMC0_USBHDFSD, txtBM_ELF
+argc_boot:              DW 8
 txtBM_ELF:              DB "mass:/BM/BM2.ELF",0
-txtMC0_USBD:            DB "-m mc0:/BM/SHARED/USBD.IRX",0
-txtMC0_USBHDFSD:        DB "-m mc0:/BM/SHARED/USBHDFSD.IRX",0
+txtMC0_BDM:             DB "-m mc0:/BM/SHARED/BDM.IRX".0
+txtMC0_IOMANX:          DB "-m mc0:/BM/SHARED/IOMANX.IRX".0
+txtMC0_FILEXIO:         DB "-m mc0:/BM/SHARED/FILEXIO.IRX".0
+txtMC0_USBD:            DB "-m mc0:/BM/SHARED/USBD_MINI.IRX",0
+txtMC0_USBHDFSD:        DB "-m mc0:/BM/SHARED/USBMASS_BD_MINI.IRX",0
 ENDIF
 
 IF BOOT_DEV == 3
@@ -700,7 +703,7 @@ ALIGN 4
 argc_boot:              DW 5
 txtBM_ELF:              DB "mmce0:/BM/BM2.ELF",0
 txtMC0_IOMANX:          DB "-m mc0:/BM/SHARED/FILEXIO.IRX",0
-txtMC0_PS2DEV9:         DB "-m mc0:/BM/SHARED/MMCEMAN.IRX",0
+txtMC0_MMCEMAN:         DB "-m mc0:/BM/SHARED/MMCEMAN.IRX",0
 ENDIF
 
 IF BOOT_DEV == 5
@@ -710,21 +713,21 @@ ALIGN 4
 argc_boot:              DW 5
 txtBM_ELF:              DB "mmce1:/BM/BM2.ELF",0
 txtMC0_IOMANX:          DB "-m mc0:/BM/SHARED/FILEXIO.IRX",0
-txtMC0_PS2DEV9:         DB "-m mc0:/BM/SHARED/MMCEMAN.IRX",0
+txtMC0_MMCEMAN:         DB "-m mc0:/BM/SHARED/MMCEMAN.IRX",0
 ENDIF
 
 IF BOOT_DEV == 9
-MESSAGE "Booting from iHDD"
+MESSAGE "Booting from internal drive"
 ALIGN 4
                         DW txtROM0_XSIO2MAN, txtROM0_XMCMAN, txtMC0_IOMANX, txtMC0_PS2DEV9, txtMC0_PS2ATAD, txtMC0_PS2HDD, txtMC0_PS2FS, txtMC0_HDDMOUNT, txtBM_ELF
 argc_boot:              DW 9
 txtBM_ELF:              DB "pfs0:/BM/BM2.ELF",0
 txtMC0_IOMANX:          DB "-m mc0:/BM/SHARED/IOMANX.IRX",0
 txtMC0_PS2DEV9:         DB "-m mc0:/BM/SHARED/PS2DEV9.IRX",0
-txtMC0_PS2ATAD:         DB "-m mc0/BM/SHARED/PS2ATAD.IRX",0
-txtMC0_PS2HDD:          DB "-m mc0/BM/SHARED/PS2HDD.IRX",0
-txtMC0_PS2FS:           DB "-m mc0/BM/SHARED/PS2FS.IRX",0
-txtMC0_HDDMOUNT:        DB "-m mc0/BM/SHARED/HDDMOUNT.IRX",0
+txtMC0_PS2ATAD:         DB "-m mc0:/BM/SHARED/PS2ATAD.IRX",0
+txtMC0_PS2HDD:          DB "-m mc0:/BM/SHARED/PS2HDD.IRX",0
+txtMC0_PS2FS:           DB "-m mc0:/BM/SHARED/PS2FS.IRX",0
+txtMC0_HDDMOUNT:        DB "-m mc0:/BM/SHARED/HDDMOUNT.IRX",0
 ENDIF
 
 txtModuleLoad:          DB "moduleload",0

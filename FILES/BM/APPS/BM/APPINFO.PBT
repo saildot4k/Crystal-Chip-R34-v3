@@ -60,9 +60,6 @@ GOTO "$ARG1$"
     ELSEIF FAIL COPY "$SRC_DEV$:/BM/STARTUP" "$ARG2$:/BM/STARTUP"
         MESSAGE "Failed to copy STARTUP!"
         RETURN -1
-    ELSEIF FAIL COPY "$SRC_DEV$:/BM/FWS" "$ARG2$:/BM/FWS"
-        MESSAGE "Failed to copy FWS!"
-        RETURN -1
     ELSEIF FAIL MKDIR "$ARG2$:/BM/APPS"
         MESSAGE "Failed to create APPS!"
         RETURN -1
@@ -78,6 +75,25 @@ GOTO "$ARG1$"
     ELSEIF FAIL COPY "$SRC_DEV$:/BM/DEVS" "$ARG2$:/BM/DEVS"
         MESSAGE "Failed to copy DEVS!"
         RETURN -1
+    ENDIF
+
+# Do not install FW files on dffs
+    IF EQU "$ARG2$" "dffs"
+        IF FAIL MKDIR "$ARG2$:/BM/FWS"
+            MESSAGE "Failed to create FWS!"
+            RETURN -1
+        ELSEIF FAIL COPY "$SRC_DEV$:/BM/FWS/PS1LOGO.BIN" "$ARG2$:/BM/FWS/PS1LOGO.BIN"
+            MESSAGE "Failed to copy PS1LOGO.BIN"
+            RETURN -1
+        ELSEIF FAIL COPY "$SRC_DEV$:/BM/FWS/PS1LOGO2.BIN" "$ARG2$:/BM/FWS/PS1LOGO2.BIN"
+            MESSAGE "Failed to copy PS1LOGO2.BIN"
+            RETURN -1
+        ENDIF
+    ELSEIF NEQ "$ARG2$" "dffs"
+        IF FAIL COPY "$SRC_DEV$:/BM/FWS" "$ARG2$:/BM/FWS"
+            MESSAGE "Failed to copy FWS!"
+            RETURN -1
+        ENDIF
     ENDIF
 
     EXIT "0"

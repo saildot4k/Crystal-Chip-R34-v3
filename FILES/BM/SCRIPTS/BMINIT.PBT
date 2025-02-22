@@ -32,7 +32,7 @@ ELSEIF MATCHES "host:*" "$PWD$"
     SET "BM.DRIVER_PATH" "host:/BM/SHARED"
     SET "BM.DRIVER_DEV_DRIVERS" ""
 ELSE
-    # Drivers are stored on MC0 (line 34) or device BM is loaded from (line 35) for all other devices.
+    # Drivers are stored on MC0 (below) or device BM is loaded from (line 35) for all other devices.
     # SET "BM.DRIVER_PATH" "mc0:/BM/SHARED"
     SET "BM.DRIVER_PATH" "$BM.BM_PATH$/SHARED"
     SET "BM.DRIVER_DEV_DRIVERS" "^"-m rom0:SIO2MAN^" ^"-m rom0:MCMAN^""
@@ -44,6 +44,14 @@ IF MATCHES "host:*" "$PWD$"
 # IMPORTANT: Make sure you're using the latest PS2LINK and ps2client since up until July 12 2006
 # ps2client and ps2link had bugs which prevented them from working properly.
 #    SET "BM.INSTALLER_MODE" "1"
+    LOADEXEC "IRX" "rom0:XSIO2MAN"
+    LOADEXEC "IRX" "rom0:XMCMAN"
+    LOADEXEC "IRX" "rom0:XPADMAN"
+ELSEIF MATCHES "pfs0:*" "$PWD$"        #TEST subsection
+    LOADEXEC "IRX" "rom0:XSIO2MAN"
+    LOADEXEC "IRX" "rom0:XMCMAN"
+    LOADEXEC "IRX" "rom0:XPADMAN"
+ELSEIF MATCHES "mass:*" "$PWD$"        #TEST subsection
     LOADEXEC "IRX" "rom0:XSIO2MAN"
     LOADEXEC "IRX" "rom0:XMCMAN"
     LOADEXEC "IRX" "rom0:XPADMAN"
