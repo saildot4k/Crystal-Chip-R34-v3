@@ -680,9 +680,9 @@ ALIGN 4
                         DW txtROM0_XSIO2MAN, txtROM0_XMCMAN, txtMC0_BDM, txtMC0_IOMANX, txtMC0_FILEXIO, txtMC0_USBD, txtMC0_USBHDFSD, txtBM_ELF
 argc_boot:              DW 8
 txtBM_ELF:              DB "mass:/BM/BM2.ELF",0
-txtMC0_BDM:             DB "-m mc0:/BM/SHARED/BDM.IRX".0
-txtMC0_IOMANX:          DB "-m mc0:/BM/SHARED/IOMANX.IRX".0
-txtMC0_FILEXIO:         DB "-m mc0:/BM/SHARED/FILEXIO.IRX".0
+txtMC0_BDM:             DB "-m mc0:/BM/SHARED/BDM.IRX",0
+txtMC0_IOMANX:          DB "-m mc0:/BM/SHARED/IOMANX.IRX",0
+txtMC0_FILEXIO:         DB "-m mc0:/BM/SHARED/FILEXIO.IRX",0
 txtMC0_USBD:            DB "-m mc0:/BM/SHARED/USBD_MINI.IRX",0
 txtMC0_USBHDFSD:        DB "-m mc0:/BM/SHARED/USBMASS_BD_MINI.IRX",0
 ENDIF
