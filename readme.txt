@@ -61,7 +61,7 @@ Release 34 V3 by R3Z3N Jan 26 2025 (RUNNING CHANGES. I update the date as I go..
         - Changed scripts to allow apps to be installed when booted from recovery cd.
   	
         - Changed scripts to only show options for chip installed! IE no more seeing DFFS
-              options on CC 1.0 and 1.1. 1.2 no longer shows remove dffs:/BM
+              options on CC 1.X no longer show dffs options in Firmware Manager
  	
         - Changed scripts so that FW choices are only applicable to the chip installed.
               IE CC1.0-1.2 can choose BM run point, CC2.0 DFFS only.
