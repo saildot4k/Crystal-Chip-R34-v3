@@ -1,0 +1,14 @@
+Here are the background images for RETROLauncher.
+RETROLauncher will search in the root of this directory.
+
+Background Requirements:
+	* It must be an image in .png format
+	* The image must have a transparency mask otherwise it will not be displayed.
+	* The resolution must be 640x480 as maximum, although it can be lower.
+	* It is recommended to use 8-bit png images with 256 colors.
+	* The lighter the image, the smoother the system will run.
+	* It can have any name as long as the extension is .png (Short names are recommended).
+	* The name of the backgrounds will not be reflected in the settings, it will only be assigned a number.
+	* To change the background you must enter the RETROLauncher settings, change the background and save the settings.
+
+Supported extensions: .png

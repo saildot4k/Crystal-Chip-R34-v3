@@ -3,8 +3,9 @@
 #
 
 # Change this information to describe the application.
+# https://github.com/ps2dev/ps2link
 SET "TITLE" "PS2Link"
-SET "VERSION" "1.52"
+SET "VERSION" "1.91"
 SET "AUTHOR" "PS2DEV.org"
 SET "DESC" "Run applications and transfer files over network."
 SET "MEDIAS" ""

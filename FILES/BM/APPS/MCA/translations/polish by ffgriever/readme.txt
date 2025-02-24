@@ -1,0 +1,1 @@
+Delete the lang.lng file to display the text in Polish.

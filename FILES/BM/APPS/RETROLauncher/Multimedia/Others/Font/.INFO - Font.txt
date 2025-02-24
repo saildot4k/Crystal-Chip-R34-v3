@@ -1,0 +1,12 @@
+Here are the text fonts for RETROLauncher.
+RETROLauncher will search in the root of this directory.
+
+Text Font Requirements:
+	* Must be a font with a ".ttf" or ".otf" extension
+	* Can have any name as long as the extension is .ttf or .otf (short names are recommended).
+	* Font names will not be reflected in the settings, they will only be assigned a number.
+	* To change fonts you must enter RETROLauncher's settings, change the Fonts and save the settings.
+	* Text fonts cannot be adjusted properly in RETROLauncher, if you want to adjust the font you must edit the font with a specific program, you can also edit the code (not recommended).
+	* If you accidentally configure a font that is too small or illegible, just delete the fonts from this directory and the default font will be automatically loaded.
+
+Supported extensions: .ttf .otf

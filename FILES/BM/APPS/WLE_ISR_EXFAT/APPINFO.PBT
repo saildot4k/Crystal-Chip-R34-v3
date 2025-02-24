@@ -27,7 +27,7 @@ RETURN "-1"
 :INSTALL
     IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/WLE_ISR_EXFAT"
         MESSAGE "Failed installing $TITLE$!"
-        RRM "$ARG2$:/BM/APPS/WLE_ISR_EXFAT"
+        RRM "$ARG2$:/BM/APPS/WLE_ISR_EXFAT_EXFAT"
         RETURN -1
     ENDIF
     EXIT 0
@@ -55,7 +55,7 @@ RETURN "-1"
             BREAK
         CASE 2
         #DRIVERS ON
-            ECHO "CC DRIVERS ON"
+            ECHO "Memcard and USB DRIVERS OFF"
             SET "BM.AUTOLOAD_FSD_EN" "0"
             BREAK
         CASE 0
@@ -66,5 +66,5 @@ RETURN "-1"
     ENDS
 
     REDIRFILE "$PWD$/IPCONFIG.DAT" "$BM.BM_PATH$/CONFIG/IPCONFIG.DAT"
-    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/WLE.ELF"
+    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/BOOT-EXFAT.ELF"
     EXIT "0"
