@@ -3,7 +3,7 @@
 #
 
 # Change this information to describe the application.
-SET "TITLE" "Simple Media Systme"
+SET "TITLE" "Simple Media System"
 SET "VERSION" "2.9 rev4"
 SET "AUTHOR" "EEUG"
 SET "DESC" "SMS allows you to play your favorite Divx Movies on your PS2."

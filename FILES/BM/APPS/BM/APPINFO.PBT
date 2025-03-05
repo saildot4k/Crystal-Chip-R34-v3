@@ -33,10 +33,10 @@ GOTO "$ARG1$"
     ELSEIF FAIL COPY "$SRC_DEV$:/BM/SCRIPTS" "$ARG2$:/BM/SCRIPTS"
         MESSAGE "Failed to copy SCRIPTS!"
         RETURN -1
-    ELSEIF FAIL COPY "$SRC_DEV$:/BM/BMAN.ICN" "$ARG2$:/BM/bman.icn"
+    ELSEIF FAIL COPY "$SRC_DEV$:/BM/bman.icn" "$ARG2$:/BM/bman.icn"
         MESSAGE "Failed to copy bman.icn!"
         RETURN -1
-    ELSEIF FAIL COPY "$SRC_DEV$:/BM/ICON.SYS" "$ARG2$:/BM/icon.sys"
+    ELSEIF FAIL COPY "$SRC_DEV$:/BM/icon.sys" "$ARG2$:/BM/icon.sys"
         MESSAGE "Failed to copy icon.sys!"
         RETURN -1
     ELSEIF FAIL COPY "$SRC_DEV$:/BM/GFX" "$ARG2$:/BM/GFX"
@@ -89,6 +89,7 @@ GOTO "$ARG1$"
             MESSAGE "Failed to copy PS1LOGO2.BIN"
             RETURN -1
         ENDIF
+        EXIT "0"
     ELSEIF NEQ "$ARG2$" "dffs"
         IF FAIL COPY "$SRC_DEV$:/BM/FWS" "$ARG2$:/BM/FWS"
             MESSAGE "Failed to copy FWS!"

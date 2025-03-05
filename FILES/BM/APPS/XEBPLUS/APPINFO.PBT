@@ -21,7 +21,7 @@ RETURN "-1"
     EXIT "0"
 
 :INSTALL
-    MESSAGE "XEB+ is not allowed to be distributed via any other means than direct download. Please source the app yourself and put on root of USB stick."
+    MESSAGE "Due to licenseing, XEB+ must be downloaded yourself."
     EXIT "0"
 
 :REMOVE
@@ -36,19 +36,19 @@ RETURN "-1"
     EXIT "0"
 
 :RUN
-    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "mass:/XEBPLUS/XEBPLUS_XMAS.ELF"
 
-#    PARSEPATH "$PWD$" "SRC_DEV" "SRC_PATH" "SRC_FILE"
+    PARSEPATH "$PWD$" "SRC_DEV" "SRC_PATH" "SRC_FILE"
     
-#    IF NEQ "$SRC_DEV$" "mass"
-#        MESSAGE "XEB+ only runs from USB!"
-#        RETURN -1
-#    ELSEIF EXISTS "$SRC_DEV$:/XEBPLUS/XEBPLUS_XMAS.ELF"
-#        SET "BM.AUTOLOAD_FSD_EN" "0"
-#        LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$SRC_DEV$:/XEBPLUS/XEBPLUS_XMAS.ELF"
-#    ELSE
-#        MESSAGE "XEB+ is not installed on root of USB!"
-#        RETURN -1
-#    ENDIF
+    IF NEQ "$SRC_DEV$" "mass"
+        MESSAGE "XEB+ only runs from USB!"
+        RETURN -1
+    ELSEIF EXISTS "$SRC_DEV$:/XEBPLUS/XEBPLUS_XMAS.ELF"
+        SHUTDOWN "MM"
+        LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$SRC_DEV$:/XEBPLUS/XEBPLUS_XMAS.ELF"
+        EXIT 0
+    ELSEIF NOT EXISTS "$SRC_DEV$:/XEBPLUS/XEBPLUS_XMAS.ELF"
+        MESSAGE "XEB+ is not installed on root of USB!"
+        RETURN -1
+    ENDIF
 
-    EXIT "0"
+    EXIT 0

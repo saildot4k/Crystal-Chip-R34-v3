@@ -6,7 +6,7 @@
 
 # Change this information to describe the application.
 SET "TITLE" "Neutrino"
-SET "VERSION" "1.5.0"
+SET "VERSION" "1.6.1"
 SET "AUTHOR" "Maximus32"
 SET "DESC" "Small, Fast and Modular PS2 Device Emulator"
 SET "MEDIAS" ""

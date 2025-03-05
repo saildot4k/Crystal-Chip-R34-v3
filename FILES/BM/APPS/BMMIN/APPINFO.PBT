@@ -4,7 +4,7 @@
 SET "TITLE" "BootManager minimal"
 SET "VERSION" "2.1.6"
 SET "AUTHOR" "CrystalChips"
-SET "DESC" "This option installs BootManager without any additional drivers for USB, MMCE, HDD, or network!"
+SET "DESC" "This option installs BootManager without any additional drivers for USB, HDD, or network!"
 SET "MEDIAS" ""
 #
 
