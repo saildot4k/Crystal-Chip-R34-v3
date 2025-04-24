@@ -80,7 +80,7 @@ Release 34 V3 by R3Z3N Jan 26 2025 (RUNNING CHANGES. I update the date as I go..
 
 	- v12 and later no longer show MegaMemory Patcher option as Sony blocked it's use electrically for PSTwo Slims.
 
-	- V16-v18 is no properly identified in Console Information
+	- V16-v18 is now properly identified in Console Information
     
     To Do:
 	- Fix FW for running BM via USB/HDD specific firmware. Though do we want that?I think it to be too convoluted
