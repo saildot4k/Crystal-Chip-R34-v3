@@ -6,7 +6,7 @@
 
 # Change this information to describe the application.
 SET "TITLE" "NHDDL"
-SET "VERSION" "1.1.2 MMCE + HDL Beta 4 Nightly 12a43a"
+SET "VERSION" "1.1.2 MMCE + HDL Beta 4 Nightly 1ec5658"
 SET "AUTHOR" "PCM720"
 SET "DESC" "PS2 Launcher for Neutrino"
 SET "MEDIAS" ""

@@ -1,28 +1,21 @@
-#
 # Crystal Chips BootManager "Boot Menu" PBAT Script v1.4
-#
 # (c) 2005 Crystal Chips - http://www.crystal-chips.com/
-#
 # For use only with Crystal Chips hardware and software.
 #
 # Modification Info:
 # This file is unmodified.  If you modify this script and distribute it,
-#   please edit this text.  Please do not change the copyright information.
+# please edit this text.  Please do not change the copyright information.
 #
 # Description:
-#
 # This script is used by BootManager(BM) to load and execute PS1, PS2 and DVD Video discs.
 # You can modify this script to add more options to the Boot Menu when you select "Boot"
-#   from the Main Menu of BM.
-#
+# from the Main Menu of BM.
 
 GOTO "$ARG1$"
 RETURN -1
 
-###############################################################################
-###############################################################################
-:BOOT
 
+:BOOT
 IF EQU "$ARG2$" "PS1"
     GOTO "boot_PS1"
 ELSEIF EQU "$ARG2$" "PS2"
@@ -36,13 +29,8 @@ ELSE
     EXIT -1
 ENDIF
 
-###############################################################################
-###############################################################################
 
-###############################################################################
-###############################################################################
 :MENU
-
 IF EQU "$ARG2$" "PS1"
     GOTO "menu_PS1"
 ELSEIF EQU "$ARG2$" "PS2"
@@ -56,8 +44,6 @@ ELSE
     EXIT -1
 ENDIF
 
-###############################################################################
-###############################################################################
 
 ###############################################################################
 #                           Audio CD bootstrap                                #
@@ -69,8 +55,6 @@ ENDIF
 LOADEXEC "PBAT" "$BM.BM_PATH$/APPS/OSDSYS/APPINFO.PBT" "RUN"
 EXIT 0
 
-###############################################################################
-###############################################################################
 
 ###############################################################################
 #                           DVD Video bootstrap                               #
@@ -82,8 +66,6 @@ EXIT 0
 LOADEXEC "PBAT" "$BM.BM_PATH$/APPS/SCEDVD/APPINFO.PBT" "RUN"
 EXIT 0
 
-###############################################################################
-###############################################################################
 
 ###############################################################################
 #                           PS1 Disc bootstrap                                #
@@ -158,8 +140,6 @@ ECHO "Executing rom0:PS1DRV $BM.BOOT_NAME$"
 
 LOADEXEC "EEELF" "rom0:PS1DRV" "$BM.BOOT_NAME$"
 
-###############################################################################
-###############################################################################
 
 ###############################################################################
 #                           PS2 Disc Boot Menu                                #
@@ -179,8 +159,6 @@ ADDWIDGET "CALL" "$BM.TXT_BOOT_SLEEP$" "$BM.TXT_HINT_BOOT_SLEEP$" "$ARG0$" "boot
 
 RETURN "0"
 
-###############################################################################
-###############################################################################
 
 ###############################################################################
 #                           PS2 Disc bootstrap                                #
@@ -254,8 +232,6 @@ ECHO "Executing $BM.BOOT_NAME$..."
 # Execute the main executable of the disc.
 LOADEXEC "EEELF" "$BM.BOOT_NAME$;1"
 
-###############################################################################
-###############################################################################
 
 ###############################################################################
 #                           PS2 Disc Boot Menu                                #
@@ -274,6 +250,3 @@ ADDWIDGET "CALL" "$BM.TXT_BOOT_MINIMAL$" "$BM.TXT_HINT_BOOT_MINIMAL$" "$ARG0$" "
 ADDWIDGET "CALL" "$BM.TXT_BOOT_SLEEP$" "$BM.TXT_HINT_BOOT_SLEEP$" "$ARG0$" "boot_PS2" "SLEEP"
 
 RETURN "0"
-
-###############################################################################
-###############################################################################

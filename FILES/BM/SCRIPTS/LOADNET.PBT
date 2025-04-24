@@ -1,19 +1,13 @@
-#
 # Crystal Chips BootManager Network PBAT Script v1.0
-#
 # (c) 2005-2006 Crystal Chips - http://www.crystal-chips.com/
-#
 # For use only with Crystal Chips hardware and software.
 #
 # Modification Info:
 # This file is unmodified.  If you modify this script and distribute it,
-#   please edit this text.  Please do not change the copyright information.
+# please edit this text.  Please do not change the copyright information.
 #
 # Description:
-#
-# This script is used by BootManager(BM) to load the network modules and start
-#   the network.
-#
+# This script is used by BootManager(BM) to load the network modules and start the network.
 
 IF NEQ "$BM.NET_STARTED$" "1"
     ECHO "Starting network..."

@@ -1,4 +1,3 @@
-#
 # Crystal Chip BootManager Menus Script v1.5
 # (c) 2005-2006 Crystal Chips
 # http:/www.crystal-chips.com/
@@ -7,7 +6,7 @@
 #
 # Modification: R3Z3N has modified this so that APPS and FW choices can be made when booted from CD. DFFS options removed for CC 1.0 and 1.1.
 # Added Security configuration, a pin lockout of advanced functions. 0000 disables, as does reinstalling BM as it wipes configs.
-#
+
 #SET "BM.INSTALLER_MODE" "1"
 
 # Keep this script resident in memory to speed up calls to it.
@@ -245,7 +244,6 @@ GOTO "$ARG1$"
 :INSTALL_COMP
     CLEARWIDGETS
     LOADEXEC "PBAT" "$ARG3$" "INSTALL" "$ARG4$"
-
     SKIPBACK
     RETURN 0
 
@@ -261,7 +259,6 @@ GOTO "$ARG1$"
     ADDWIDGET "CALL" "$BM.TXT_MC1_COPY_HOST$" "$BM.TXT_HINT_MC1_COPY_HOST$" "$ARG0$" "COPY_TO" "mc1:/*" "host:/MC"
     ADDWIDGET "CALL" "$BM.TXT_MC0_ERASE$" "$BM.TXT_HINT_MC0_ERASE$" "$ARG0$" "FORMAT_DEV" "mc0"
     ADDWIDGET "CALL" "$BM.TXT_MC1_ERASE$" "$BM.TXT_HINT_MC1_ERASE$" "$ARG0$" "FORMAT_DEV" "mc1"
-
     RETURN 0
 
 :FORMAT_DEV
@@ -277,15 +274,12 @@ GOTO "$ARG1$"
 
 :REM_APPS
     CLEARWIDGETS
-
     LOADEXEC "PBATS" "$ARG2$:/BM/APPS/*/APPINFO.PBT" "REMOVE"
-
     RETURN 0
 
 :REM_DIR
     CLEARWIDGETS
     RM "$ARG2$"
-
     RETURN 0
 
 :MENU_SYS_INFO

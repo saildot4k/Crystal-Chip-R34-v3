@@ -54,7 +54,6 @@ GOTO "$ARG1$"
 
     RETURN 0
 
-
 :INSTALL_WITH_OPTION
     ECHO "$ARG2$"
     SWITCH "$ARG2$"
@@ -186,7 +185,6 @@ GOTO "$ARG1$"
               MESSAGE "$BM.TXT_PROGFW_DONE$"
                 EXIT "0"
             BREAK
-
 
 :REMOVE
     EXIT "0"

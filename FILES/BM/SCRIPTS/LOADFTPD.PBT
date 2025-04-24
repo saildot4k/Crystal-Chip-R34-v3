@@ -1,19 +1,14 @@
-#
 # Crystal Chips BootManager FTP Server PBAT Script v1.0
-#
 # (c) 2005-2006 Crystal Chips - http://www.crystal-chips.com/
-#
 # For use only with Crystal Chips hardware and software.
 #
 # Modification Info:
 # This file is unmodified.  If you modify this script and distribute it,
-#   please edit this text.  Please do not change the copyright information.
+# please edit this text.  Please do not change the copyright information.
 #
 # Description:
-#
 # This script is used by BootManager(BM) to load the FTP server modules and start
-#   the FTP server.
-#
+# the FTP server.
 
 IF NEQ "$BM.FTPD_STARTED$" "1"
 

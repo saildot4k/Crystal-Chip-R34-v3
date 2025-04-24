@@ -1,4 +1,3 @@
-#
 # Application Manager Script for BootManager 2
 # Made with the "Application Manager Script Application"
 # http://downlord.net/tools/pbtmaker.php
@@ -7,8 +6,8 @@
 # Change this information to describe the application.
 # https://www.psx-place.com/resources/memory-card-annihilator-coded-by-ffgriever-gfx-by-berion.673/
 SET "TITLE" "Memory Card Annihilator"
-SET "VERSION" "2.0a"
-SET "AUTHOR" "ffgriever, gfx by Berion"
+SET "VERSION" "2.1.2 nightly"
+SET "AUTHOR" "ffgriever, el Isra, gfx by Berion"
 SET "DESC" "MCA formats and unformats a memory card, manages memory card images. WARNING: POTENTIAL DATA LOSS IF USED INCORRECTLY!"
 SET "MEDIAS" ""
 #
@@ -41,5 +40,5 @@ RETURN "-1"
     EXIT 0
 
 :RUN
-    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/mca_v20a.elf"
+    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/mmca-packed.elf"
     EXIT "0"

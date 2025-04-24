@@ -1,8 +1,5 @@
-#
 # Crystal Chips BootManager PC Host Server PBAT Script v1.0
-#
 # (c) 2005-2006 Crystal Chips - http://www.crystal-chips.com/
-#
 # For use only with Crystal Chips hardware and software.
 #
 # Modification Info:
@@ -10,10 +7,8 @@
 #   please edit this text.  Please do not change the copyright information.
 #
 # Description:
-#
 # This script is used by BootManager(BM) to load the PC Host server modules and start
 #   the PC Host server.
-#
 
 IF NEQ "$BM.HOST_STARTED$" "1"
 

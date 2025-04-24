@@ -1,24 +1,20 @@
-#
 # Crystal Chips BootManager Initialization PBAT Script v2.2
-#
 # (c) 2005-2007 Crystal Chips - http://www.crystal-chips.com/
-#
 # For use only with Crystal Chips hardware and software.
 #
 # Modification Info:
-#
 # This file is modified by R3Z3N.  If you modify this script and distribute it,
 # please edit this text.  Please do not change the copyright information.
-# Line 34 changed to set driver path to where BM is executed from.
-# However the FW still looks for USB drivers from mc0:/BM/SHARED when booted from mass:/ and pfs0:/ (both currently broken) which can be edited.
+# Line 37 changed to set driver path to where BM is executed from.
+# However the FW still looks for USB drivers from mc0:/BM/SHARED when booted from mass:/ and pfs0:/ (mass:/ broken) which can be edited.
+# Disabled HDD init for v14+ even if autoload hdd is enabled in config. Saved variable is not changed so moving memory card between CC1.X and CC2.0
+# work as desired.
 #
 # Description:
-#
 # This script is used by BootManager(BM) to load and execute modules which are
 # required by BM, as well as to set up some environmental variables.
 # You can modify this script to load additional modules, add new devices, etc.
 # on BM startup.
-#
 
 ECHO "Initializing BootManager..."
 
@@ -32,7 +28,7 @@ ELSEIF MATCHES "host:*" "$PWD$"
     SET "BM.DRIVER_PATH" "host:/BM/SHARED"
     SET "BM.DRIVER_DEV_DRIVERS" ""
 ELSE
-    # Drivers are stored on MC0 (below) or device BM is loaded from (line 35) for all other devices.
+    # Drivers are stored on MC0 (line 36) or device BM is loaded from (line 37) for all other devices.
     # SET "BM.DRIVER_PATH" "mc0:/BM/SHARED"
     SET "BM.DRIVER_PATH" "$BM.BM_PATH$/SHARED"
     SET "BM.DRIVER_DEV_DRIVERS" "^"-m rom0:SIO2MAN^" ^"-m rom0:MCMAN^""
@@ -91,11 +87,22 @@ ECHO "Loading theme configuration..."
 LOADEXEC "PBAT" "$BM.BM_PATH$/CONFIG/THMCONF.PBT"
 
 #
-# HDD(Hard Drive) related init
+# HDD(Hard Drive) related init. Disables HDD for v14+ and hides HDD Menu in CONFMENU.PBT
+# This way the same config file can be used betweeen CC 1.x and 2.0 without having to change config file
 #
 
-IF EQU "$BM.CNF_AUTO_HDD_EN$" "1"
-    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADHDD.PBT"
+IF EQU "$BM.BIOS_MAJOR_VER$.$BM.BIOS_MINOR_VER$" "2.20"
+    SET "SPEEDCHIP" "0"
+ELSEIF EQU "$BM.BIOS_MAJOR_VER$.$BM.BIOS_MINOR_VER$" "2.30"
+    SET "SPEEDCHIP" "0"
+ELSE
+    SET "SPEEDCHIP" "1"
+ENDIF
+
+IF NEQ "$SPEEDCHIP$" "0"
+    IF EQU "$BM.CNF_AUTO_HDD_EN$" "1"
+        LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADHDD.PBT"
+    ENDIF
 ENDIF
 
 #
