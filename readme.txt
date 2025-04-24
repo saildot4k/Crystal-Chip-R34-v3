@@ -75,7 +75,8 @@ Release 34 V3 by R3Z3N Jan 26 2025 (RUNNING CHANGES. I update the date as I go..
 	- Added Italian and Spanish language translations.
 
 	- v14 and later PS2s no longer show HDD options and do not auto load HDD drivers. 
-	  However the setting is still saved so swapping your memcard between PS2s if you have multiple chips still functions as you set it.
+	  However the setting is still saved so swapping your memcard between PS2s if you
+	  have multiple chips still functions as you set it.
 
 	- v12 and later no longer show MegaMemory Patcher option as Sony blocked it's use electrically for PSTwo Slims.
 
