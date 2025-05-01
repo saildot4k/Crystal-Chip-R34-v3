@@ -88,19 +88,21 @@ GOTO "$ARG1$"
         ELSEIF FAIL COPY "$SRC_DEV$:/BM/FWS/PS1LOGO2.BIN" "$ARG2$:/BM/FWS/PS1LOGO2.BIN"
             MESSAGE "Failed to copy PS1LOGO2.BIN"
             RETURN -1
+        ELSEIF FAIL COPY "$SRC_DEV$:/BM/FWS/LATEST/FWARE20.CCI" "$ARG2$:/BM/FWS/LATEST/FWARE20.CCI"
+            MESSAGE "Failed to copy FWARE20.CCI"
+            RETURN -1
         ENDIF
-        EXIT "0"
+        EXIT 0
     ELSEIF NEQ "$ARG2$" "dffs"
         IF FAIL COPY "$SRC_DEV$:/BM/FWS" "$ARG2$:/BM/FWS"
             MESSAGE "Failed to copy FWS!"
             RETURN -1
         ENDIF
     ENDIF
-
-    EXIT "0"
+    EXIT 0
 
 :REMOVE
-    EXIT "0"
+    EXIT 0
 
 :RUN
-    EXIT "0"
+    EXIT 0

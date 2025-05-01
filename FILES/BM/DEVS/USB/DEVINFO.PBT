@@ -18,7 +18,7 @@ RETURN "-1"
     IF EXISTS "mass:/"
         ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_USB_DESC$" $ARG2$ "mass" "$ARG3$" "$ARG4$" "$ARG5$"
     ENDIF
-    RETURN "0"
+    RETURN 0
 
 
 :CHECK_PRESENT
@@ -44,9 +44,9 @@ RETURN "-1"
 :INSTALL
     PARSEPATH "$PWD$" "SRC_DEV" "SRC_PATH" "SRC_FILE"
 
-    IF FAIL COPY "$PWD$" "$ARG2$:/BM/DEVS/USBHDD"
+    IF FAIL COPY "$PWD$" "$ARG2$:/BM/DEVS/USB"
         MESSAGE "Failed installing $TITLE$!"
-        RRM "$ARG2$:/BM/DEVS/USBHDD"
+        RRM "$ARG2$:/BM/DEVS/USB"
         RETURN -1
     ENDIF
     IF FAIL COPY "$SRC_DEV$:/BM/SHARED/USBD.IRX" "$ARG2$:/BM/SHARED/USBD.IRX"
@@ -76,7 +76,7 @@ RETURN "-1"
         MESSAGE "Failed removing USBHDFSD.IRX!"
         RETURN -1
     ENDIF
-    EXIT "0"
+    EXIT 0
 
 :LOAD
     IF FAIL LOADEXEC "IRX" "$BM.DRIVER_PATH$/USBD.IRX"
@@ -89,4 +89,4 @@ RETURN "-1"
 
 :LOADEXEC
     LOADEXEC "EEELF" "moduleload" $BM.DRIVER_DEV_DRIVERS$ "-m $BM.DRIVER_PATH$/USBD.IRX" "-m $BM.DRIVER_PATH$/USBHDFSD.IRX" "$ARG2$" $ARG3$
-    EXIT "0"
+    EXIT 0

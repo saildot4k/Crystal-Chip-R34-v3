@@ -14,15 +14,15 @@ SET "MEDIAS" ""
 
 # Do not change these 2 lines!
 GOTO "$ARG1$"
-RETURN "-1"
+RETURN -1
 
 :LABEL_NAME
     ADDWIDGET "LABEL" "$ARG2$$TITLE$ v$VERSION$"
-    EXIT "0"
+    EXIT 0
 
 :QUERY
     ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_VERSION$: $VERSION$ $BM.TXT_AUTHOR$: $AUTHOR$ $BM.TXT_DESC$: $DESC$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
-    EXIT "0"
+    EXIT 0
 
 :INSTALL
     IF FAIL COPY "$PWD$" "$ARG2$:/BM/APPS/MCA"
@@ -40,5 +40,5 @@ RETURN "-1"
     EXIT 0
 
 :RUN
-    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/mmca-packed.elf"
-    EXIT "0"
+    LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/mca-packed.elf"
+    EXIT 0
