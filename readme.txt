@@ -3,7 +3,9 @@ https://www.youtube.com/playlist?list=PLw5XS2QNrOOlTcG4wI5w0h7iK5RcoVj41
 
 Crystal Chips website defunct and sqautter took it - http://www.crystal-chips.com/ 
 
-This is the Crystal Chips software release 34 v3 by R3Z3N Jan 26 2025
+# Please head to [PS2 Modchip Tutorials](https://ps2modchiptutorials.com) for latest info!
+
+This is the Crystal Chips software release 34 v3 by R3Z3N April 29th 2025
 A quick look at some updates which is a little old now:
 https://youtu.be/DDvfIPtA8JQ?si=yaUC7vgGEmerZ9iM
 
@@ -71,6 +73,14 @@ Release 34 V3 by R3Z3N Jan 26 2025 (RUNNING CHANGES. I update the date as I go..
 	- Cotton Candy theme added, each version of the Crystal Chip is represented!
 
 	- Added Italian and Spanish language translations.
+
+	- v14 and later PS2s no longer show HDD options and do not auto load HDD drivers. 
+	  However the setting is still saved so swapping your memcard between PS2s if you
+	  have multiple chips still functions as you set it.
+
+	- v12 and later no longer show MegaMemory Patcher option as Sony blocked it's use electrically for PSTwo Slims.
+
+	- V16-v18 is now properly identified in Console Information
     
     To Do:
 	- Fix FW for running BM via USB/HDD specific firmware. Though do we want that?I think it to be too convoluted
