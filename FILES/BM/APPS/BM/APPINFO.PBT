@@ -77,8 +77,8 @@ GOTO "$ARG1$"
         RETURN -1
     ENDIF
 
-# Do not install FW files on dffs
-    IF EQU "$ARG2$" "dffs"
+# Only install CC2.0 FW on DFFS
+    IF MATCHES "$ARG2$" "dffs"
         IF FAIL MKDIR "$ARG2$:/BM/FWS"
             MESSAGE "Failed to create FWS!"
             RETURN -1
@@ -93,7 +93,7 @@ GOTO "$ARG1$"
             RETURN -1
         ENDIF
         EXIT 0
-    ELSEIF NEQ "$ARG2$" "dffs"
+    ELSEIF NOT MATCHES "$ARG2$" "dffs"
         IF FAIL COPY "$SRC_DEV$:/BM/FWS" "$ARG2$:/BM/FWS"
             MESSAGE "Failed to copy FWS!"
             RETURN -1

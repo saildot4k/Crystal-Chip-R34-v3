@@ -4,10 +4,15 @@
 #
 # This script is used by BootManager to create and control the menu system.
 #
-# Modification: R3Z3N has modified this so that APPS and FW choices can be made when booted from CD. DFFS options removed for CC 1.0 and 1.1.
+# Modification: 
+# R3Z3N has modified this so that APPS and FW choices can be made when booted from CD. DFFS options removed for CC 1.0 and 1.1.
 # Added Security configuration, a pin lockout of advanced functions. 0000 disables, as does reinstalling BM as it wipes configs.
-
-#SET "BM.INSTALLER_MODE" "1"
+# SAS (SAVE APPLICATION Support) added as best as possible. This is where apps are in root folders on memcard. 
+# However due to wildcard bug ONLY memcards cannot be searched for root folder IE mc?:/*/APPINFO.PBT 
+# So workaround in combination with APPINFO.PBT Install scripts is that App will go in root app folder on memcard
+# and APINFO.PBT will be duplicated to mc?:/BM/APPS/APPFOLDER/APPINFO.PBT
+#
+# SET "BM.INSTALLER_MODE" "1"
 
 # Keep this script resident in memory to speed up calls to it.
 KEEP
@@ -80,9 +85,7 @@ GOTO "$ARG1$"
 
     CLEARWIDGETS
     SETTITLE "$BM.TXT_MAIN_MENU$"
-
 #    ADDWIDGET "CALL" "Debug" "" "$ARG0$" "MENU_DBG"
-
     IF EQU "$BM.INSTALLER_MODE$" "1"
         ADDWIDGET "CALL" "$BM.TXT_INST_BM$" "$BM.TXT_HINT_INST_BM$" "$ARG0$" "MENU_CHOOSE_INST_BM"
         ADDWIDGET "CALL" "$BM.TXT_APP_BROWSER$" "$BM.TXT_HINT_APP_BROWSER$" "$ARG0$" "MENU_APP_BROWSER"
@@ -108,7 +111,6 @@ GOTO "$ARG1$"
             ADDWIDGET "LABEL" "$BM.TXT_LOCKOUT_WARNING$"
         ENDIF
     ENDIF
-
     RETURN 0
 
 :MENU_CHOOSE_INST_BM
@@ -153,18 +155,15 @@ GOTO "$ARG1$"
 :MENU_BOOT
     CLEARWIDGETS
     SETTITLE "$BM.TXT_BOOT_MEDIA$"
-
     IF NOT EQU "$BM.DISC_CONTENT$" ""
         LOADEXEC "PBAT" "$BM.SCRIPTS$/BOOTMENU.PBT" "MENU" "$BM.DISC_CONTENT$"
     ENDIF
-
     RETURN 0
 ########################################################################
 
 :MENU_FW_MANAGER
     CLEARWIDGETS
     SETTITLE "$BM.TXT_FW_MANAGER$"
-
 #   DFFS options only show for CC 2.0
     IF EQU "$BM.CC_MAJOR_VER$" "2"
         ADDWIDGET "CALL" "$BM.TXT_FORMAT_DFFS$" "$BM.TXT_HINT_FORMAT_DFFS$" "$ARG0$" "FORMAT_DEV" "dffs"
@@ -172,7 +171,6 @@ GOTO "$ARG1$"
     ENDIF
     ADDWIDGET "CALL" "$BM.TXT_UPG_FW$" "$BM.TXT_HINT_UPG_FW$" "$ARG0$" "MENU_CHOOSE_DEV" "INSTALL" "FW" "ACTION"
     ADDWIDGET "CALL" "$BM.TXT_ERASE_FW$" "$BM.TXT_HINT_ERASE_FW$" "$ARG0$" "MENU_CONFIRM_YESNO" "$BM.TXT_ASK_ERASE_FW$" "$ARG0$" "ERASE_FW"
-    
     RETURN 0
 
 :ERASE_FW
@@ -186,9 +184,7 @@ GOTO "$ARG1$"
     CLEARWIDGETS
     SETTITLE "$BM.TXT_CONFIRM_CHOICE$"
     SKIPBACK
-
     ADDWIDGET "LABEL" "$ARG2$"
-
     ADDWIDGET "RETURN" "$BM.TXT_NO$" "$BM.TXT_HINT_CANCEL_CHOICE$"
     ADDWIDGET "CALL" "$BM.TXT_YES$" "$BM.TXT_HINT_CONFIRM_CHOICE$" "$ARG3$" "$ARG4$" "$ARG5$"
     RETURN 0
@@ -196,7 +192,6 @@ GOTO "$ARG1$"
 :MENU_APP_BROWSER
     CLEARWIDGETS
     SETTITLE "$BM.TXT_APPS$"
-
     ADDWIDGET "CALL" "$BM.TXT_MENU_RUN$" "$BM.TXT_HINT_RUN_APP$" "$ARG0$" "MENU_CHOOSE_DEV" "RUN" "APP" "ACTION"
     IF EQU "$BM.CNF_PIN_NUM0$$BM.CNF_PIN_NUM1$" "00"
         ADDWIDGET "CALL" "$BM.TXT_MENU_INSTALL$" "$BM.TXT_HINT_INSTALL_APP$" "$ARG0$" "MENU_CHOOSE_DEV" "INSTALL" "APP" "MENU_CHOOSE_INST_DEV"
@@ -208,7 +203,6 @@ GOTO "$ARG1$"
 :MENU_DEV_MANAGER
     CLEARWIDGETS
     SETTITLE "$BM.TXT_DEV_MANAGER$"
-
     ADDWIDGET "CALL" "$BM.TXT_MENU_INSTALL$" "$BM.TXT_HINT_INSTALL_DEV$" "$ARG0$" "MENU_CHOOSE_DEV" "INSTALL" "DEV" "MENU_CHOOSE_INST_DEV"
     ADDWIDGET "CALL" "$BM.TXT_MENU_REMOVE$" "$BM.TXT_HINT_REMOVE_DEV$" "$ARG0$" "MENU_CHOOSE_DEV" "REMOVE" "DEV" "ACTION"
     RETURN 0
@@ -225,6 +219,11 @@ GOTO "$ARG1$"
     EVAL SETTITLE "$$BM.TXT_$ARG2$_AVAIL$$ $ARG5$"
     EVAL ADDWIDGET "LABEL" "$$BM.TXT_$ARG3$$$"
     LOADEXEC "PBATS" "$ARG5$:/BM/$ARG3$S/*/$ARG3$INFO.PBT" "QUERY" "^"$ARG0$^" ^"$ARG4$^" ^"$ARG2$^" ^"$ARG3$^""
+    # Added for SAS compliance, unfortunatly wildcard bug means wildcard does not work for root folder on memcard
+    IF NOT MATCHES "mc?" "$ARG5$"
+        LOADEXEC "PBATS" "$ARG5$:/*/$ARG3$INFO.PBT" "QUERY" "^"$ARG0$^" ^"$ARG4$^" ^"$ARG2$^" ^"$ARG3$^""
+        LOADEXEC "PBATS" "$ARG5$:/APPS/*/$ARG3$INFO.PBT" "QUERY" "^"$ARG0$^" ^"$ARG4$^" ^"$ARG2$^" ^"$ARG3$^""
+    ENDIF
     RETURN 0
 
 :ACTION
@@ -259,6 +258,7 @@ GOTO "$ARG1$"
     ADDWIDGET "CALL" "$BM.TXT_MC1_COPY_HOST$" "$BM.TXT_HINT_MC1_COPY_HOST$" "$ARG0$" "COPY_TO" "mc1:/*" "host:/MC"
     ADDWIDGET "CALL" "$BM.TXT_MC0_ERASE$" "$BM.TXT_HINT_MC0_ERASE$" "$ARG0$" "FORMAT_DEV" "mc0"
     ADDWIDGET "CALL" "$BM.TXT_MC1_ERASE$" "$BM.TXT_HINT_MC1_ERASE$" "$ARG0$" "FORMAT_DEV" "mc1"
+
     RETURN 0
 
 :FORMAT_DEV
@@ -270,7 +270,7 @@ GOTO "$ARG1$"
     CLEARWIDGETS
     RM "mc1:/BOOT"
     COPY "$ARG2$" "$ARG3$"
-    RETURN "0"
+    RETURN 0
 
 :REM_APPS
     CLEARWIDGETS
@@ -280,6 +280,7 @@ GOTO "$ARG1$"
 :REM_DIR
     CLEARWIDGETS
     RM "$ARG2$"
+
     RETURN 0
 
 :MENU_SYS_INFO
@@ -294,9 +295,9 @@ GOTO "$ARG1$"
         ELSEIF EQU "$BM.BIOS_MINOR_VER$" "50"
             SET "TMP" "v4"
         ELSEIF EQU "$BM.BIOS_MINOR_VER$" "60"
-            IF EQU "$BM.CONSOLE_MODEL$" "SCPH-3000*"
+            IF MATCHES "SCPH-300*" "$BM.CONSOLE_MODEL$"
                 SET "TMP" "v5/v6"
-            ELSEIF EQU "$BM.CONSOLE_MODEL$" "SCPH-3900*"
+            ELSEIF MATCHES "SCPH-390*" "$BM.CONSOLE_MODEL$"
                 SET "TMP" "v7/v8"
             ENDIF
         ELSEIF EQU "$BM.BIOS_MINOR_VER$" "70"
@@ -312,13 +313,17 @@ GOTO "$ARG1$"
         ELSEIF EQU "$BM.BIOS_MINOR_VER$" "10"
             SET "TMP" "v13"
         ELSEIF EQU "$BM.BIOS_MINOR_VER$" "20"
-            IF EQU "$BM.CONSOLE_MODEL$" "SCPH-75*"
+            IF MATCHES "SCPH-750*" "$BM.CONSOLE_MODEL$"
                 SET "TMP" "v14"
-            ELSEIF EQU "$BM.CONSOLE_MODEL$" "SCPH-77*"
+            ELSEIF MATCHES "SCPH-770*" "$BM.CONSOLE_MODEL$"
                 SET "TMP" "v15"
+            ELSEIF MATCHES "SCPH-790*" "$BM.CONSOLE_MODEL$"
+                SET "TMP" "v16"
+            ELSEIF MATCHES "SCPH-900*" "$BM.CONSOLE_MODEL$"
+                SET "TMP" "v17"
             ENDIF
-        ELSEIF EQU "$BM.BIOS_MINOR_VER$" "90"
-            SET "TMP" "v16"
+        ELSEIF EQU "$BM.BIOS_MINOR_VER$" "30"
+            SET "TMP" "v18"
         ELSE
             SET "TMP" "???"
         ENDIF
@@ -344,7 +349,6 @@ GOTO "$ARG1$"
     SKIPBACK
     CLEARWIDGETS
     SETTITLE "$BM.TXT_DISC_TEST$"
-
     ADDWIDGET "LABEL" "$BM.TXT_PS1_TEST_INFO$"
     ADDWIDGET "CALL" "$BM.TXT_START_PS1_TEST$" "" "$ARG0$" "DISC_TEST_PS1"
     RETURN 0
@@ -353,10 +357,8 @@ GOTO "$ARG1$"
     SKIPBACK
     CLEARWIDGETS
     SETTITLE "$BM.TXT_DISC_TEST$ PS1"
-
     # Set PS1 authentication mode.
     SETAUTH "PS1"
-
     # Cycle the tray to cause the disc to be rechecked for disc authentication.
     IF FAIL CYCLETRAY "WAIT"
         ADDWIDGET "LABEL" "$BM.TXT_PS1_FAIL$"
@@ -365,12 +367,9 @@ GOTO "$ARG1$"
         ADDWIDGET "LABEL" ""
     ELSE
         ADDWIDGET "LABEL" "$BM.TXT_PS1_WORK$"
-
         # Set PS2 authentication mode.
         SETAUTH "PS2"
-
         # Cycle the tray to cause the disc to be rechecked for disc authentication.
         CYCLETRAY
     ENDIF
-
     RETURN 0
