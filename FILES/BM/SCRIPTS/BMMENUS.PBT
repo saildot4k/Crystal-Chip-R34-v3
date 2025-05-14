@@ -7,12 +7,11 @@
 # Modification: 
 # R3Z3N has modified this so that APPS and FW choices can be made when booted from CD. DFFS options removed for CC 1.0 and 1.1.
 # Added Security configuration, a pin lockout of advanced functions. 0000 disables, as does reinstalling BM as it wipes configs.
-# SAS (SAVE APPLICATION Support) added as best as possible. This is where apps are in root folders on memcard. 
-# However due to wildcard bug ONLY memcards cannot be searched for root folder IE mc?:/*/APPINFO.PBT 
-# So workaround in combination with APPINFO.PBT Install scripts is that App will go in root app folder on memcard
-# and APINFO.PBT will be duplicated to mc?:/BM/APPS/APPFOLDER/APPINFO.PBT
+# Modified :MENU_CHOOSE_COMP to search for apps in 2 more locations for non_mc. Due to a wildcard bug, cannot search for apps 
+# in root folders of memory card :-(
+# 
 #
-# SET "BM.INSTALLER_MODE" "1"
+#SET "BM.INSTALLER_MODE" "1"
 
 # Keep this script resident in memory to speed up calls to it.
 KEEP
@@ -85,6 +84,7 @@ GOTO "$ARG1$"
 
     CLEARWIDGETS
     SETTITLE "$BM.TXT_MAIN_MENU$"
+
 #    ADDWIDGET "CALL" "Debug" "" "$ARG0$" "MENU_DBG"
     IF EQU "$BM.INSTALLER_MODE$" "1"
         ADDWIDGET "CALL" "$BM.TXT_INST_BM$" "$BM.TXT_HINT_INST_BM$" "$ARG0$" "MENU_CHOOSE_INST_BM"
@@ -97,6 +97,7 @@ GOTO "$ARG1$"
     ELSE
         ADDWIDGET "CALL" "$BM.TXT_BOOT_MEDIA$" "$BM.TXT_HINT_BOOT_MENU$" "$ARG0$" "MENU_BOOT"
         ADDWIDGET "CALL" "$BM.TXT_APP_BROWSER$" "$BM.TXT_HINT_APP_BROWSER$" "$ARG0$" "MENU_APP_BROWSER"
+        # Hide Device, FW and Memory Card manager if PIN is not 00
         IF EQU "$BM.CNF_PIN_NUM0$$BM.CNF_PIN_NUM1$" "00"
             ADDWIDGET "CALL" "$BM.TXT_DEV_MANAGER$" "$BM.TXT_HINT_DEV_MANAGER$" "$ARG0$" "MENU_DEV_MANAGER"
             ADDWIDGET "CALL" "$BM.TXT_FW_MANAGER$" "$BM.TXT_HINT_FW_MANAGER$" "$ARG0$" "MENU_FW_MANAGER"
@@ -105,12 +106,14 @@ GOTO "$ARG1$"
         ADDWIDGET "CALL" "$BM.TXT_CONFIGURATION$" "$BM.TXT_HINT_CONFIGURATION$" "$ARG0$" "MENU_CONFIG"
         ADDWIDGET "CALL" "$BM.TXT_SYS_INFO$" "$BM.TXT_HINT_SYS_INFO$" "$ARG0$" "MENU_SYS_INFO"
         ADDWIDGET "CALL" "$BM.TXT_RELOAD_MENU$" "$BM.TXT_HINT_RELOAD_MENU$" "$ARG0$" "MENU_RELOAD"
+        # Inform user that Security Lockout is enabled
         IF NEQ "$BM.CNF_PIN_NUM0$$BM.CNF_PIN_NUM1$" "00"
             ADDWIDGET "LABEL" ""
             ADDWIDGET "LABEL" ""
             ADDWIDGET "LABEL" "$BM.TXT_LOCKOUT_WARNING$"
         ENDIF
     ENDIF
+
     RETURN 0
 
 :MENU_CHOOSE_INST_BM
@@ -140,6 +143,7 @@ GOTO "$ARG1$"
 :MENU_DBG
     CLEARWIDGETS
 #    SET "DEV" "mc0:"
+#    SET "DEV" "mc1:"
 #    SET "DEV" "dffs:"
 #    COPY "host:/BM/BM2.ELF" "$DEV$/BM/BM2.ELF"
 #    COPY "host:/BM/SHARED/IOMANX.IRX" "$DEV$/BM/SHARED/IOMANX.IRX"
@@ -155,15 +159,18 @@ GOTO "$ARG1$"
 :MENU_BOOT
     CLEARWIDGETS
     SETTITLE "$BM.TXT_BOOT_MEDIA$"
+
     IF NOT EQU "$BM.DISC_CONTENT$" ""
         LOADEXEC "PBAT" "$BM.SCRIPTS$/BOOTMENU.PBT" "MENU" "$BM.DISC_CONTENT$"
     ENDIF
+
     RETURN 0
 ########################################################################
 
 :MENU_FW_MANAGER
     CLEARWIDGETS
     SETTITLE "$BM.TXT_FW_MANAGER$"
+
 #   DFFS options only show for CC 2.0
     IF EQU "$BM.CC_MAJOR_VER$" "2"
         ADDWIDGET "CALL" "$BM.TXT_FORMAT_DFFS$" "$BM.TXT_HINT_FORMAT_DFFS$" "$ARG0$" "FORMAT_DEV" "dffs"
@@ -171,6 +178,7 @@ GOTO "$ARG1$"
     ENDIF
     ADDWIDGET "CALL" "$BM.TXT_UPG_FW$" "$BM.TXT_HINT_UPG_FW$" "$ARG0$" "MENU_CHOOSE_DEV" "INSTALL" "FW" "ACTION"
     ADDWIDGET "CALL" "$BM.TXT_ERASE_FW$" "$BM.TXT_HINT_ERASE_FW$" "$ARG0$" "MENU_CONFIRM_YESNO" "$BM.TXT_ASK_ERASE_FW$" "$ARG0$" "ERASE_FW"
+    
     RETURN 0
 
 :ERASE_FW
@@ -197,7 +205,6 @@ GOTO "$ARG1$"
         ADDWIDGET "CALL" "$BM.TXT_MENU_INSTALL$" "$BM.TXT_HINT_INSTALL_APP$" "$ARG0$" "MENU_CHOOSE_DEV" "INSTALL" "APP" "MENU_CHOOSE_INST_DEV"
         ADDWIDGET "CALL" "$BM.TXT_MENU_REMOVE$" "$BM.TXT_HINT_REMOVE_APP$" "$ARG0$" "MENU_CHOOSE_DEV" "REMOVE" "APP" "ACTION"
     ENDIF
-
     RETURN 0
 
 :MENU_DEV_MANAGER
@@ -242,7 +249,23 @@ GOTO "$ARG1$"
 
 :INSTALL_COMP
     CLEARWIDGETS
+    IF MATCHES "$ARG4$:/*" "$ARG3$"
+        GOTO "NO_INSTALL"    
+    ELSEIF MATCHES "$ARG4$" "cdrom0"
+        GOTO "NO_INSTALL_CDROM"
+    ELSE
     LOADEXEC "PBAT" "$ARG3$" "INSTALL" "$ARG4$"
+    ENDIF
+    SKIPBACK
+    RETURN 0
+
+:NO_INSTALL
+    MESSAGE "$BM.TXT_NO_INSTALL$"
+    SKIPBACK
+    RETURN 0
+
+:NO_INSTALL_CDROM
+    MESSAGE "$BM.TXT_NO_INSTALL_CDROM$"
     SKIPBACK
     RETURN 0
 
@@ -280,7 +303,6 @@ GOTO "$ARG1$"
 :REM_DIR
     CLEARWIDGETS
     RM "$ARG2$"
-
     RETURN 0
 
 :MENU_SYS_INFO
@@ -357,8 +379,10 @@ GOTO "$ARG1$"
     SKIPBACK
     CLEARWIDGETS
     SETTITLE "$BM.TXT_DISC_TEST$ PS1"
+
     # Set PS1 authentication mode.
     SETAUTH "PS1"
+
     # Cycle the tray to cause the disc to be rechecked for disc authentication.
     IF FAIL CYCLETRAY "WAIT"
         ADDWIDGET "LABEL" "$BM.TXT_PS1_FAIL$"

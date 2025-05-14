@@ -8,8 +8,6 @@ memorycard:/APPFOLDER
 nonmemorycard:/APPFOLDER
 nonmemorycard:/APPS/APPFOLDER
 
-Apps found at ps2wiki.github.com come as PSUs, essentially packed file that can be exported to root of memory card and ready to go. 
-Sadly due to a wildcard search bug ONLY in root of memory card, APPINFO.PBT cannot exist simply in memcorycard:/*/APPINFO.PBT
-So my solution is that for memory card, apps will be installed to root, which 
+The biggest benefit now is with title.cfg parsing, one can download an AIO (All-In-One) megapack, and given that the app has a finished title.cfg, the powershell script will create or update APPINFO.PBT as needed. HOWEVER if apps are buried deeper than the above for whatever reason, you will need to move around as needed for your situation. 
 
 add more info please.....

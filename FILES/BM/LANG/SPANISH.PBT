@@ -1,7 +1,5 @@
-#
 # English translation of Crystal Chips BootManager menu for BMMENUS.PBT v1.4
-# Only intended to use with the R34 modified v3 release by R3Z3N.
-#
+# Only intended to use with the R34 modified v3+ release by R3Z3N.
 
 # Check the menu script version to be sure this script supports it.
 IF NEQ "$BM.MENU_MAJOR_VER$" "1"
@@ -17,22 +15,22 @@ SET "DESC" "Archivo en idioma español".
 
 # Do not change these 2 lines!
 GOTO "$ARG1$"
-RETURN "-1"
+RETURN -1
 
 :LABEL_NAME
     ADDWIDGET "LABEL" "$ARG2$$TITLE$"
-    EXIT "0"
+    EXIT 0
 
 :QUERY
     ADDWIDGET "CALL" "$TITLE$" "$DESC$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
-    EXIT "0"
+    EXIT 0
 
 :INSTALL
     COPY "$PWD$/SPANISH.PBT" "$BM.BM_PATH$/LANG/SPANISH.PBT"
     EXIT 0
 
 :REMOVE
-#    RRM "$ARG0$"
+    RRM "$ARG0$"
     EXIT 0
 
 :LOAD
@@ -120,7 +118,7 @@ SET "BM.TXT_FW_MC1_HINT" "Instala CC FW y ejecuta BM en MemCard1"
 SET "BM.TXT_FW_USB" "3- BM se ejecuta desde USB"
 SET "BM.TXT_FW_USB_HINT" "Instala CC FW y ejecuta BM en USB. IMPORTANTE: Los controladores USB DEBEN instalarse en MemCard1 a través del Administrador de dispositivos"
 SET "BM.TXT_FW_HDD" "4- BM se ejecuta desde HDD"
-SET "BM.TXT_FW_HDD_HINT" "Instala CC FW y ejecuta BM en HDD. IMPORTANTE: Los controladores del HDD DEBEN instalarse en MemCard1 a través del Administrador de dispositivos.
+SET "BM.TXT_FW_HDD_HINT" "Instala CC FW y ejecuta BM en HDD. IMPORTANTE: Los controladores del HDD DEBEN instalarse en MemCard1 a través del Administrador de dispositivos."
 
 # Reload Menu
 SET "BM.TXT_RELOAD_MENU" "Recargar menú"
@@ -154,6 +152,8 @@ SET "BM.TXT_RUN_AVAIL" "Ejecutable en"
 SET "BM.TXT_HINT_INSTALL_APP" "Instalar una aplicación desde un dispositivo a otro".
 SET "BM.TXT_INSTALL_APP_FROM" "Instalar aplicación(es) desde"
 SET "BM.TXT_INSTALL_APP_TO" "Instalar aplicación en"
+SET "BM.TXT_NO_INSTALL" "¡No se puede instalar en el mismo dispositivo!"
+SET "BM.TXT_NO_INSTALL_CDROM" "¡No se puede instalar en CD/DVD!"
 
 # Remove Application Browser
 SET "BM.TXT_HINT_REMOVE_APP" "Eliminar una aplicación de un dispositivo".
@@ -540,4 +540,4 @@ SET "BM.TXT_NO_CC" "CrystalChip no compatible"
 SET "BM.TXT_PROGFW_FAIL" "¡Error al programar el archivo de firmware!"
 SET "BM.TXT_PROGFW_DONE" "¡Firmware actualizado exitosamente!"
 
-EXIT "0"
+EXIT 0

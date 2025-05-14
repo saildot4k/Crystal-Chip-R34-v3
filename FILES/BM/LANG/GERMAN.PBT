@@ -1,7 +1,5 @@
-#
 # German translation of Crystal Chips BootManager menu for BMMENUS.PBT v1.4
-# Only intended to use with the R34 modified v3 release by R3Z3N.
-#
+# Only intended to use with the R34 modified v3+ release by R3Z3N.
 
 # Check the menu script version to be sure this script supports it.
 IF NEQ "$BM.MENU_MAJOR_VER$" "1"
@@ -154,6 +152,8 @@ SET "BM.TXT_RUN_AVAIL" "Ausf�hrbar auf"
 SET "BM.TXT_HINT_INSTALL_APP" "Installiert ein Programm von einem Laufwerk auf ein anderes."
 SET "BM.TXT_INSTALL_APP_FROM" "Installiere Programm(e) von"
 SET "BM.TXT_INSTALL_APP_TO" "Installiere Programm auf"
+SET "BM.TXT_NO_INSTALL" "Installation auf demselben Gerät nicht möglich!"
+SET "BM.TXT_NO_INSTALL_CDROM" "Installation auf CD/DVD nicht möglich!"
 
 # Remove Application Browser
 SET "BM.TXT_HINT_REMOVE_APP" "Entfernt ein Programm von einem Laufwerk."

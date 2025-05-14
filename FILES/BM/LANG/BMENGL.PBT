@@ -1,7 +1,5 @@
-#
 # English translation of Crystal Chips BootManager menu for BMMENUS.PBT v1.4
-# Only intended to use with the R34 modified v3 release by R3Z3N.
-#
+# Only intended to use with the R34 modified v3+ release by R3Z3N.
 
 # Check the menu script version to be sure this script supports it.
 IF NEQ "$BM.MENU_MAJOR_VER$" "1"
@@ -17,22 +15,22 @@ SET "DESC" "English language file."
 
 # Do not change these 2 lines!
 GOTO "$ARG1$"
-RETURN "-1"
+RETURN -1
 
 :LABEL_NAME
     ADDWIDGET "LABEL" "$ARG2$$TITLE$"
-    EXIT "0"
+    EXIT 0
 
 :QUERY
     ADDWIDGET "CALL" "$TITLE$" "$DESC$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
-    EXIT "0"
+    EXIT 0
 
 :INSTALL
     COPY "$PWD$/BMENGL.PBT" "$BM.BM_PATH$/LANG/BMENGL.PBT"
     EXIT 0
 
 :REMOVE
-#    RRM "$ARG0$"
+    RRM "$ARG0$"
     EXIT 0
 
 :LOAD
@@ -154,6 +152,8 @@ SET "BM.TXT_RUN_AVAIL" "Executable on"
 SET "BM.TXT_HINT_INSTALL_APP" "Install an application from one device to another."
 SET "BM.TXT_INSTALL_APP_FROM" "Install Application(s) from"
 SET "BM.TXT_INSTALL_APP_TO" "Install Application to"
+SET "BM.TXT_NO_INSTALL" "Cannot install to same device!"
+SET "BM.TXT_NO_INSTALL_CDROM" "Cannot install to CD/DVD!"
 
 # Remove Application Browser
 SET "BM.TXT_HINT_REMOVE_APP" "Remove an application from a device."
@@ -540,4 +540,4 @@ SET "BM.TXT_NO_CC" "Unsupported CrystalChip"
 SET "BM.TXT_PROGFW_FAIL" "Failed programming firmware file!"
 SET "BM.TXT_PROGFW_DONE" "Firmware upgraded successfully!"
 
-EXIT "0"
+EXIT 0
