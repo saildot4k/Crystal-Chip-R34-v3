@@ -5,7 +5,7 @@
 
 # Change this information to describe the application and where it should be ran from for memcard (SAS) or other devices (SAS_NON_MC)
 # SAS is the App folder name. SAS_NON_MC defines if app is in root of non-memcard device (non_mc:/$SAS$) or APP folder (non_mc:/APPS/$SAS$)
-# This is so that you do not have to edit any info below line 20.
+# This is so that you do not have to edit any info below line 22.
 #
 # Some devices are case sensitive! Make sure your case matches!
 #
@@ -27,9 +27,10 @@ SET "SAS_NON_MC" "APPS/$SAS$"
 GOTO "$ARG1$"
 RETURN -1
 
-# :LABEL_NAME
-#     ADDWIDGET "LABEL" "$ARG2$$TITLE$ v$VERSION$"
-#     EXIT 0
+# Used for Autoboot Labels
+:LABEL_NAME
+    ADDWIDGET "LABEL" "$ARG2$$TITLE$ v$VERSION$"
+    EXIT 0
 
 :QUERY
     ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_VERSION$: $VERSION$ $BM.TXT_AUTHOR$: $AUTHOR$ $BM.TXT_DESC$: $DESC$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
@@ -142,7 +143,13 @@ RETURN -1
 
 :REMOVE_NON_MC
     IF FAIL RRM "$PWD$"
-        GOTO "REMOVE_NON_MC"
+        GOTO "REMOVE_TRY_AGAIN"
+    ENDIF
+    EXIT 0
+
+# Damn bugs...
+:TRY_AGAIN
+    IF FAIL RRM "$PWD$"
         MESSAGE "Failed removing $TITLE$"
         RETURN -1
     ENDIF
