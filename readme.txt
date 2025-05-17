@@ -33,6 +33,7 @@ Release 34 V4 by R3Z3N 5/17/2025
             nonmc?:/APPFOLDER 
             nonmc?:/APPS/APPFOLDER
             fully work, no odd workarounds.
+            Old APPINFO.PBT still supported.
         
         - Installing from source to source shows a warning, same for CDDVD (cant install/remove from that!) 
             nor run from PC HOST (not supported)
