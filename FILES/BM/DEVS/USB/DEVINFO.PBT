@@ -1,6 +1,4 @@
-#
-# Crystal Chips BootManager USB HDD driver script. v1.2
-#
+# Crystal Chips BootManager USB HDD driver script. v1.3
 
 KEEP
 
@@ -8,18 +6,21 @@ SET "TITLE" "USB"
 
 # Do not change this.
 GOTO "$ARG1$"
-RETURN "-1"
+RETURN -1
 
 :QUERY
     ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_USB_DESC_1$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
-    RETURN "0"
-
-:IF_QUERY
-    IF EXISTS "mass:/"
-        ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_USB_DESC$" $ARG2$ "mass" "$ARG3$" "$ARG4$" "$ARG5$"
-    ENDIF
     RETURN 0
 
+:IF_QUERY    
+    IF EXISTS "mass:/"
+        IF NOT MATCHES "mass:/*"  "$ARG6$"
+            ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_USB_DESC$" $ARG2$ "mass" "$ARG3$" "$ARG4$" "$ARG5$"
+        ELSEIF MATCHES "mass:/*"  "$ARG6$"
+            ADDWIDGET LABEL "$TITLE$-$BM.TXT_NO_INSTALL$"
+        ENDIF
+    ENDIF
+    RETURN 0
 
 :CHECK_PRESENT
     RETURN 0

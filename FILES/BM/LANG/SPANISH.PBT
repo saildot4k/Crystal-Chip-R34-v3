@@ -34,7 +34,7 @@ RETURN -1
     EXIT 0
 
 :LOAD
-ECHO "Loading English text..."
+ECHO "Cargando texto en inglés..."
 
 # Miscellaneous
 SET "BM.TXT_YES" "Sí"
@@ -60,6 +60,9 @@ SET "BM.TXT_CURRENT" "Actual"
 SET "BM.TXT_CONFIRM_CHOICE" "Confirmar elección"
 SET "BM.TXT_HINT_CANCEL_CHOICE" "Cancelar y volver al menú anterior."
 SET "BM.TXT_HINT_CONFIRM_CHOICE" "Confirmar elección."
+SET "BM.TXT_POWER_OFF" "Apagar"
+SET "BM.TXT_RESTART" "Reanudar"
+SET "BM.TXT_THE_PS2" "la PS2"
 
 #Media
 SET "BM.TXT_PS1" "PS1"
@@ -147,6 +150,7 @@ SET "BM.TXT_MENU_RUN" "Ejecutar"
 SET "BM.TXT_HINT_RUN_APP" "Ejecutar una aplicación desde un dispositivo".
 SET "BM.TXT_RUN_APP_FROM" "Ejecutar aplicación desde"
 SET "BM.TXT_RUN_AVAIL" "Ejecutable en"
+SET "BM.TXT_RUN_UNAVAIL" "¡No se puede ejecutar desde el dispositivo!"
 
 # Install Application Browser
 SET "BM.TXT_HINT_INSTALL_APP" "Instalar una aplicación desde un dispositivo a otro".

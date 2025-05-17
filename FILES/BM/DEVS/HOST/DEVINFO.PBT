@@ -1,6 +1,4 @@
-#
 # Crystal Chips BootManager Host driver script. v1.2
-#
 
 KEEP
 
@@ -8,17 +6,26 @@ SET "TITLE" "PC Host"
 
 # Do not change this.
 GOTO "$ARG1$"
-RETURN "-1"
+RETURN -1
 
 :QUERY
     ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_HOST_DESC_1$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
-    RETURN "0"
+    RETURN 0
 
 :IF_QUERY
     IF EXISTS "host:/"
-        ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_HOST_DESC$" $ARG2$ "host" "$ARG3$" "$ARG4$" "$ARG5$"
+        IF MATCHES "host:/*"  "$ARG6$"
+            ADDWIDGET LABEL "$TITLE$-$BM.TXT_NO_INSTALL$"
+            RETURN 0
+        ELSEIF MATCHES "RUN" "$ARG7$"
+            ADDWIDGET LABEL "$TITLE$-$BM.TXT_RUN_UNAVAIL$"
+            RETURN 0
+        ELSEIF NOT MATCHES "host:/*"  "$ARG6$"
+            ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_HOST_DESC$" $ARG2$ "host" "$ARG3$" "$ARG4$" "$ARG5$"
+            RETURN 0
+        ENDIF
     ENDIF
-    RETURN "0"
+    RETURN 0
 
 :CHECK_PRESENT
     RETURN 0
@@ -63,7 +70,7 @@ RETURN "-1"
         MESSAGE "Failed removing PS2HOST.IRX!"
         RETURN -1
     ENDIF
-    EXIT "0"
+    EXIT 0
 
 :LOAD
     RETURN 0

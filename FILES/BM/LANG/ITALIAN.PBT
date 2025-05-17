@@ -60,6 +60,9 @@ SET "BM.TXT_CURRENT" "Corrente"
 SET "BM.TXT_CONFIRM_CHOICE" "Conferma scelta"
 SET "BM.TXT_HINT_CANCEL_CHOICE" "Annulla e torna al menu precedente."
 SET "BM.TXT_HINT_CONFIRM_CHOICE" "Conferma scelta."
+SET "BM.TXT_POWER_OFF" "Spegnimento"
+SET "BM.TXT_RESTART" "Ricomincia"
+SET "BM.TXT_THE_PS2" "la PS2"
 
 #Media
 SET "BM.TXT_PS1" "PS1"
@@ -147,6 +150,7 @@ SET "BM.TXT_MENU_RUN" "Esegui"
 SET "BM.TXT_HINT_RUN_APP" "Esegui un'applicazione da un dispositivo."
 SET "BM.TXT_RUN_APP_FROM" "Esegui applicazione da"
 SET "BM.TXT_RUN_AVAIL" "Eseguibile su"
+SET "BM.TXT_RUN_UNAVAIL" "Impossibile eseguire dal dispositivo!"
 
 # Installa browser applicazione
 SET "BM.TXT_HINT_INSTALL_APP" "Installa un'applicazione da un dispositivo a un altro."

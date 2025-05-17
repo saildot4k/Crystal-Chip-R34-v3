@@ -34,7 +34,7 @@ RETURN "-1"
     EXIT 0
 
 :LOAD
-ECHO "Loading German text..."
+ECHO "Englischer Text wird geladen..."
 
 # Miscellaneous
 SET "BM.TXT_YES" "Ja"
@@ -60,6 +60,9 @@ SET "BM.TXT_CURRENT" "Aktuell"
 SET "BM.TXT_CONFIRM_CHOICE" "Auswahl best�tigen"
 SET "BM.TXT_HINT_CANCEL_CHOICE" "Abbrechen und zum vorherigen Men� zur�ckkehren."
 SET "BM.TXT_HINT_CONFIRM_CHOICE" "Best�tigt die gew�hlte Option."
+SET "BM.TXT_POWER_OFF" "Ausschalten"
+SET "BM.TXT_RESTART" "Neustart"
+SET "BM.TXT_THE_PS2" "die PS2"
 
 #Media
 SET "BM.TXT_PS1" "PS1"
@@ -138,7 +141,7 @@ SET "BM.TXT_DEVS" "Laufwerke"
 SET "BM.TXT_THM" "Theme(s)"
 SET "BM.TXT_THMS" "Themes"
 SET "BM.TXT_MENU_INSTALL" "Installieren"
-SET "BM.TXT_INSTALL_AVAIL" "Verf�gbar auf"
+SET "BM.TXT_INSTALL_AVAIL" "Verfügbar am"
 SET "BM.TXT_MENU_REMOVE" "Entfernen"
 SET "BM.TXT_REMOVE_AVAIL" "Installiert auf"
 
@@ -146,7 +149,8 @@ SET "BM.TXT_REMOVE_AVAIL" "Installiert auf"
 SET "BM.TXT_MENU_RUN" "Starten"
 SET "BM.TXT_HINT_RUN_APP" "Startet ein Programm von einem Laufwerk."
 SET "BM.TXT_RUN_APP_FROM" "Starte Programm von"
-SET "BM.TXT_RUN_AVAIL" "Ausf�hrbar auf"
+SET "BM.TXT_RUN_AVAIL" "Ausführbar auf"
+SET "BM.TXT_RUN_UNAVAIL" "Kann nicht vom Gerät ausgeführt werden!"
 
 # Install Application Browser
 SET "BM.TXT_HINT_INSTALL_APP" "Installiert ein Programm von einem Laufwerk auf ein anderes."
@@ -540,4 +544,4 @@ SET "BM.TXT_NO_CC" "Nicht unterst�tzter CrystalChip"
 SET "BM.TXT_PROGFW_FAIL" "Programmieren der Firmware fehlgeschlagen!"
 SET "BM.TXT_PROGFW_DONE" "Firmware erfolgreich aktualisiert!"
 
-EXIT "0"
+EXIT 0

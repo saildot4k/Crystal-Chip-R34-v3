@@ -1,6 +1,4 @@
-#
-# Crystal Chips BootManager MMCE (MultiPurpose Memory Card Emulator) driver script. v1.0
-#
+# Crystal Chips BootManager MMCE (MultiPurpose Memory Card Emulator) driver script by R3Z3N. v1.1
 
 KEEP
 
@@ -8,21 +6,28 @@ SET "TITLE" "MMCE SD Card"
 
 # Do not change this.
 GOTO "$ARG1$"
-RETURN "-1"
+RETURN -1
 
 :QUERY
     ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_MMCE_DESC_1$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
-    RETURN "0"
+    RETURN 0
 
 :IF_QUERY
     IF EXISTS "mmce0:/"
-        ADDWIDGET "CALL" "$TITLE$ 1" "$BM.TXT_MMCE_DESC$ 1" $ARG2$ "mmce0" "$ARG3$" "$ARG4$" "$ARG5$"
+        IF NOT MATCHES "mmce0:/*"  "$ARG6$"
+            ADDWIDGET "CALL" "$TITLE$ 1" "$BM.TXT_MMCE_DESC$ 1" $ARG2$ "mmce0" "$ARG3$" "$ARG4$" "$ARG5$"
+        ELSEIF MATCHES "mmce0:/*"  "$ARG6$"
+            ADDWIDGET LABEL "$TITLE$ 1-$BM.TXT_NO_INSTALL$"
+        ENDIF
     ENDIF
     IF EXISTS "mmce1:/"
-        ADDWIDGET "CALL" "$TITLE$ 2" "$BM.TXT_MMCE_DESC$ 2" $ARG2$ "mmce1" "$ARG3$" "$ARG4$" "$ARG5$"
+        IF NOT MATCHES "mmce1:/*"  "$ARG6$"
+            ADDWIDGET "CALL" "$TITLE$ 2" "$BM.TXT_MMCE_DESC$ 2" $ARG2$ "mmce1" "$ARG3$" "$ARG4$" "$ARG5$"
+        ELSEIF MATCHES "mmce1:/*"  "$ARG6$"
+            ADDWIDGET LABEL "$TITLE$ 2-$BM.TXT_NO_INSTALL$"
+        ENDIF
     ENDIF
-    RETURN "0"
-
+    RETURN 0
 
 :CHECK_PRESENT
     RETURN 0
@@ -89,7 +94,7 @@ RETURN "-1"
         MESSAGE "Failed removing FILEXIO.IRX!"
         RETURN -1
     ENDIF
-    EXIT "0"
+    EXIT 0
 
 :LOAD
     IF FAIL LOADEXEC "IRX" "$BM.DRIVER_PATH$/FILEXIO.IRX"
@@ -103,4 +108,4 @@ RETURN "-1"
 
 :LOADEXEC
     LOADEXEC "EEELF" "moduleload" $BM.DRIVER_DEV_DRIVERS$ "-m $BM.DRIVER_PATH$/IOMANX.IRX" "-m $BM.DRIVER_PATH$/FILEXIO.IRX" "-m $BM.DRIVER_PATH$/MMCEMAN.IRX" "$ARG2$" $ARG3$
-    EXIT "0"
+    EXIT 0

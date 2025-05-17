@@ -125,20 +125,27 @@ RETURN -1
     PARSEPATH "$PWD$" "SRC_DEV" "SRC_PATH" "SRC_FILE"
 
     IF MATCHES "mc?" "$SRC_DEV$"
-        IF FAIL RRM "$SRC_DEV$:/$SAS$"
-            MESSAGE "Failed removing $SRC_DEV$:/$SAS$"
-            RETURN -1
-        ELSEIF FAIL RRM "$PWD$"
-            MESSAGE "Failed removing $TITLE$"
-            RETURN -1
-        ENDIF
+        GOTO "REMOVE_MC"
     ELSEIF NOT MATCHES "mc?" "$SRC_DEV$"
-        IF FAIL RRM "$PWD$"
-            MESSAGE "Failed removing $TITLE$"
-            RETURN -1
-        ENDIF
+        GOTO "REMOVE_NON_MC"
     ENDIF
 
+:REMOVE_MC
+    IF FAIL RRM "$SRC_DEV$:/$SAS$"
+        MESSAGE "Failed removing $SRC_DEV$:/$SAS$"
+        RETURN -1
+    ELSEIF FAIL RRM "$PWD$"
+        MESSAGE "Failed removing $TITLE$"
+        RETURN -1
+    ENDIF
+    EXIT 0
+
+:REMOVE_NON_MC
+    IF FAIL RRM "$PWD$"
+        GOTO "REMOVE_NON_MC"
+        MESSAGE "Failed removing $TITLE$"
+        RETURN -1
+    ENDIF
     EXIT 0
 
 :RUN
@@ -146,17 +153,7 @@ RETURN -1
 
     IF MATCHES "mc?" "$SRC_DEV$"
         LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$SRC_DEV$:/$SAS$/$ELF$"
-        EXIT 0
-    ELSEIF MATCHES "host" "$SRC_DEV$"
-        MESSAGE "Run with PS2Client instead!"
-        EXIT 0
     ELSEIF NOT MATCHES "mc?" "$SRC_DEV$"
-        IF MATCHES "host" "$SRC_DEV$"
-            MESSAGE "Run with PS2Client instead on PC!"
-            EXIT 0
-        ELSE
-            LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/$ELF$"
-            EXIT 0
-        ENDIF
+        LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADEXEC.PBT" "$PWD$/$ELF$"
     ENDIF
     EXIT 0

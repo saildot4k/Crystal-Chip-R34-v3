@@ -60,6 +60,9 @@ SET "BM.TXT_CURRENT" "Current"
 SET "BM.TXT_CONFIRM_CHOICE" "Confirm Choice"
 SET "BM.TXT_HINT_CANCEL_CHOICE" "Cancel and return to previous menu."
 SET "BM.TXT_HINT_CONFIRM_CHOICE" "Confirm choice."
+SET "BM.TXT_POWER_OFF" "Power off"
+SET "BM.TXT_RESTART" "Restart"
+SET "BM.TXT_THE_PS2" "the PS2"
 
 #Media
 SET "BM.TXT_PS1" "PS1"
@@ -147,13 +150,15 @@ SET "BM.TXT_MENU_RUN" "Run"
 SET "BM.TXT_HINT_RUN_APP" "Run an application from a device."
 SET "BM.TXT_RUN_APP_FROM" "Run Application from"
 SET "BM.TXT_RUN_AVAIL" "Executable on"
+SET "BM.TXT_RUN_UNAVAIL" "Unable to run from device!"
 
 # Install Application Browser
 SET "BM.TXT_HINT_INSTALL_APP" "Install an application from one device to another."
 SET "BM.TXT_INSTALL_APP_FROM" "Install Application(s) from"
 SET "BM.TXT_INSTALL_APP_TO" "Install Application to"
-SET "BM.TXT_NO_INSTALL" "Cannot install to same device!"
-SET "BM.TXT_NO_INSTALL_CDROM" "Cannot install to CD/DVD!"
+SET "BM.TXT_NO_INSTALL" "Can't install to same device!"
+SET "BM.TXT_NO_INSTALL_CDROM" "Can't install to CD/DVD!"
+SET "BM.TXT_NO_REMOVE_CDROM" "Can't remove from CD/DVD!"
 
 # Remove Application Browser
 SET "BM.TXT_HINT_REMOVE_APP" "Remove an application from a device."

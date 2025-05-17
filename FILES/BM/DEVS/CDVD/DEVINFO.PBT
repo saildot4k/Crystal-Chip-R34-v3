@@ -1,6 +1,4 @@
-#
 # Crystal Chips BootManager CD/DVD driver script. v1.0
-#
 
 KEEP
 
@@ -10,7 +8,7 @@ SET "TITLE" "CD/DVD"
 
 # Do not change this.
 GOTO "$ARG1$"
-RETURN "-1"
+RETURN -1
 
 :QUERY
     RETURN 0
@@ -19,10 +17,23 @@ RETURN "-1"
     IF LT "$DISK_TYPE$" "0x10"
         RETURN 0
     ENDIF
-
     IF EXISTS "cdrom0:/"
-        ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_CDVD_DESC$" $ARG2$ "cdrom0" "$ARG3$" "$ARG4$" "$ARG5$"
+        IF MATCHES "INSTALL MENU_CHOOSE_INST_DEV" "$ARG7$ $ARG8$"
+            GOTO "NO_INSTALL_CDROM"
+        ELSEIF MATCHES "REMOVE" "$ARG7$"
+            GOTO "NO_REMOVE_CDROM"
+        ELSEIF NOT MATCHES "cdrom0:/*"  "$ARG6$"
+            ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_CDVD_DESC$" $ARG2$ "cdrom0" "$ARG3$" "$ARG4$" "$ARG5$"
+        ENDIF
     ENDIF
+    RETURN 0
+
+:NO_INSTALL_CDROM
+    ADDWIDGET LABEL "$TITLE$-$BM.TXT_NO_INSTALL_CDROM$"
+    RETURN 0
+
+:NO_REMOVE_CDROM
+    ADDWIDGET LABEL "$TITLE$-$BM.TXT_NO_REMOVE_CDROM$"
     RETURN 0
 
 :CHECK_PRESENT
@@ -66,7 +77,7 @@ RETURN "-1"
     EXIT 0
 
 :REMOVE
-    EXIT "0"
+    EXIT 0
 
 :LOAD
     # CD/DVD drivers are embedded, no loading is needed...
@@ -74,4 +85,4 @@ RETURN "-1"
 
 :LOADEXEC
     LOADEXEC "EEELF" "$ARG2$" $ARG3$
-    RETURN "0"
+    RETURN 0

@@ -1,6 +1,4 @@
-#
 # Crystal Chips BootManager Host driver script. v1.2
-#
 
 KEEP
 
@@ -8,14 +6,14 @@ SET "TITLE" "FTP"
 
 # Do not change this.
 GOTO "$ARG1$"
-RETURN "-1"
+RETURN -1
 
 :QUERY
     ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_FTP_DESC$" $ARG2$ "$ARG0$" "$ARG3$" "$ARG4$" "$ARG5$"
-    RETURN "0"
+    RETURN 0
 
 :IF_QUERY
-    RETURN "0"
+    RETURN 0
 
 :CHECK_PRESENT
     RETURN 0
@@ -49,10 +47,10 @@ RETURN "-1"
         MESSAGE "Failed removing PS2FTPD.IRX!"
         RETURN -1
     ENDIF
-    EXIT "0"
+    EXIT 0
 
 :LOAD
     RETURN 0
 
 :LOADEXEC
-    RETURN "0"
+    RETURN 0

@@ -1,6 +1,4 @@
-#
-# Crystal Chips BootManager PS2 HDD driver script. v1.0
-#
+# Crystal Chips BootManager PS2 HDD driver script. v1.1
 
 KEEP
 
@@ -16,10 +14,13 @@ RETURN -1
 
 :IF_QUERY
     IF EXISTS "pfs0:/"
-        ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_HDD_DESC$" $ARG2$ "pfs0" "$ARG3$" "$ARG4$" "$ARG5$"
+        IF NOT MATCHES "pfs0:/*"  "$ARG6$"
+            ADDWIDGET "CALL" "$TITLE$" "$BM.TXT_HDD_DESC$" $ARG2$ "pfs0" "$ARG3$" "$ARG4$" "$ARG5$"
+        ELSEIF MATCHES "pfs0:/*"  "$ARG6$"
+            ADDWIDGET LABEL "$TITLE$-$BM.TXT_NO_INSTALL$"
+        ENDIF
     ENDIF
     RETURN 0
-
 
 :CHECK_PRESENT
     RETURN 0
