@@ -23,10 +23,52 @@ Late CC1.1/CC.1.2 and CC 2.0 can be upgraded to a 4MB DataFlash (AT45DB321D- S o
 
 Release History:
 
+Release 34 V4 by R3Z3N 5/17/2025
+    Fixes/Changes
+        - SAS (Save Application Support) added as best as possible. Apps can be installed to:
+            mc?:/APPFOLDER/ but this needs an matching mc?:/BM/APPS/APPFOLDER/APPINFO/PBT
+            as there is a bug where we can not search for mc?:/*/APPINFO.PBT sadly. So this is a workaround.
+            This is nice as apps will show in the OSDSYS now.
+            Also:
+            nonmc?:/APPFOLDER 
+            nonmc?:/APPS/APPFOLDER
+            fully work, no odd workarounds.
+        
+        - Installing from source to source shows a warning, same for CDDVD (cant install/remove from that!) 
+            nor run from PC HOST (not supported)
+        
+        - Power off added to BootManager. There is no proper restart.elf that I know of yet...
+        
+        - Fixed System Info not showing console model as needed MATCHES not EQU (and reverse the argument)
+        
+        - Fixed and added old themes which improperly used LOADING instead of the proper LOADIMG
+	    
+        - v14 and later PS2s no longer show HDD options and do not auto load HDD drivers. 
+	        However the setting is still saved so swapping your memcard between PS2s if you
+	        have multiple chips still functions as you set it.
+
+	    - v12 and later no longer show MegaMemory Patcher option as Sony blocked it's use electrically for PSTwo Slims.
+
+	    - V16-v18 is now properly identified in Console Information
+
+        - Added PowerShell scripts to create APPINFO.PBT recursively and non recursively.
+            needs title.cfg included in app folder to create. However if apps need specifically
+            boot command IE `SHUTDOWN MM` or SET `"BM.AUTOLOAD_FSD_EN" "0"` may need to be added to the
+            run section. For example wLE ISR needs SHUTDOWN MM to run from USB.
+            Also need to add REDIRFILE for the apps that support it.
+    
+    To Do:
+        - Help Ripto create title.cfg for his AIO  (ALL IN ONE) app repository
+
+        - Still work on 8MB firmware
+
+        - Bundle the new apps for the MegaPack
+        
+
 Release 34 V3 by R3Z3N Jan 26 2025 (RUNNING CHANGES. I update the date as I go...)
     Fixes/Changes
         - CC1.X firmware options to run BM from MemCard1 or 2. makeit_nocd does have scripts to
-	      build FW for running from USB/HDD but seems pointless. Options added in BM for full ease
+	          build FW for running from USB/HDD but seems pointless. Options added in BM for full ease
               of use.
 
         - MMCE device support for example SD2PSX, PsxMemCardGen2, MemCardPro2.
@@ -35,7 +77,7 @@ Release 34 V3 by R3Z3N Jan 26 2025 (RUNNING CHANGES. I update the date as I go..
               points to where the ELF exists, then any app can be anywhere, not just
               device:/BM/APPS/APPFOLDERHEREwithAPPINFO.PBT
 	      UPDATE: A few issues still exist. Keep in mind not all apps support running
-	      from all devices. However I plan on making a change so that user can choose 
+	          from all devices. However I plan on making a change so that user can choose 
               to autoload USB and/or MMCE just like HDD is currently. Please be patient. 
               REASON: sometimes some device drivers interfere with others especially USB
               with other devices.
@@ -73,14 +115,6 @@ Release 34 V3 by R3Z3N Jan 26 2025 (RUNNING CHANGES. I update the date as I go..
 	- Cotton Candy theme added, each version of the Crystal Chip is represented!
 
 	- Added Italian and Spanish language translations.
-
-	- v14 and later PS2s no longer show HDD options and do not auto load HDD drivers. 
-	  However the setting is still saved so swapping your memcard between PS2s if you
-	  have multiple chips still functions as you set it.
-
-	- v12 and later no longer show MegaMemory Patcher option as Sony blocked it's use electrically for PSTwo Slims.
-
-	- V16-v18 is now properly identified in Console Information
     
     To Do:
 	- Fix FW for running BM via USB/HDD specific firmware. Though do we want that?I think it to be too convoluted
