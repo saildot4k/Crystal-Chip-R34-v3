@@ -310,6 +310,8 @@ GOTO "$ARG1$"
         ELSEIF EQU "$BM.BIOS_MINOR_VER$" "60"
             IF MATCHES "SCPH-300*" "$BM.CONSOLE_MODEL$"
                 SET "TMP" "v5/v6"
+            ELSEIF MATCHES "SCPH-370*" "$BM.CONSOLE_MODEL$"
+                SET "TMP" "v7"
             ELSEIF MATCHES "SCPH-390*" "$BM.CONSOLE_MODEL$"
                 SET "TMP" "v7/v8"
             ENDIF
