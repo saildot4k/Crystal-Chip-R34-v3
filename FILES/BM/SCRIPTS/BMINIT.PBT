@@ -86,28 +86,7 @@ ENDIF
 ECHO "Loading theme configuration..."
 LOADEXEC "PBAT" "$BM.BM_PATH$/CONFIG/THMCONF.PBT"
 
-#
-# HDD(Hard Drive) related init. Disables HDD for v14+ and hides HDD Menu in CONFMENU.PBT
-# This way the same config file can be used betweeen CC 1.x and 2.0 without having to change config file
-#
-
-IF EQU "$BM.BIOS_MAJOR_VER$.$BM.BIOS_MINOR_VER$" "2.20"
-    SET "SPEEDCHIP" "0"
-ELSEIF EQU "$BM.BIOS_MAJOR_VER$.$BM.BIOS_MINOR_VER$" "2.30"
-    SET "SPEEDCHIP" "0"
-ELSE
-    SET "SPEEDCHIP" "1"
-ENDIF
-
-IF NEQ "$SPEEDCHIP$" "0"
-    IF EQU "$BM.CNF_AUTO_HDD_EN$" "1"
-        LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADHDD.PBT"
-    ENDIF
-ENDIF
-
-#
 # Network related init.
-#
 
 IF EQU "$BM.CNF_AUTO_NET_EN$" "1"
     LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADNET.PBT"
@@ -120,6 +99,24 @@ ENDIF
 IF EQU "$BM.CNF_AUTO_FTPD_EN$" "1"
     LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADFTPD.PBT"
 ENDIF
+
+# HDD(Hard Drive) related init. Disables HDD for v14+ and hides HDD Menu in CONFMENU.PBT
+# This way the same config file can be used betweeen CC 1.x and 2.0 without having to change config file
+
+SET "SPEEDCHIP" "1"
+IF EQU "$BM.BIOS_MAJOR_VER$.$BM.BIOS_MINOR_VER$" "2.20"
+    SET "SPEEDCHIP" "0"
+ELSEIF EQU "$BM.BIOS_MAJOR_VER$.$BM.BIOS_MINOR_VER$" "2.30"
+    SET "SPEEDCHIP" "0"
+ENDIF
+
+IF EQU "$SPEEDCHIP$" "1"
+    ECHO "Has SPEED chip, autoloading HDD if enabled"
+    IF EQU "$BM.CNF_AUTO_HDD_EN$" "1"
+        LOADEXEC "PBAT" "$BM.SCRIPTS$/LOADHDD.PBT"
+    ENDIF
+ENDIF
+
 
 IF EXISTS "$BM.BM_PATH$/CONFIG/MACROS.PBT"
     LOADEXEC "PBAT" "$BM.BM_PATH$/CONFIG/MACROS.PBT"
